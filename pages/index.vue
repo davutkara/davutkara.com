@@ -30,6 +30,14 @@
 export default {
   components: {
 
+  },
+  mounted: function () {
+    this.$toast.open({
+      duration: 5000,
+      message: `Site yapım aşamasındadır.`,
+      position: 'is-top',
+      type: 'is-info'
+    })
   }
 }
 </script>
