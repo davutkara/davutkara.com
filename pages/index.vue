@@ -1,5 +1,17 @@
 <template>
 <section class="hero is-dark is-bold is-large">
+  <div class="hero-head">
+    <nav class="level">
+      <!-- Right side -->
+      <div class="level-right">
+        <p class="level-item"><strong>All</strong></p>
+        <p class="level-item"><a>Published</a></p>
+        <p class="level-item"><a>Drafts</a></p>
+        <p class="level-item"><a>Deleted</a></p>
+        <p class="level-item"><a class="button is-success">New</a></p>
+      </div>
+    </nav>
+  </div>
 
   <div class="hero-body">
     <div class="container has-text-centered">
