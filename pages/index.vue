@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hero title="Davut KARA" subTitle="İnformation Systems Engineer" />
+    <hero title="Davut KARA" subTitle="Information Systems Engineer" />
     <section class="section main-icerik">
       <div class="container has-background-white is-narrow">
        <div class="columns is-centered">
