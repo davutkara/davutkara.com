@@ -9,7 +9,7 @@
               <div class="content">
                 <h2>EDUCATION</h2>
                 <h3>ATILIM UNIVERSITY</h3>
-                <b>BS IN INFORMATIN SYSTEMS ENGINERRING</b>
+                <b>BS IN INFORMATIN SYSTEMS ENGINEERING</b>
                 <p>Expected June 2019 | Ankara, Turkey <br />
                   Faculty of Engineering<br />
                   Major GPA: 2.49 / 4.0</p>
