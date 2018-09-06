@@ -50,7 +50,7 @@
           <div class="column">
             <div class="box">
               <div class="content">
-                <h2>EXPERINCE</h2>
+                <h2>EXPERIENCE</h2>
                 <h3>Portakal Yazılım</h3>
                 <b>INFORMATION SYSTEMS ENGINEERING INTERN</b>
                 <p>Aug 2017 - Sep 2017 | Ankara, Turkey</p>
