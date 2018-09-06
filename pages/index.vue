@@ -104,6 +104,7 @@
 <script>
 import hero from '~/components/hero.vue'
 export default {
+  layout: 'resume',
   components: {
     hero
   },
