@@ -2,7 +2,7 @@
   <div>
     <hero title="Davut KARA" subTitle="Information Systems Engineer" />
     <section class="section main-icerik">
-      <div class="container has-background-white is-narrow">
+      <div class="container is-narrow">
        <div class="columns is-centered">
           <div class="column is-one-third">
             <div class="box">
@@ -92,7 +92,7 @@
 
 <style>
   .main-icerik{
-    margin-top:-5em;
+    margin-top:-7em;
     padding-bottom:1em;
   }
   .main-icerik > .container{
