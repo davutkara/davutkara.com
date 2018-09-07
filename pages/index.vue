@@ -1,6 +1,23 @@
 <template>
   <div>
-    <hero title="Davut KARA" subTitle="Information Systems Engineer" />
+    <section class="hero is-dark is-bold is-medium">
+      <div class="hero-body">
+        <div class="container animate has-text-centered">
+          <p class="title">
+            Davut KARA
+          </p>
+          <p class="subtitle">
+            Information Systems Engineer
+          </p>
+            <a class="button" @click="sendWarning('Under construction.')">
+              <span class="icon">
+                <i class="mdi mdi-arrow-right-bold"></i>
+              </span>
+              <span>Blog</span>
+            </a>
+        </div>
+      </div>
+    </section>
     <section class="section main-icerik">
       <div class="container is-narrow">
        <div class="columns is-centered">
@@ -96,6 +113,7 @@
         </div>
       </div>
     </section>
+    <footer-cmp />
   </div>
 </template>
 
@@ -111,19 +129,22 @@
 
 
 <script>
-import hero from '~/components/hero.vue'
+import footerCmp from '~/components/footerCmp.vue'
 export default {
   layout: 'resume',
-  components: {
-    hero
-  },
+  components: {footerCmp},
   mounted: function () {
-    this.$toast.open({
-      duration: 5000,
-      message: `Under construction.`,
-      position: 'is-bottom-right',
-      type: 'is-info'
-    })
+    this.sendWarning('Under construction.')
+  },
+  methods: {
+    sendWarning: function (text) {
+      this.$toast.open({
+        duration: 3000,
+        message: text,
+        position: 'is-bottom-right',
+        type: 'is-info'
+      })
+    }
   }
 }
 </script>
