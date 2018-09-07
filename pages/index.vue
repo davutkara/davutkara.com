@@ -51,6 +51,15 @@
             <div class="box">
               <div class="content">
                 <h2>EXPERIENCE</h2>
+                <h3>Mantis Software</h3>
+                <b>INFORMATION SYSTEMS ENGINEERING INTERN</b>
+                <p>July 2018 - Aug 2018 | Ankara, Turkey</p>
+                <ul>
+                  <li>Worked on the back-end developers team</li>
+                  <li>Web-scraping scripts were made with NodeJS and SlimerJS</li>
+                  <li>Trie-Search algorithm was applied to find institution and organizations in articles, compatible with Turkish language.</li>
+                  <li>Used Zemberek-NLP to finding Turkish root words. </li>
+                </ul>
                 <h3>Portakal Yazılım</h3>
                 <b>INFORMATION SYSTEMS ENGINEERING INTERN</b>
                 <p>Aug 2017 - Sep 2017 | Ankara, Turkey</p>
