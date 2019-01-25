@@ -29,7 +29,7 @@
                 <b>BS IN INFORMATIN SYSTEMS ENGINEERING</b>
                 <p>Expected June 2019 | Ankara, Turkey <br />
                   Faculty of Engineering<br />
-                  Major GPA: 2.49 / 4.0</p>
+                  Major GPA: 2.53 / 4.0</p>
                 <h2>LINKS</h2>
                 <p>
                   <b>Github://</b> <a href="https://github.com/davutkara" target="_blank">davutkara</a><br/>
