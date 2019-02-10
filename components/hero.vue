@@ -2,8 +2,12 @@
   <section class="hero is-dark is-bold is-medium">
     <div class="hero-body">
       <div class="container animate has-text-centered">
-        <p class="title">{{title}}</p>
-        <p class="subtitle">{{subTitle}}</p>
+        <p class="title">
+          {{ title }}
+        </p>
+        <p class="subtitle">
+          {{ subTitle }}
+        </p>
       </div>
     </div>
   </section>
@@ -11,7 +15,16 @@
 
 <script>
 export default {
-  props: ['title', 'subTitle']
+  props: {
+    title: {
+      type: String,
+      default: ' '
+    },
+    subTitle: {
+      type: String,
+      default: ' '
+    }
+  }
 }
 </script>
 

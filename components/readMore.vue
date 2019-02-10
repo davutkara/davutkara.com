@@ -1,17 +1,19 @@
 <template>
   <div>
-    <span @click="show=true" v-show="!show">
-      <a class="button is-small">Show details</a>
+    <span v-show="!show" @click="show=true">
+      <a class="button is-small">
+        Show details
+      </a>
     </span>
     <div v-show="show">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'readMore',
+  name: 'ReadMore',
   data: function() {
     return {
       show: false

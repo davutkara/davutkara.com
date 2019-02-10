@@ -3,11 +3,15 @@
     <section class="hero is-dark is-bold is-medium">
       <div class="hero-body">
         <div class="container animate has-text-centered">
-          <p class="title">Davut KARA</p>
-          <p class="subtitle">Information Systems Engineer</p>
+          <p class="title">
+            Davut KARA
+          </p>
+          <p class="subtitle">
+            Information Systems Engineer
+          </p>
           <a class="button" @click="sendWarning('Under construction.')">
             <span class="icon">
-              <i class="mdi mdi-arrow-right-bold"></i>
+              <i class="mdi mdi-arrow-right-bold" />
             </span>
             <span>Blog</span>
           </a>
@@ -23,20 +27,27 @@
                 <h2>EDUCATION</h2>
                 <h3>ATILIM UNIVERSITY</h3>
                 <b>BS IN INFORMATIN SYSTEMS ENGINEERING</b>
-                <p>Expected June 2019 | Ankara, Turkey
+                <p>
+                  Expected June 2019 | Ankara, Turkey
                   <br>Faculty of Engineering
                   <br>Major GPA: 2.53 / 4.0
                 </p>
                 <h2>LINKS</h2>
                 <p>
                   <b>Github://</b>
-                  <a href="https://github.com/davutkara" target="_blank">davutkara</a>
+                  <a href="https://github.com/davutkara" target="_blank">
+                    davutkara
+                  </a>
                   <br>
                   <b>LinkedIn://</b>
-                  <a href="https://www.linkedin.com/in/davutkara" target="_blank">davutkara</a>
+                  <a href="https://www.linkedin.com/in/davutkara" target="_blank">
+                    davutkara
+                  </a>
                   <br>
                   <b>Youtube://</b>
-                  <a href="http://www.youtube.com/c/DavutKARA95" target="_blank">DavutKARA95</a>
+                  <a href="http://www.youtube.com/c/DavutKARA95" target="_blank">
+                    DavutKARA95
+                  </a>
                   <br>
                 </p>
                 <h2>COMMUNICATION</h2>
@@ -54,19 +65,33 @@
                 <h2>SKILLS</h2>
 
                 <b>Core - PHP :</b>
-                <progress class="progress is-small" value="90" max="100">90%</progress>
+                <progress class="progress is-small" value="90" max="100">
+                  90%
+                </progress>
                 <b>HTML CSS :</b>
-                <progress class="progress is-small" value="85" max="100">85%</progress>
+                <progress class="progress is-small" value="85" max="100">
+                  85%
+                </progress>
                 <b>Javascript :</b>
-                <progress class="progress is-small" value="80" max="100">80%</progress>
+                <progress class="progress is-small" value="80" max="100">
+                  80%
+                </progress>
                 <b>NodeJS :</b>
-                <progress class="progress is-small" value="70" max="100">70%</progress>
+                <progress class="progress is-small" value="70" max="100">
+                  70%
+                </progress>
                 <b>MySql :</b>
-                <progress class="progress is-small" value="65" max="100">65%</progress>
+                <progress class="progress is-small" value="65" max="100">
+                  65%
+                </progress>
                 <b>C++ :</b>
-                <progress class="progress is-small" value="55" max="100">60%</progress>
+                <progress class="progress is-small" value="55" max="100">
+                  60%
+                </progress>
                 <b>C :</b>
-                <progress class="progress is-small" value="45" max="100">50%</progress>
+                <progress class="progress is-small" value="45" max="100">
+                  50%
+                </progress>
               </div>
             </div>
           </div>
@@ -130,7 +155,7 @@
         </div>
       </div>
     </section>
-    <footer-cmp></footer-cmp>
+    <footer-cmp />
   </div>
 </template>
 

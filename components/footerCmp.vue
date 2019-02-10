@@ -10,13 +10,15 @@
         <strong>Netlify</strong>
       </p>
       <p>This website supports open source</p>
-      <a href="https://github.com/davutkara/davutkara.com" target="_blank">Source code</a>
+      <a href="https://github.com/davutkara/davutkara.com" target="_blank">
+        Source code
+      </a>
     </div>
   </footer>
 </template>
 
 <script>
 export default {
-  name: 'footerCmp'
+  name: 'FooterCmp'
 }
 </script>
