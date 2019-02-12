@@ -1,0 +1,96 @@
+{
+  "education": {
+    "title": "EDUCATION",
+    "university": "ATILIM UNIVERSITY",
+    "department": "BS IN INFORMATIN SYSTEMS ENGINEERING",
+    "lines": [
+      "Expected June 2019 | Ankara, Turkey",
+      "Faculty of Engineering",
+      "Major GPA: 2.53 / 4.0"
+    ]
+  },
+  "linksTitle": "LINKS",
+  "communication": {
+    "title": "COMMUNICATION",
+    "motherLangTitle": "Mother Language:",
+    "motherLang": "Turkish",
+    "foreignLangTitle": "Foreign Language: ",
+    "foreignLangs": ["English-Intermediate", "Russian-Advanced"]
+  },
+  "skills": {
+    "title": "SKILLS",
+    "lines": [
+      {
+        "title": "Core - PHP",
+        "progress": 90
+      },
+      {
+        "title": "HTML CSS",
+        "progress": 85
+      },
+      {
+        "title": "Javascript",
+        "progress": 80
+      },
+      {
+        "title": "NodeJS",
+        "progress": 70
+      },
+      {
+        "title": "MySql",
+        "progress": 65
+      },
+      {
+        "title": "C++, C",
+        "progress": 30
+      }
+    ]
+  },
+  "experience": {
+    "title": "EXPERIENCE",
+    "list": [
+      {
+        "company": "Mantis Software",
+        "title": "INFORMATION SYSTEMS ENGINEERING INTERN",
+        "info": "July 2018 - Aug 2018 | Ankara, Turkey",
+        "description": [
+          "Worked on the back-end developers team",
+          "Web-scraping scripts were made with NodeJS and SlimerJS",
+          "Trie-Search algorithm was applied to find institution and organizations in articles, compatible with Turkish language",
+          "Used Zemberek-NLP to finding Turkish root words."
+        ]
+      },
+      {
+        "company": "Portakal Yazılım",
+        "title": "INFORMATION SYSTEMS ENGINEERING INTERN",
+        "info": "Aug 2017 - Sep 2017 | Ankara, Turkey",
+        "description": [
+          "Worked on the front-end developers team in primarily Javascript,HTML and CSS to plan, design and develop the full front-end implementation of a new website..",
+          "Old websites reviewed and made decision for transferring all datas to wordpress content management system.",
+          "Finally all code was perfected and pushed to production."
+        ]
+      },
+      {
+        "company": "FREELANCE",
+        "title": "FULL-STACK WEB DEVELOPER",
+        "info": "Aug 2012 - Now | Ankara, Turkey",
+        "description": [
+          "Since 2012, made a lot of works on web.",
+          "Using html,css,php,plain and javascript framework.",
+          "Also, used wordpress as content management systems, developed a lot plugin and themes.",
+          "Many bugs fixed, and desired things were made on web for customer.",
+          "Currently helping for needy developers on forums and other areas."
+        ]
+      }
+    ]
+  },
+  "awards": {
+    "title": "AWARDS",
+    "list": [
+      {
+        "year": 2016,
+        "description": "5nd at 3th Software Project Contest on Atılım University"
+      }
+    ]
+  }
+}

@@ -3,15 +3,11 @@
     <section class="hero is-dark is-bold is-medium">
       <div class="hero-body">
         <div class="container animate has-text-centered">
-          <p class="title">
-            Davut KARA
-          </p>
-          <p class="subtitle">
-            Information Systems Engineer
-          </p>
+          <p class="title">Davut KARA</p>
+          <p class="subtitle">Information Systems Engineer</p>
           <a class="button" @click="sendWarning('Under construction.')">
             <span class="icon">
-              <i class="mdi mdi-arrow-right-bold" />
+              <i class="mdi mdi-arrow-right-bold"/>
             </span>
             <span>Blog</span>
           </a>
@@ -24,130 +20,77 @@
           <div class="column is-one-third">
             <div class="box">
               <div class="content">
-                <h2>EDUCATION</h2>
-                <h3>ATILIM UNIVERSITY</h3>
-                <b>BS IN INFORMATIN SYSTEMS ENGINEERING</b>
-                <p>
-                  Expected June 2019 | Ankara, Turkey
-                  <br>Faculty of Engineering
-                  <br>Major GPA: 2.53 / 4.0
-                </p>
-                <h2>LINKS</h2>
+                <h2>{{context[lang].education.title}}</h2>
+                <h3>{{context[lang].education.university}}</h3>
+                <b>{{context[lang].education.department}}</b>
+                <span v-for="(line,i) in context[lang].education.lines" v-bind:key="i">
+                  {{line}}
+                  <br>
+                </span>
+                <h2>{{context[lang].linksTitle}}</h2>
                 <p>
                   <b>Github://</b>
-                  <a href="https://github.com/davutkara" target="_blank">
-                    davutkara
-                  </a>
+                  <a href="https://github.com/davutkara" target="_blank">davutkara</a>
                   <br>
                   <b>LinkedIn://</b>
-                  <a href="https://www.linkedin.com/in/davutkara" target="_blank">
-                    davutkara
-                  </a>
+                  <a href="https://www.linkedin.com/in/davutkara" target="_blank">davutkara</a>
                   <br>
                   <b>Youtube://</b>
-                  <a href="http://www.youtube.com/c/DavutKARA95" target="_blank">
-                    DavutKARA95
-                  </a>
+                  <a href="http://www.youtube.com/c/DavutKARA95" target="_blank">DavutKARA95</a>
                   <br>
                 </p>
-                <h2>COMMUNICATION</h2>
+                <h2>{{context[lang].communication.title}}</h2>
                 <p>
-                  <b>Mother Language:</b>
-                  <br>Turkish
+                  <b>{{context[lang].communication.motherLangTitle}}</b>
                   <br>
-                  <b>Foreign Language:</b>
-                  <br>English-Intermediate
+                  {{context[lang].communication.motherLang}}
+                  <br>
+                  <b>{{context[lang].communication.foreignLangTitle}}</b>
+                  <br>
+                  <span
+                    v-for="(lang,i) in  context[lang].communication.foreignLangs"
+                    v-bind:key="i"
+                  >{{lang}}</span>
                 </p>
               </div>
             </div>
             <div class="box">
               <div class="content">
-                <h2>SKILLS</h2>
-
-                <b>Core - PHP :</b>
-                <progress class="progress is-small" value="90" max="100">
-                  90%
-                </progress>
-                <b>HTML CSS :</b>
-                <progress class="progress is-small" value="85" max="100">
-                  85%
-                </progress>
-                <b>Javascript :</b>
-                <progress class="progress is-small" value="80" max="100">
-                  80%
-                </progress>
-                <b>NodeJS :</b>
-                <progress class="progress is-small" value="70" max="100">
-                  70%
-                </progress>
-                <b>MySql :</b>
-                <progress class="progress is-small" value="65" max="100">
-                  65%
-                </progress>
-                <b>C++ :</b>
-                <progress class="progress is-small" value="55" max="100">
-                  60%
-                </progress>
-                <b>C :</b>
-                <progress class="progress is-small" value="45" max="100">
-                  50%
-                </progress>
+                <h2>{{context[lang].skills.title}}</h2>
+                <div v-for="(skill,i) in context[lang].skills.lines" v-bind:key="i">
+                  <b>{{skill.title}} :</b>
+                  <progress
+                    class="progress is-small"
+                    :value="skill.progress"
+                    max="100"
+                  >{{skill.progress}}%</progress>
+                </div>
               </div>
             </div>
           </div>
           <div class="column">
             <div class="box">
               <div class="content">
-                <h2>EXPERIENCE</h2>
-                <h3>Mantis Software</h3>
-                <b>INFORMATION SYSTEMS ENGINEERING INTERN</b>
-                <p>July 2018 - Aug 2018 | Ankara, Turkey</p>
+                <h2>{{context[lang].experience.title}}</h2>
+                <div v-for="(exp,i) in context[lang].experience.list" v-bind:key="i">
+                  <h3>{{exp.company}}</h3>
+                  <b>{{exp.title}}</b>
+                  <p>{{exp.info}}</p>
 
-                <ul>
-                  <li>Worked on the back-end developers team</li>
-                  <li>Web-scraping scripts were made with NodeJS and SlimerJS</li>
-                  <li>Trie-Search algorithm was applied to find institution and organizations in articles, compatible with Turkish language.</li>
-                  <li>Used Zemberek-NLP to finding Turkish root words.</li>
-                </ul>
-                <h3>Portakal Yazılım</h3>
-                <b>INFORMATION SYSTEMS ENGINEERING INTERN</b>
-                <p>Aug 2017 - Sep 2017 | Ankara, Turkey</p>
-                <read-more>
-                  <ul>
-                    <li>
-                      Worked on the front-end developers team in primarily Javascript,HTML and
-                      CSS to plan, design and develop the full front-end implementation of a new
-                      website..
-                    </li>
-                    <li>
-                      Old websites reviewed and made decision for transferring all datas to
-                      wordpress content management system.
-                    </li>
-                    <li>Finally all code was perfected and pushed to production.</li>
-                  </ul>
-                </read-more>
-                <h3>FREELANCE</h3>
-                <b>FULL-STACK WEB DEVELOPER</b>
-                <p>Aug 2012 - Now | Ankara, Turkey</p>
-                <read-more>
-                  <ul>
-                    <li>Since 2012, made a lot of works on web.</li>
-                    <li>Using html,css,php,plain and javascript framework.</li>
-                    <li>
-                      Also, used wordpress as content management systems, developed a lot plugin
-                      and themes.
-                    </li>
-                    <li>Many bugs fixed, and desired things were made on web for customer.</li>
-                    <li>Currently helping for needy developers on forums and other areas.</li>
-                  </ul>
-                </read-more>
+                  <div v-if="i===0" v-html="printList(exp.description)"></div>
+                  <div v-else>
+                    <read-more :content="printList(exp.description)"></read-more>
+                  </div>
+                  <hr>
+                </div>
               </div>
             </div>
             <div class="box">
               <div class="content">
-                <h2>AWARDS</h2>
-                <p>
-                  <b>2016</b> | 5nd at 3th Software Project Contest on Atılım University
+                <h2>{{context[lang].awards.title}}</h2>
+                <p v-for="(award,i) in context[lang].awards.list" v-bind:key="i">
+                  <b>{{award.year}}</b>
+                  | {{award.description}}
                 </p>
               </div>
             </div>
@@ -155,7 +98,8 @@
         </div>
       </div>
     </section>
-    <footer-cmp />
+    <footer-cmp/>
+    {{ isStatic }}
   </div>
 </template>
 
@@ -173,12 +117,23 @@
 <script>
 import footerCmp from '~/components/footerCmp.vue'
 import readMore from '~/components/readMore.vue'
+import contextEn from '~/static/api/pages/index.en.json'
 export default {
   layout: 'resume',
   components: { footerCmp, readMore },
   mounted: function() {
     this.sendWarning('Under construction.')
   },
+  asyncData(context) {
+    return {
+      isStatic: context.isStatic,
+      lang: 'en',
+      context: {
+        en: contextEn
+      }
+    }
+  },
+  filters: {},
   methods: {
     sendWarning: function(text) {
       this.$toast.open({
@@ -187,6 +142,15 @@ export default {
         position: 'is-bottom-right',
         type: 'is-info'
       })
+    },
+    printList: function(data) {
+      let list = ``
+
+      data.forEach(text => {
+        list += `<li>${text}</li>`
+      })
+
+      return `<ul>${list}</ul>`
     }
   }
 }
