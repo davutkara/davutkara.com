@@ -1,0 +1,96 @@
+{
+  "education": {
+    "title": "EĞİTİM",
+    "university": "ATILIM UNİVERSİTESİ",
+    "department": "LİSANS | BİLİŞİM SİSTEMLERİ MÜHENDİSLİĞİ",
+    "lines": [
+      "Tahminen Haziran 2019 | Ankara, Türkiye",
+      "Mühendislik Fakültesi",
+      "Genel Ortalama: 2.53 / 4.0"
+    ]
+  },
+  "linksTitle": "BAĞLANTILAR",
+  "communication": {
+    "title": "İLETİŞİM",
+    "motherLangTitle": "Ana Dil:",
+    "motherLang": "Türkçe",
+    "foreignLangTitle": "Yabanci Diller: ",
+    "foreignLangs": ["İngilizce - Orta Seviye"]
+  },
+  "skills": {
+    "title": "Yetenekler",
+    "lines": [
+      {
+        "title": "Core - PHP",
+        "progress": 90
+      },
+      {
+        "title": "HTML CSS",
+        "progress": 85
+      },
+      {
+        "title": "Javascript",
+        "progress": 80
+      },
+      {
+        "title": "NodeJS",
+        "progress": 70
+      },
+      {
+        "title": "MySql",
+        "progress": 65
+      },
+      {
+        "title": "C++, C",
+        "progress": 30
+      }
+    ]
+  },
+  "experience": {
+    "title": "DENEYİM",
+    "list": [
+      {
+        "company": "Mantis Yazılım",
+        "title": "BİLİŞİM SİSTEMLERİ MÜHENDİSİ STAJYER",
+        "info": "Temmuz 2018 - Ağustos 2018 | Ankara, Türkiye",
+        "description": [
+          "Back-end geliştirici olarak görev alındı.",
+          "NodeJS ve SlimerJS kullanılarak web-scraping yapıldı.",
+          "Bir metin içerisinde geçmekte olan kurum ve organizasyon isimlerini ekleriyle birlikte bulmak için Trie-Search algorıtması kullanıldı.",
+          "Türkçe kelime köklerini bulmak için Zemberek-NLP kütüphanesi kullanıldı."
+        ]
+      },
+      {
+        "company": "Portakal Yazılım",
+        "title": "BİLİŞİM SİSTEMLERİ MÜHENDİSİ STAJYER",
+        "info": "Ağustos 2017 - Eylül 2017 | Ankara, Türkiye",
+        "description": [
+          "Bir web sitesinin HTML,CSS,JS kullanılarak arayüz geliştirmesi yapan fron-end ekibinde yer alındı.",
+          "Şirkete ait olan eski web siteleri gözden geçirildi ve yenileme çalışmaları yapıldı.",
+          "Son olarak kod iyileştirmeleri ve ürün haline getirme çalışmaları yapıldı."
+        ]
+      },
+      {
+        "company": "SERBEST ÇALIŞMA - FREELANCE",
+        "title": "FULL-STACK WEB GELİŞTİRİCİ",
+        "info": "Ağustos 2012 - Şuan | Ankara, Türkiye",
+        "description": [
+          "2012 den bu yana ufak ve büyük çaplı birçok alanda hizmet verildi.",
+          "HTML, CSS, JS, PHP, NodeJS, Vuejs gibi teknolojiler kulanıldı.",
+          "Wordpress CMS sisteminde birçok eklenti, tema geliştirildi, iyileştirmeler ve hata düzeltmeleri yapıldı.",
+          "Bir çok işveren için gerekli ihtiyaçlar karşılandı ve problemleri giderildi.",
+          "Şuan da bir çok alanda ihtiyaç duyan iş veren ve ihtiyaç duyan yazılımcılara destek verilmektedir."
+        ]
+      }
+    ]
+  },
+  "awards": {
+    "title": "ÖDÜLLER",
+    "list": [
+      {
+        "year": 2016,
+        "description": "Atılım Üniversitesi 3. Yazılım Projesi Yarışmasında, Mansiyon ödülü."
+      }
+    ]
+  }
+}

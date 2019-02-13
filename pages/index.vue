@@ -14,7 +14,7 @@
         </div>
       </div>
     </section>
-    <section class="section main-icerik">
+    <section class="section main-icerik" v-if="context !== null">
       <div class="container is-narrow">
         <div class="columns is-centered">
           <div class="column is-one-third">
@@ -71,6 +71,26 @@
           <div class="column">
             <div class="box">
               <div class="content">
+                <a
+                  :class="{
+                    button:true, 
+                    'is-danger': true,
+                    'is-outlined': lang !== 'en'
+                }"
+                  @click="getContext('en')"
+                >English</a>
+                <a
+                  :class="{
+                    button:true, 
+                    'is-danger': true,
+                    'is-outlined': lang !== 'tr'
+                }"
+                  @click="getContext('tr')"
+                >Türkçe</a>
+              </div>
+            </div>
+            <div class="box">
+              <div class="content">
                 <h2>{{context[lang].experience.title}}</h2>
                 <div v-for="(exp,i) in context[lang].experience.list" v-bind:key="i">
                   <h3>{{exp.company}}</h3>
@@ -99,7 +119,6 @@
       </div>
     </section>
     <footer-cmp/>
-    {{ isStatic }}
   </div>
 </template>
 
@@ -134,7 +153,19 @@ export default {
     }
   },
   filters: {},
+
   methods: {
+    getContext: async function(lang) {
+      if (this.context[lang] !== undefined) {
+        this.lang = lang
+        return
+      }
+      const data = await this.$axios.$get(
+        `${window.location.origin}/api/pages/index.${lang}.json`
+      )
+      this.$set(this.context, lang, data)
+      this.lang = lang
+    },
     sendWarning: function(text) {
       this.$toast.open({
         duration: 3000,
