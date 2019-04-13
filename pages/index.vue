@@ -1,19 +1,6 @@
 <template>
   <div>
-    <section class="hero is-dark is-bold is-medium">
-      <div class="hero-body">
-        <div class="container animate has-text-centered">
-          <p class="title">Davut KARA</p>
-          <p class="subtitle">Information Systems Engineer</p>
-          <a class="button" @click="sendWarning('Under construction.')">
-            <span class="icon">
-              <i class="mdi mdi-arrow-right-bold"/>
-            </span>
-            <span>Blog</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <header-cmp/>
     <section class="section main-icerik" v-if="context !== null">
       <div class="container is-narrow">
         <div class="columns is-centered">
@@ -134,12 +121,13 @@
 
 
 <script>
+import headerCmp from '~/components/header.vue'
 import footerCmp from '~/components/footerCmp.vue'
 import readMore from '~/components/readMore.vue'
 import contextEn from '~/static/api/pages/index.en.json'
 export default {
   layout: 'resume',
-  components: { footerCmp, readMore },
+  components: { headerCmp, footerCmp, readMore },
   mounted: function() {
     this.sendWarning('Under construction.')
   },
