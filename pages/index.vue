@@ -127,6 +127,11 @@ import readMore from '~/components/readMore.vue'
 import contextEn from '~/static/api/pages/index.en.json'
 export default {
   layout: 'resume',
+  head() {
+    return {
+      title: 'Davut KARA'
+    }
+  },
   components: { headerCmp, footerCmp, readMore },
   mounted: function() {
     this.sendWarning('Under construction.')
