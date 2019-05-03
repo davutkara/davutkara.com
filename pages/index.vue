@@ -1,7 +1,8 @@
 <template>
   <div>
     <header-cmp/>
-    <section class="section main-icerik" v-if="context !== null">
+    <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="true"></b-loading>
+    <section class="section main-icerik" v-if="context[lang] !== undefined ">
       <div class="container is-narrow">
         <div class="columns is-centered">
           <div class="column is-one-third">
@@ -56,26 +57,6 @@
             </div>
           </div>
           <div class="column">
-            <div class="box">
-              <div class="content">
-                <a
-                  :class="{
-                    button:true, 
-                    'is-danger': true,
-                    'is-outlined': lang !== 'en'
-                }"
-                  @click="getContext('en')"
-                >English</a>
-                <a
-                  :class="{
-                    button:true, 
-                    'is-danger': true,
-                    'is-outlined': lang !== 'tr'
-                }"
-                  @click="getContext('tr')"
-                >Türkçe</a>
-              </div>
-            </div>
             <div class="box">
               <div class="content">
                 <h2>{{context[lang].experience.title}}</h2>
@@ -139,26 +120,43 @@ export default {
   asyncData(context) {
     return {
       isStatic: context.isStatic,
-      lang: 'en',
       context: {
         en: contextEn
       }
     }
   },
-  filters: {},
+  beforeMount: async function() {
+    if (this.lang !== 'en') {
+      const data = await this.$axios.$get(
+        `${window.location.origin}/api/pages/index.${this.lang}.json`
+      )
 
-  methods: {
-    getContext: async function(lang) {
-      if (this.context[lang] !== undefined) {
-        this.lang = lang
-        return
-      }
+      this.$set(this.context, this.lang, data)
+    }
+  },
+  filters: {},
+  computed: {
+    isLoading() {
+      return this.context[this.lang] === undefined
+    },
+    lang() {
+      return this.$store.state.language.lang
+    }
+  },
+  watch: {
+    lang: async function(lang) {
+      if (this.context[lang] !== undefined) return lang
+
       const data = await this.$axios.$get(
         `${window.location.origin}/api/pages/index.${lang}.json`
       )
+
       this.$set(this.context, lang, data)
-      this.lang = lang
-    },
+
+      return lang
+    }
+  },
+  methods: {
     sendWarning: function(text) {
       this.$toast.open({
         duration: 3000,
