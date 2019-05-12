@@ -1,5 +1,5 @@
 ---
-/portfolio/health-calcula : {
+'/portfolio/health-calcula' : {
     title: Health Calcula,
     subTitle: A wordpress plugin consist of calculations related with health.,
     tags: ["javascript","wordpress","plugin"],
