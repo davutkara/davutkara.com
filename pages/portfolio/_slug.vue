@@ -3,14 +3,11 @@
     <header-cmp/>
     <section class="section main-icerik">
       <div class="container is-narrowed">
-        <article class="tile is-child box">
-          <p class="title">Health Calcula</p>
-          <p class="subtitle">A wordpress plugin consist of calculations related with health.</p>
-          <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
-            <p>Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor.</p>
-            <p>Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo.</p>
-          </div>
+        <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="true"></b-loading>
+        <article class="tile is-child box" v-if="!isLoading">
+          <p class="title">{{title}}</p>
+          <p class="subtitle">{{subTitle}}</p>
+          <div class="content" v-html="content"></div>
         </article>
       </div>
     </section>
@@ -32,8 +29,62 @@
 <script>
 import headerCmp from '~/components/header.vue'
 import footerCmp from '~/components/footerCmp.vue'
+import matter from 'gray-matter'
+import Markdown from 'markdown-it'
+import markdownItMermaid from 'markdown-it-mermaid'
+const md = new Markdown()
+md.use(markdownItMermaid)
 export default {
   layout: 'resume',
-  components: { headerCmp, footerCmp }
+  components: { headerCmp, footerCmp },
+  async asyncData({ $axios, params, store }) {
+    const { data } = await $axios.get(
+      `http://localhost:3000/api/pages/portfolio/${store.state.language.lang}/${
+        params.slug
+      }.md`
+    )
+    const context = {}
+    context[store.state.language.lang] = matter(data)
+    return { context, slug: params.slug }
+  },
+  watch: {
+    lang: async function(lang) {
+      if (this.context[lang] !== undefined) return lang
+      const { data } = await this.$axios.get(
+        `http://localhost:3000/api/pages/portfolio/${this.lang}/${this.slug}.md`
+      )
+      this.$set(this.context, lang, matter(data))
+
+      return lang
+    }
+  },
+  computed: {
+    isLoading: function() {
+      return this.context[this.lang] === undefined
+    },
+    lang: function() {
+      return this.$store.state.language.lang
+    },
+    title: function() {
+      const title = this.context[this.lang].data.title
+      return title
+    },
+    subTitle: function() {
+      const subTitle = this.context[this.lang].data.subTitle
+      return subTitle
+    },
+    hasLanguages: function() {
+      const hasLanguages = 'langs' in this.context[this.lang].data
+      return hasLanguages
+    },
+    content: function() {
+      const content = this.context[this.lang].content
+      return md.render(content)
+    }
+  },
+  mounted: function() {
+    // eslint-disable-next-line no-console
+    console.log(this.context[this.lang])
+  }
 }
 </script>

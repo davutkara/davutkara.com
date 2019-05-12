@@ -3,21 +3,21 @@
     <header-cmp/>
     <section class="section main-icerik">
       <div class="container is-narrowed">
-        <div class="box" v-for="i in [0,1,2,3,4,5]" :key="i">
+        <div class="box" v-for="(project,link) in context.data" :key="link">
           <div class="columns">
             <div class="column is-one-fifth">
-              <img src="https://via.placeholder.com/252x137">
+              <figure class="image is-square">
+                <img :src="project.thumbnail">
+              </figure>
             </div>
-            <router-link to="/portfolio/health-calcula" title="Click for details">
+            <router-link :to="link" title="Click for details">
               <div class="column">
-                <p class="title">Health Calcula</p>
-                <p class="subtitle">A wordpress plugin consist of calculations related with health.</p>
+                <p class="title">{{project.title}}</p>
+                <p class="subtitle">{{project.subTitle}}</p>
                 <div class="tags has-addons">
-                  <span class="tag is-dark">2019</span>
-                  <span class="tag is-link">Nisan</span>
-                  <span class="tag is-light">Wordpress</span>
-                  <span class="tag is-light">Plugin</span>
-                  <span class="tag is-light">Portfolio</span>
+                  <span class="tag is-dark">{{project.date.year}}</span>
+                  <span class="tag is-link">{{project.date.month | monthName}}</span>
+                  <span class="tag is-light" v-for="(tag,i) in project.tags" :key="i">{{tag}}</span>
                 </div>
               </div>
             </router-link>
@@ -43,8 +43,20 @@
 <script>
 import headerCmp from '~/components/header.vue'
 import footerCmp from '~/components/footerCmp.vue'
+import list from '~/static/api/pages/portfolio/list.md'
+import matter from 'gray-matter'
 export default {
   layout: 'resume',
-  components: { headerCmp, footerCmp }
+  components: { headerCmp, footerCmp },
+  data() {
+    return {
+      context: matter(list)
+    }
+  },
+  filters: {
+    monthName: function() {
+      return 'Nisan'
+    }
+  }
 }
 </script>
