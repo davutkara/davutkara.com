@@ -1,8 +1,12 @@
 const pkg = require('./package')
+import list from './static/api/pages/portfolio/list'
+import matter from 'gray-matter'
 
 module.exports = {
   mode: 'spa',
-
+  generate: {
+    routes: Object.keys(matter(list).data)
+  },
   /*
   ** Headers of the page
   */
