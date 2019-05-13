@@ -11,7 +11,7 @@ langs: {
 
 - Metric system
 - Imperial system
-- 12 Calculation form
+- 12 Calculation forms
 - Plain javascript
 - Turkish and English languages are supported.
 
