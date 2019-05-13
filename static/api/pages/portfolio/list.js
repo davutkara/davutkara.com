@@ -1,4 +1,4 @@
----
+export default `---
 '/portfolio/health-calcula' : {
     title: Health Calcula,
     subTitle: A wordpress plugin consist of calculations related with health.,
@@ -9,4 +9,4 @@
     },
     thumbnail: /images/health-calcula/cover.png
 }
----
+---`

@@ -43,7 +43,7 @@
 <script>
 import headerCmp from '~/components/header.vue'
 import footerCmp from '~/components/footerCmp.vue'
-import list from '~/static/api/pages/portfolio/list.md'
+import list from '~/static/api/pages/portfolio/list'
 import matter from 'gray-matter'
 export default {
   layout: 'resume',
@@ -52,6 +52,10 @@ export default {
     return {
       context: matter(list)
     }
+  },
+  mounted() {
+    // eslint-disable-next-line no-console
+    console.log(this.context)
   },
   filters: {
     monthName: function() {
