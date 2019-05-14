@@ -32,14 +32,18 @@ import footerCmp from '~/components/footerCmp.vue'
 import matter from 'gray-matter'
 import Markdown from 'markdown-it'
 import markdownItMermaid from 'markdown-it-mermaid'
-const md = new Markdown()
+const md = new Markdown({
+  html: true,
+  linkify: true,
+  typographer: true
+})
 md.use(markdownItMermaid)
 export default {
   layout: 'resume',
   components: { headerCmp, footerCmp },
   async asyncData({ $axios, params, store }) {
     const { data } = await $axios.get(
-      `https://${window.location.hostname}/api/pages/portfolio/${
+      `//${window.location.hostname}/api/pages/portfolio/${
         store.state.language.lang
       }/${params.slug}.md`
     )
@@ -51,7 +55,7 @@ export default {
     lang: async function(lang) {
       if (this.context[lang] !== undefined) return lang
       const { data } = await this.$axios.get(
-        `https://${window.location.hostname}/api/pages/portfolio/${this.lang}/${
+        `//${window.location.hostname}/api/pages/portfolio/${this.lang}/${
           this.slug
         }.md`
       )
