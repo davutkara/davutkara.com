@@ -1,4 +1,14 @@
 export default `---
+'/portfolio/bravado' : {
+    title: Bravado,
+    subTitle: Habit-tracking and challenge application with social way. ,
+    tags: ["javascript","vuejs","nuxtjs",nodejs","docker","redis","bootstrap"],
+    date: {
+        year: 2019,
+        month: 6
+    },
+    thumbnail: https://github.com/davutkara/bravado/raw/master/docs/img/ss_index.png
+}
 '/portfolio/health-calcula' : {
     title: Health Calcula,
     subTitle: A wordpress plugin consist of calculations related with health.,
