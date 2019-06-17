@@ -9,7 +9,7 @@ langs: {
 
 **About**
 
-Bravado is a habit-tracking and challenge application with social way. In this project I worked as a team leader. We aimed to develop a challenge management environment in order to get users gain habits. A user can create a challenge then other users can join it. The users are participated do their assignments to complete challenge then they can gain badges as rewards and show them on their profile page.
+Bravado is a habit-tracking and challenge application with social way. In this project I worked as a team leader. We aimed to develop a challenge management environment in order to get users gain habits. A user can create a challenge then other users can join it. The users are participated do their assignments to complete the challenge then they can gain badges as rewards and show them on their profile page.
 
 Nodejs, VueJs, NustJs, Bootstrap, Docker, Redis are the technologies used for the project.
 

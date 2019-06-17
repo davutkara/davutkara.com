@@ -1,6 +1,6 @@
 ---
 title: Bravado
-subTitle: Sosyal yolla alışkanlık izleme ve mücadele oluştruma uygulamasıç
+subTitle: Sosyal yolla alışkanlık izleme ve mücadele oluştruma uygulaması
 langs: {
     en: test.md,
     tr: test_tr.md
