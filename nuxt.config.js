@@ -1,6 +1,7 @@
-const pkg = require('./package')
-import list from './static/api/pages/portfolio/list'
 import matter from 'gray-matter'
+import list from './static/api/pages/portfolio/list'
+
+const pkg = require('./package')
 
 module.exports = {
   mode: 'spa',
