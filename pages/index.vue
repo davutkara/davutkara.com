@@ -3,7 +3,9 @@
     <header-cmp/>
     <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="true"></b-loading>
     <section class="section main-icerik" v-if="context[lang] !== undefined ">
-      <div class="container is-narrow">
+      <div
+        :class="{container: true,'container-plr': $windowSize.breakpoints.sm, 'is-narrow':  $windowSize.breakpoints.sm}"
+      >
         <div class="columns is-centered">
           <div class="column is-one-third">
             <div class="box">
@@ -89,16 +91,6 @@
     <footer-cmp/>
   </div>
 </template>
-
-<style>
-.main-icerik {
-  margin-top: -7em;
-  padding-bottom: 1em;
-}
-.main-icerik > .container {
-  padding: 2em 2em 10em 2em;
-}
-</style>
 
 
 <script>

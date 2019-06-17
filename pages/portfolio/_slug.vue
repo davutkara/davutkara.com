@@ -15,15 +15,6 @@
   </div>
 </template>
 
-<style>
-.main-icerik {
-  margin-top: -7em;
-  padding-bottom: 1em;
-}
-.main-icerik > .container {
-  padding: 2em 2em 10em 2em;
-}
-</style>
 
 
 <script>
