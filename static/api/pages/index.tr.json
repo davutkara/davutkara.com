@@ -17,8 +17,8 @@
     "title": "Yetenekler",
     "lines": [
       {
-        "title": "Core - PHP",
-        "progress": 90
+        "title": "VueJS",
+        "progress": 89
       },
       {
         "title": "HTML CSS",
@@ -33,11 +33,15 @@
         "progress": 70
       },
       {
-        "title": "MySql",
+        "title": "Cordova, Phonegap",
         "progress": 65
       },
       {
-        "title": "C++, C",
+        "title": "MySql",
+        "progress": 50
+      },
+      {
+        "title": "C++, C, PHP Core",
         "progress": 30
       }
     ]
