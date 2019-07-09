@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-cmp/>
+    <header-cmp />
     <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="true"></b-loading>
     <section class="section main-icerik" v-if="context[lang] !== undefined ">
       <div
@@ -14,29 +14,29 @@
                 <h3>{{context[lang].education.university}}</h3>
                 <b>{{context[lang].education.department}}</b>
                 <span v-for="(line,i) in context[lang].education.lines" v-bind:key="i">
+                  <br />
                   {{line}}
-                  <br>
                 </span>
                 <h2>{{context[lang].linksTitle}}</h2>
                 <p>
                   <b>Github://</b>
                   <a href="https://github.com/davutkara" target="_blank">davutkara</a>
-                  <br>
+                  <br />
                   <b>LinkedIn://</b>
                   <a href="https://www.linkedin.com/in/davutkara" target="_blank">davutkara</a>
-                  <br>
+                  <br />
                   <b>Youtube://</b>
                   <a href="http://www.youtube.com/c/DavutKARA95" target="_blank">DavutKARA95</a>
-                  <br>
+                  <br />
                 </p>
                 <h2>{{context[lang].communication.title}}</h2>
                 <p>
                   <b>{{context[lang].communication.motherLangTitle}}</b>
-                  <br>
+                  <br />
                   {{context[lang].communication.motherLang}}
-                  <br>
+                  <br />
                   <b>{{context[lang].communication.foreignLangTitle}}</b>
-                  <br>
+                  <br />
                   <span
                     v-for="(lang,i) in  context[lang].communication.foreignLangs"
                     v-bind:key="i"
@@ -71,7 +71,7 @@
                   <div v-else>
                     <read-more :content="printList(exp.description)"></read-more>
                   </div>
-                  <hr>
+                  <hr />
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@
         </div>
       </div>
     </section>
-    <footer-cmp/>
+    <footer-cmp />
   </div>
 </template>
 
