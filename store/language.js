@@ -1,5 +1,5 @@
 export const state = () => ({
-  lang: 'en'
+  lang: navigator ? (navigator.language === 'tr' ? 'tr' : 'en') : 'en'
 })
 
 export const mutations = {
