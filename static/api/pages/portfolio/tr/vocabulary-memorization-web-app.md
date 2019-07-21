@@ -20,7 +20,7 @@ Proje, kullanıcılara ekledikleri hatırlatıcı resimleri, rastgele sorarak, k
 
 **Demo**
 
-- <a href="https://guzelamaingilizce.com/" target="_blank">guzelamaingilizce.com</a>
+- <a href="https://www.guzelamaingilizce.com/uygulama/kelime-ezberle/" target="_blank">guzelamaingilizce.com/uygulama/kelime-ezberle/</a>
 
 **Bazı ekran görüntüleri**
 

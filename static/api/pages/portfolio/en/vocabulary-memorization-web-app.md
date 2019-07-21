@@ -20,7 +20,7 @@ The project aims user to memorize vocabularies with reminder images asking rando
 
 **Demo**
 
-- <a href="https://guzelamaingilizce.com/" target="_blank">guzelamaingilizce.com</a>
+- <a href="https://www.guzelamaingilizce.com/uygulama/kelime-ezberle/" target="_blank">guzelamaingilizce.com/uygulama/kelime-ezberle/</a>
 
 **Some screenshots**
 

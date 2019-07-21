@@ -81,6 +81,16 @@
                 <p v-for="(award,i) in context[lang].awards.list" v-bind:key="i">
                   <b>{{award.year}}</b>
                   | {{award.description}}
+                  <a
+                    v-if="award.link"
+                    :href="award.link"
+                    :title="award.description"
+                    target="_blank"
+                  >
+                    <span class="icon">
+                      <i class="mdi mdi-open-in-new" />
+                    </span>
+                  </a>
                 </p>
               </div>
             </div>
