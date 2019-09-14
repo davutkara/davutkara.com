@@ -23,7 +23,6 @@ collections:
             name: educatıon-list
             widget: list
             fields:
-              - { label: Title, name: title, widget: string }
               - { label: University, name: university, widget: string }
               - { label: department, name: photo, widget: string }
               - label: Lines
@@ -117,9 +116,10 @@ collections:
                   name: finishDate,
                   widget: datetime,
                   dateFormat: 'MMM YYYY',
+                  required: false,
                 }
               - { label: Locaition, name: location, widget: string }
-              - label: Detail List
+              - label: Description List
                 name: lines
                 widget: list
                 fields:
