@@ -12,8 +12,27 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: '{{slug}}' # Filename template, e.g., title.md
     fields: # The fields for each document, usually in front matter
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Sub title', name: 'subTitle', widget: 'string' }
-      - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
-      - { label: 'Türkçe İçerik', name: 'body-tr', widget: 'markdown' }
+      - { label: 'Title', name: 'title-en', widget: 'string' }
+      - { label: 'Sub title', name: 'subTitle-en', widget: 'string' }
+      - { label: 'Featured Image', name: 'thumbnail-en', widget: 'image' }
       - { label: 'English Content', name: 'body-en', widget: 'markdown' }
+      - { label: 'Başlık', name: 'title-tr', widget: 'string' }
+      - { label: 'Alt başlık', name: 'subTitle-tr', widget: 'string' }
+      - { label: 'Ön görsel', name: 'thumbnail-tr', widget: 'image' }
+      - { label: 'Türkçe İçerik', name: 'body-tr', widget: 'markdown' }
+  - label: 'Pages'
+    name: 'pages'
+    files:
+      - label: 'Resume Page'
+        name: 'about'
+        file: '_content/resume.yaml'
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Intro, name: intro, widget: markdown }
+          - label: Team
+            name: team
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Position, name: position, widget: string }
+              - { label: Photo, name: photo, widget: image }

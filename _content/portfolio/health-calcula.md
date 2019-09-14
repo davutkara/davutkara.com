@@ -1,7 +1,7 @@
 ---
-title: Health Calcula
-subTitle: A wordpress plugin consist of calculations related with health.
-thumbnail: /images/uploads/cover.png
+title-en: Health Calcula
+subTitle-en: A wordpress plugin consist of calculations related with health.
+thumbnail-en: /images/uploads/cover.png
 body-tr: |-
   **Özellikler**
 
@@ -30,4 +30,3 @@ body-en: |
   ![Settings Page](/images/health-calcula/settings.jpg)
   ![Settings Page](/images/health-calcula/cover.png)
 ---
-

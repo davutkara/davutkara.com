@@ -1,7 +1,7 @@
 ---
-title: Bravado
-subTitle: Habit-tracking and challenge application with social way.
-thumbnail: /images/uploads/ss_index.png
+title-en: Bravado
+subTitle-en: Habit-tracking and challenge application with social way.
+thumbnail-en: /images/uploads/ss_index.png
 body-tr: >-
   **About**
 
@@ -154,4 +154,3 @@ body-en: >-
   You can get more screnshoots from the <a
   href="https://github.com/davutkara/bravado">bravado github repo.</a>
 ---
-

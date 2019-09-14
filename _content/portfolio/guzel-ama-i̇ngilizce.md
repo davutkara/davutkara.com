@@ -1,10 +1,10 @@
 ---
-title: Guzel Ama İngilizce
-subTitle: >-
+title-en: Guzel Ama İngilizce
+subTitle-en: >-
   A vocabulary memorization web application, the project name is a popular
   phrase in Turkey it's like old but gold. Some features: Client-side, list
   CRUD, json export and import, exercise screen.
-thumbnail: /images/uploads/list.png
+thumbnail-en: /images/uploads/list.png
 body-tr: >-
   ---
 
@@ -95,4 +95,3 @@ body-en: >
 
   ![Settings Page](/images/vocabulary-memorization-web-app/memorize.png)
 ---
-
