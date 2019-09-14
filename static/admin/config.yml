@@ -124,3 +124,21 @@ collections:
                 widget: list
                 fields:
                   - { label: Line, name: line, widget: string }
+          - {
+              label: Awards Title,
+              name: awards-title,
+              widget: string,
+              defaults: 'AWWARDS',
+            }
+          - label: Awards List
+            name: awards-list
+            widget: list
+            fields:
+              - {
+                  label: Year,
+                  name: year,
+                  widget: datetime,
+                  dateFormat: 'YYYY',
+                }
+              - { label: Description, name: description, widget: string }
+              - { label: Url, name: url, widget: string }
