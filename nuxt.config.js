@@ -5,7 +5,7 @@ const pkg = require('./package')
 
 const baseURL = process.env.BASE_URL
   ? process.env.BASE_URL
-  : 'http://localhost:3000/'
+  : 'http://localhost:50505/'
 
 module.exports = {
   generate: {
