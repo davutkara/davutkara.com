@@ -1,93 +1,105 @@
 <template>
-  <div>
+  <div @click="$windowSize.resize()">
     <header-cmp />
-    <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="true" />
-    <section v-if="context[lang] !== undefined " class="section main-icerik">
+    <section class="section main-icerik">
       <div
-        :class="{container: true,'container-plr': $windowSize ? $windowSize.breakpoints.sm : false, 'is-narrow': $windowSize ? $windowSize.breakpoints.sm: false}"
+        :class="{container: true,'container-plr': $windowSize ? $windowSize.breakpoints.sm : true, 'is-narrow':$windowSize ? $windowSize.breakpoints.sm : true }"
       >
         <div class="columns is-centered">
           <div class="column is-one-third">
             <div class="box">
               <div class="content">
-                <h2>{{ context[lang].education.title }}</h2>
-                <h3>{{ context[lang].education.university }}</h3>
-                <b>{{ context[lang].education.department }}</b>
-                <span v-for="(line,i) in context[lang].education.lines" :key="i">
-                  <br>
-                  {{ line }}
-                </span>
-                <h2>{{ context[lang].linksTitle }}</h2>
+                <!-- EDUCATION -->
+                <h2>{{ educations.title }}</h2>
+                
+                <div v-for="(education,eduIndex) in educations.list" :key="eduIndex">
+                  <h3>{{ education.university }}</h3>
+                  <b>{{ education.department }}</b>
+                  <span v-for="({line},i) in education.lines" :key="i">
+                    <br>
+                    {{ line }}
+                  </span>
+                  <hr v-show="educations.list.length > 1">
+                </div> 
+                <!-- / EDUCATION -->
+
+                <!-- LINKS -->
+                <h2>{{ links.title }}</h2>
                 <p>
-                  <b>Github://</b>
-                  <a href="https://github.com/davutkara" target="_blank">davutkara</a>
-                  <br>
-                  <b>LinkedIn://</b>
-                  <a href="https://www.linkedin.com/in/davutkara" target="_blank">davutkara</a>
-                  <br>
-                  <b>Youtube://</b>
-                  <a href="http://www.youtube.com/c/DavutKARA95" target="_blank">DavutKARA95</a>
-                  <br>
+                  <template v-for="({name,title,url},linkIndex) in links.list">
+                    <b :key="`b-${linkIndex}`">{{ title }}</b>
+                    <a :key="`a-${linkIndex}`" :href="url" target="_blank">{{ name }}</a>
+                    <br :key="`br-${linkIndex}`">
+                  </template>
                 </p>
-                <h2>{{ context[lang].communication.title }}</h2>
+                <!-- / LINKS -->
+
+                <!-- COMMUNICATION -->
+                <h2>{{ communication.title }}</h2>
                 <p>
-                  <b>{{ context[lang].communication.motherLangTitle }}</b>
+                  <b>{{ communication.motherLanguageTitle }}</b> <br>
+                  {{ communication.motherLanguage }}
                   <br>
-                  {{ context[lang].communication.motherLang }}
-                  <br>
-                  <b>{{ context[lang].communication.foreignLangTitle }}</b>
-                  <br>
+                  <b>{{ communication.foreignLanguageTitle }}</b> <br>
                   <span
-                    v-for="(flang,i) in context[lang].communication.foreignLangs"
-                    :key="i"
-                  >{{ flang }}</span>
+                    v-for="({language},langIndex) in communication.foreignLanguages"
+                    :key="langIndex"
+                  >{{ language }}</span>
                 </p>
+                <!-- / COMMUNICATION -->
               </div>
             </div>
+
+            <!-- SKILLS -->
             <div class="box">
               <div class="content">
-                <h2>{{ context[lang].skills.title }}</h2>
-                <div v-for="(skill,i) in context[lang].skills.lines" :key="i">
-                  <b>{{ skill.title }} :</b>
+                <h2>{{ skills.title }}</h2>
+                <div v-for="({skill,points},skillIndex) in skills.list" :key="skillIndex">
+                  <b>{{ skill }} :</b>
                   <progress
                     class="progress is-small"
-                    :value="skill.progress"
+                    :value="points"
                     max="100"
                   >
-                    {{ skill.progress }}%
+                    {{ points }}%
                   </progress>
                 </div>
               </div>
             </div>
+            <!-- / SKILLS -->
           </div>
+
           <div class="column">
+            <!-- EXPERIENCE -->
             <div class="box">
               <div class="content">
-                <h2>{{ context[lang].experience.title }}</h2>
-                <div v-for="(exp,i) in context[lang].experience.list" :key="i">
-                  <h3>{{ exp.company }}</h3>
-                  <b>{{ exp.title }}</b>
-                  <p>{{ exp.info }}</p>
-
-                  <!-- eslint-disable-next-line -->
-                  <div v-if="i===0" v-html="printList(exp.description)" />
-                  <div v-else>
-                    <read-more :content="printList(exp.description)" />
-                  </div>
+                <h2>{{ experiences.title }}</h2>
+                <div v-for="({startDate, finishDate, title, position, location, lines},expIndex) in experiences.list" :key="expIndex">
+                  <h3>{{ title }}</h3>
+                  <b>{{ position }}</b>
+                  <p>{{ startDate | monthAndYear }} - {{ finishDate | monthAndYear }} | {{ location }}</p>
+                  <ul>
+                    <li v-for="({line},lineIndex) in lines" :key="lineIndex">
+                      {{ line }}
+                    </li>
+                  </ul>
                   <hr>
                 </div>
               </div>
             </div>
+            <!-- / EXPERIENCE -->
+
+            <!-- AWARDS -->
             <div class="box">
               <div class="content">
-                <h2>{{ context[lang].awards.title }}</h2>
-                <p v-for="(award,i) in context[lang].awards.list" :key="i">
-                  <b>{{ award.year }}</b>
-                  | {{ award.description }}
+                <h2>{{ awards.title }}</h2>
+                <p v-for="({year, description, url},listIndex) in awards.list" :key="listIndex">
+                  <b>{{ year | year }}</b>
+                  | {{ description }}
                   <a
-                    v-if="award.link"
-                    :href="award.link"
-                    :title="award.description"
+                    v-if="url"
+                    :href="url"
+                    :title="description"
                     target="_blank"
                   >
                     <span class="icon">
@@ -97,71 +109,87 @@
                 </p>
               </div>
             </div>
+            <!-- / AWARDS -->
           </div>
         </div>
       </div>
     </section>
-    <footer-cmp />
   </div>
 </template>
 
-
 <script>
+import moment from 'moment'
 import headerCmp from '~/components/header.vue'
-import footerCmp from '~/components/footerCmp.vue'
-import readMore from '~/components/readMore.vue'
-import contextEn from '~/static/api/pages/index.en.json'
-import langFetch from '~/mixins/langFetch'
+const yaml = require('js-yaml')
+
 export default {
-  layout: 'resume',
-  head() {
-    return {
-      title: 'Davut KARA'
+  layout: 'resume-page',
+  components: { headerCmp },
+  filters: {
+    monthAndYear(date) {
+      return moment(date).format('MMMM YYYY')
+    },
+    year(date) {
+      return moment(date).format('YYYY')
     }
   },
-  components: { headerCmp, footerCmp, readMore },
-  filters: {},
-  mixins: [langFetch],
   computed: {
-    isLoading() {
-      return this.context[this.lang] === undefined
-    }
-  },
-  asyncData(context) {
-    return {
-      isStatic: context.isStatic,
-      context: {
-        en: contextEn
+    educations() {
+      return {
+        title: this.data['education-title'],
+        list: this.data['educatıon-list']
+      }
+    },
+    links() {
+      return {
+        title: this.data['links-title'],
+        list: this.data['link-list']
+      }
+    },
+    communication() {
+      return {
+        title: this.data['communication-title'],
+        motherLanguageTitle: this.data['mother-language-title'],
+        motherLanguage: this.data['mother-language'],
+        foreignLanguageTitle: this.data['foreign-language-title'],
+        foreignLanguages: this.data['foreign-language-list']
+      }
+    },
+    skills() {
+      return {
+        title: this.data['skills-title'],
+        list: this.data['skills-list']
+      }
+    },
+    experiences() {
+      return {
+        title: this.data['experience-title'],
+        list: this.data['experience-list']
+      }
+    },
+    awards() {
+      return {
+        title: this.data['awards-title'],
+        list: this.data['awards-list']
       }
     }
   },
-  mounted: function() {
-    this.sendWarning('Under construction.')
+  async asyncData({ app, $axios }) {
+    const data = await $axios.$get(
+      `/api/content/resume.${app.i18n.locale}.yaml`,
+      {
+        headers: {
+          'Access-Control-Allow-Origin': '',
+          Accept: 'application/x-yaml, text/yaml'
+        }
+      }
+    )
+    return { data: yaml.safeLoad(data) }
   },
-  beforeMount: async function() {
-    if (this.lang !== 'en') {
-      const data = await this.$axios.$get(`/api/pages/index.${this.lang}.json`)
-
-      this.$set(this.context, this.lang, data)
-    }
-  },
-  methods: {
-    sendWarning: function(text) {
-      /* this.$toast.open({
-        duration: 3000,
-        message: text,
-        position: 'is-bottom-right',
-        type: 'is-info'
-      }) */
-    },
-    printList: function(data) {
-      let list = ``
-
-      data.forEach(text => {
-        list += `<li>${text}</li>`
-      })
-
-      return `<ul>${list}</ul>`
+  nuxtI18n: {
+    paths: {
+      en: '/resume',
+      tr: '/ozgecmis'
     }
   }
 }

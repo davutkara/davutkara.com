@@ -8,7 +8,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "BASE_URL=http://www.davutkara.com/ nuxt generate",
+    "generate": "BASE_URL=https://www.davutkara.com/ nuxt generate",
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "test": "ava"
