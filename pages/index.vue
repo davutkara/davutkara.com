@@ -4,7 +4,7 @@
     <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="true" />
     <section v-if="context[lang] !== undefined " class="section main-icerik">
       <div
-        :class="{container: true,'container-plr': $windowSize.breakpoints.sm, 'is-narrow': $windowSize.breakpoints.sm}"
+        :class="{container: true,'container-plr': $windowSize ? $windowSize.breakpoints.sm : false, 'is-narrow': $windowSize ? $windowSize.breakpoints.sm: false}"
       >
         <div class="columns is-centered">
           <div class="column is-one-third">
@@ -133,7 +133,7 @@ export default {
       if (this.context[lang] !== undefined) return lang
 
       const data = await this.$axios.$get(
-        `${window.location.origin}/api/pages/index.${lang}.json`
+        `/api/pages/index.${lang}.json`
       )
 
       this.$set(this.context, lang, data)
@@ -155,7 +155,7 @@ export default {
   beforeMount: async function() {
     if (this.lang !== 'en') {
       const data = await this.$axios.$get(
-        `${window.location.origin}/api/pages/index.${this.lang}.json`
+        `/api/pages/index.${this.lang}.json`
       )
 
       this.$set(this.context, this.lang, data)

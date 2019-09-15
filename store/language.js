@@ -1,5 +1,10 @@
 export const state = () => ({
-  lang: navigator ? (navigator.language === 'tr' ? 'tr' : 'en') : 'en'
+  lang:
+    process.client && navigator
+      ? navigator.language === 'tr'
+        ? 'tr'
+        : 'en'
+      : 'en'
 })
 
 export const mutations = {

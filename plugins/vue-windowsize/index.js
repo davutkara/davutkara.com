@@ -3,6 +3,10 @@ import Vue from 'vue'
 const vueWindowSize = {}
 
 vueWindowSize.install = function(Vue, options) {
+  if (!process.client) {
+    return 0
+  }
+
   const breakpoints = {}
   for (const breakpoint in options) {
     breakpoints[breakpoint] = options[breakpoint](window.innerWidth)

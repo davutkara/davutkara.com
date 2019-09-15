@@ -3,7 +3,7 @@
     <header-cmp />
     <section class="section main-icerik">
       <div
-        :class="{container: true,'container-plr': $windowSize.breakpoints.sm, 'is-narrow': $windowSize.breakpoints.sm}"
+        :class="{container: true,'container-plr': $windowSize? $windowSize.breakpoints.sm : false, 'is-narrow': $windowSize? $windowSize.breakpoints.sm : false}"
       >
         <div class="columns is-centered">
           <div class="column is-one-third">
@@ -179,6 +179,7 @@ export default {
   async asyncData({ $axios }) {
     const data = await $axios.$get('/api/content/resume.yaml', {
       headers: {
+        'Access-Control-Allow-Origin': '',
         Accept: 'application/x-yaml, text/yaml'
       }
     })

@@ -64,8 +64,7 @@ export default {
     lang: async function(lang) {
       if (this.context[lang] !== undefined) return lang
       const { data } = await this.$axios.get(
-        window.location.origin +
-          `/api/pages/portfolio/${this.lang}/${this.slug}.md`
+        `/api/pages/portfolio/${this.lang}/${this.slug}.md`
       )
       this.$set(this.context, lang, matter(data))
 
@@ -74,8 +73,7 @@ export default {
   },
   async asyncData({ $axios, params, store }) {
     const { data } = await $axios.get(
-      window.location.origin +
-        `/api/pages/portfolio/${store.state.language.lang}/${params.slug}.md`
+     `/api/pages/portfolio/${store.state.language.lang}/${params.slug}.md`
     )
     const context = {}
     context[store.state.language.lang] = matter(data)
