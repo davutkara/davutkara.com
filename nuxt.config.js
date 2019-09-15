@@ -3,10 +3,6 @@ import list from './static/api/pages/portfolio/list'
 
 const pkg = require('./package')
 
-const baseURL = process.env.BASE_URL
-  ? process.env.BASE_URL
-  : 'http://localhost:50505/'
-
 module.exports = {
   generate: {
     routes: Object.keys(matter(list).data)
@@ -71,8 +67,6 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options,
-    baseURL: baseURL,
-    browserBaseURL: baseURL
   },
 
   /*

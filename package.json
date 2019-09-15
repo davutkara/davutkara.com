@@ -4,12 +4,6 @@
   "description": "Personal web page",
   "author": "Davut KARA",
   "private": true,
-  "config": {
-    "nuxt": {
-      "host": "0.0.0.0",
-      "port": "50505"
-    }
-  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
