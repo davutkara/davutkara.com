@@ -1,9 +1,9 @@
 education-title: EDUCATION
 educatıon-list:
-  - lines:
+  - department: BS IN INFORMATIN SYSTEMS ENGINEERING
+    lines:
       - line: 'June 2019 | Ankara, Turkey'
       - line: Faculty of Engineering
-    department: BS IN INFORMATIN SYSTEMS ENGINEERING
     university: ATILIM UNIVERSITY
 links-title: LINKS
 link-list:
@@ -69,7 +69,9 @@ experience-list:
   - finishDate: 2020-11-30T21:00:00.000Z
     lines:
       - line: 'Since 2012, made a lot of works on web.'
-      - line: 'Using html,css,php,plain and javascript framework.'
+      - line: >-
+          Html,css,php,vuejs, nuxtjs, nodejs are some of the tehcnologies that I
+          used.
       - line: >-
           Also, used wordpress as content management systems, developed a lot
           plugin and themes.
