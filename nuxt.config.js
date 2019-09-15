@@ -73,6 +73,14 @@ module.exports = {
           test: /\.md$/,
           use: 'raw-loader'
         })
+        config.module.rules.push({
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'eslint-loader',
+          options: {
+            formatter: require('eslint-formatter-pretty')
+          }
+        })
       }
     }
   }
