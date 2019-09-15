@@ -3,12 +3,9 @@ import list from './static/api/pages/portfolio/list'
 
 const pkg = require('./package')
 
-const baseURL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://www.davutkara.com/'
-    : process.env.BASE_URL
-      ? process.env.BASE_URL
-      : 'http://localhost:3000/'
+const baseURL = process.env.BASE_URL
+  ? process.env.BASE_URL
+  : 'http://localhost:3000/'
 
 module.exports = {
   generate: {
