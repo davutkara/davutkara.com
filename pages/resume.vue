@@ -177,7 +177,11 @@ export default {
     }
   },
   async asyncData({ $axios }) {
-    const data = await $axios.$get('/api/content/resume.yaml')
+    const data = await $axios.$get('/api/content/resume.yaml', {
+      headers: {
+        Accept: 'application/x-yaml, text/yaml'
+      }
+    })
     return { data: yaml.safeLoad(data) }
   }
 }

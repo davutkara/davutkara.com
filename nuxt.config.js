@@ -50,7 +50,15 @@ module.exports = {
   ** Axios module configuration
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    // See https://github.com/nuxt-community/axios-module#options,
+    baseURL:
+      process.env.NODE_ENV === 'development'
+        ? process.env.BASE_URL
+        : 'https://www.davutkara.com/',
+    browserBaseURL:
+      process.env.NODE_ENV === 'development'
+        ? process.env.BASE_URL
+        : 'https://www.davutkara.com/'
   },
 
   /*
