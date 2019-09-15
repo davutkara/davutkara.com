@@ -51,13 +51,13 @@ module.exports = {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options,
     baseURL:
-      process.env.NODE_ENV === 'development'
-        ? process.env.BASE_URL
-        : 'https://www.davutkara.com/',
+      process.env.NODE_ENV === 'production'
+        ? 'https://www.davutkara.com/'
+        : process.env.BASE_URL,
     browserBaseURL:
-      process.env.NODE_ENV === 'development'
-        ? process.env.BASE_URL
-        : 'https://www.davutkara.com/'
+      process.env.NODE_ENV === 'production'
+        ? 'https://www.davutkara.com/'
+        : process.env.BASE_URL
   },
 
   /*
