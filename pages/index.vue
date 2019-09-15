@@ -111,6 +111,7 @@ import headerCmp from '~/components/header.vue'
 import footerCmp from '~/components/footerCmp.vue'
 import readMore from '~/components/readMore.vue'
 import contextEn from '~/static/api/pages/index.en.json'
+import langFetch from '~/mixins/langFetch'
 export default {
   layout: 'resume',
   head() {
@@ -120,25 +121,10 @@ export default {
   },
   components: { headerCmp, footerCmp, readMore },
   filters: {},
+  mixins: [langFetch],
   computed: {
     isLoading() {
       return this.context[this.lang] === undefined
-    },
-    lang() {
-      return this.$store.state.language.lang
-    }
-  },
-  watch: {
-    lang: async function(lang) {
-      if (this.context[lang] !== undefined) return lang
-
-      const data = await this.$axios.$get(
-        `/api/pages/index.${lang}.json`
-      )
-
-      this.$set(this.context, lang, data)
-
-      return lang
     }
   },
   asyncData(context) {
@@ -154,9 +140,7 @@ export default {
   },
   beforeMount: async function() {
     if (this.lang !== 'en') {
-      const data = await this.$axios.$get(
-        `/api/pages/index.${this.lang}.json`
-      )
+      const data = await this.$axios.$get(`/api/pages/index.${this.lang}.json`)
 
       this.$set(this.context, this.lang, data)
     }

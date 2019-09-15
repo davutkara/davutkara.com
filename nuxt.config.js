@@ -3,6 +3,13 @@ import list from './static/api/pages/portfolio/list'
 
 const pkg = require('./package')
 
+const baseURL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://www.davutkara.com/'
+    : process.env.BASE_URL
+      ? process.env.BASE_URL
+      : 'http://localhost:3000/'
+
 module.exports = {
   generate: {
     routes: Object.keys(matter(list).data)
@@ -43,21 +50,32 @@ module.exports = {
     '@nuxtjs/axios',
     // Doc: https://buefy.github.io/#/documentation
     'nuxt-buefy',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'nuxt-i18n'
   ],
+  i18n: {
+    locales: ['en', 'tr'],
+    defaultLocale: 'en',
+    vueI18n: {
+      seo: true,
+      fallbackLocale: 'en',
+      messages: {
+        en: {
+          welcome: 'Welcome'
+        },
+        tr: {
+          welcome: 'Hoşgeldiniz'
+        }
+      }
+    }
+  },
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options,
-    baseURL:
-      process.env.NODE_ENV === 'production'
-        ? 'https://www.davutkara.com/'
-        : process.env.BASE_URL,
-    browserBaseURL:
-      process.env.NODE_ENV === 'production'
-        ? 'https://www.davutkara.com/'
-        : process.env.BASE_URL
+    baseURL: baseURL,
+    browserBaseURL: baseURL
   },
 
   /*

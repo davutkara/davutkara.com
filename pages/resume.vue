@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div @click="$windowSize.resize()">
     <header-cmp />
     <section class="section main-icerik">
       <div
-        :class="{container: true,'container-plr': $windowSize? $windowSize.breakpoints.sm : false, 'is-narrow': $windowSize? $windowSize.breakpoints.sm : false}"
+        :class="{container: true,'container-plr': $windowSize ? $windowSize.breakpoints.sm : true, 'is-narrow':$windowSize ? $windowSize.breakpoints.sm : true }"
       >
         <div class="columns is-centered">
           <div class="column is-one-third">
@@ -123,7 +123,7 @@ import headerCmp from '~/components/header.vue'
 const yaml = require('js-yaml')
 
 export default {
-  layout: 'resume',
+  layout: 'resume-page',
   components: { headerCmp },
   filters: {
     monthAndYear(date) {
@@ -135,8 +135,6 @@ export default {
   },
   computed: {
     educations() {
-      /* eslint-disable-next-line no-console */
-      console.log('hesaplandi.')
       return {
         title: this.data['education-title'],
         list: this.data['educatıon-list']
@@ -176,14 +174,23 @@ export default {
       }
     }
   },
-  async asyncData({ $axios }) {
-    const data = await $axios.$get('/api/content/resume.yaml', {
-      headers: {
-        'Access-Control-Allow-Origin': '',
-        Accept: 'application/x-yaml, text/yaml'
+  async asyncData({ app, $axios }) {
+    const data = await $axios.$get(
+      `/api/content/resume.${app.i18n.locale}.yaml`,
+      {
+        headers: {
+          'Access-Control-Allow-Origin': '',
+          Accept: 'application/x-yaml, text/yaml'
+        }
       }
-    })
+    )
     return { data: yaml.safeLoad(data) }
+  },
+  nuxtI18n: {
+    paths: {
+      en: '/resume',
+      tr: '/ozgecmis'
+    }
   }
 }
 </script>

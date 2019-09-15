@@ -73,7 +73,7 @@ export default {
   },
   async asyncData({ $axios, params, store }) {
     const { data } = await $axios.get(
-     `/api/pages/portfolio/${store.state.language.lang}/${params.slug}.md`
+      `/api/pages/portfolio/${store.state.language.lang}/${params.slug}.md`
     )
     const context = {}
     context[store.state.language.lang] = matter(data)

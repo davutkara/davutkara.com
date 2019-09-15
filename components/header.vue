@@ -32,22 +32,26 @@
         </div>
         <div class="is-clearfix" />
         <div class="buttons is-centered">
-          <a
+          <nuxt-link
             :class="{
               button:true, 
               'is-danger': true,
-              'is-outlined': $store.state.language.lang !== 'en'
+              'is-outlined': $i18n.locale !== 'en'
             }"
-            @click="$store.commit('language/set','en')"
-          >English</a>
-          <a
+            :to="switchLocalePath('en')"
+          >
+            English
+          </nuxt-link>
+          <nuxt-link
             :class="{
               button:true, 
               'is-danger': true,
-              'is-outlined': $store.state.language.lang !== 'tr'
+              'is-outlined': $i18n.locale !== 'tr'
             }"
-            @click="$store.commit('language/set','tr')"
-          >Türkçe</a>
+            :to="switchLocalePath('tr')"
+          >
+            Türkçe
+          </nuxt-link>
         </div>
       </div>
     </div>

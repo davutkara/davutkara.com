@@ -22,7 +22,8 @@
     "markdown-it": "^8.4.2",
     "moment": "^2.24.0",
     "nuxt": "^2.9.2",
-    "nuxt-buefy": "^0.3.14"
+    "nuxt-buefy": "^0.3.14",
+    "nuxt-i18n": "^6.2.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

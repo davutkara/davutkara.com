@@ -1,27 +1,22 @@
 import Vue from 'vue'
 
 const vueWindowSize = {}
-
 vueWindowSize.install = function(Vue, options) {
   if (!process.client) {
-    return 0
+    Vue.prototype.$windowSize = null
+    return
   }
-
   const breakpoints = {}
   for (const breakpoint in options) {
     breakpoints[breakpoint] = options[breakpoint](window.innerWidth)
   }
   const state = Vue.observable({
-    height: window.innerWidth,
-    width: window.screen.height,
+    height: window.screen.height,
+    width: window.innerWidth,
     breakpoints
   })
 
-  window.onresize = function(event) {
-    /* 
-    state.width = window.innerWidth
-    state.height = window.screen.height
-    */
+  state.resize = function() {
     Vue.set(state, 'width', window.innerWidth)
     Vue.set(state, 'height', window.screen.height)
 
@@ -32,10 +27,19 @@ vueWindowSize.install = function(Vue, options) {
         options[breakpoint](window.innerWidth)
       )
     }
+    return true
   }
+
+  window.onresize = state.resize
 
   // 4. add an instance method
   Vue.prototype.$windowSize = state
+
+  Vue.mixin({
+    mounted() {
+      if (process.client && this.$windowSize.resize()) this.$forceUpdate()
+    }
+  })
 }
 
 Vue.use(vueWindowSize, {
