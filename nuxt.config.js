@@ -4,7 +4,6 @@ import list from './static/api/pages/portfolio/list'
 const pkg = require('./package')
 
 module.exports = {
-  mode: 'spa',
   generate: {
     routes: Object.keys(matter(list).data)
   },
