@@ -24,7 +24,7 @@ collections:
             widget: list
             fields:
               - { label: University, name: university, widget: string }
-              - { label: department, name: photo, widget: string }
+              - { label: Department, name: department, widget: string }
               - label: Lines
                 name: lines
                 widget: list

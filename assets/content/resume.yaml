@@ -3,8 +3,7 @@ educatıon-list:
   - lines:
       - line: 'June 2019 | Ankara, Turkey'
       - line: Faculty of Engineering
-    photo: BS IN INFORMATIN SYSTEMS ENGINEERING
-    title: test
+    department: BS IN INFORMATIN SYSTEMS ENGINEERING
     university: ATILIM UNIVERSITY
 links-title: LINKS
 link-list:

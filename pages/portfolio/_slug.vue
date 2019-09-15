@@ -11,6 +11,7 @@
           <p class="subtitle">
             {{ subTitle }}
           </p>
+          <!-- eslint-disable-next-line -->
           <div class="content" v-html="content" />
         </article>
       </div>

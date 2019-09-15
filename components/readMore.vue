@@ -2,7 +2,8 @@
   <div>
     <span v-show="!show" @click="show=true">
       <a class="button is-small">Show details</a>
-    </span>
+    </span>    
+    <!-- eslint-disable-next-line -->
     <div v-show="show" v-html="content" />
   </div>
 </template>

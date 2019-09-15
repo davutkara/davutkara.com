@@ -38,9 +38,9 @@
                   <b>{{ context[lang].communication.foreignLangTitle }}</b>
                   <br>
                   <span
-                    v-for="(lang,i) in context[lang].communication.foreignLangs"
+                    v-for="(flang,i) in context[lang].communication.foreignLangs"
                     :key="i"
-                  >{{ lang }}</span>
+                  >{{ flang }}</span>
                 </p>
               </div>
             </div>
@@ -69,6 +69,7 @@
                   <b>{{ exp.title }}</b>
                   <p>{{ exp.info }}</p>
 
+                  <!-- eslint-disable-next-line -->
                   <div v-if="i===0" v-html="printList(exp.description)" />
                   <div v-else>
                     <read-more :content="printList(exp.description)" />

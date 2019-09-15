@@ -18,7 +18,9 @@
     "@nuxtjs/pwa": "^2.6.0",
     "cross-env": "^5.2.1",
     "gray-matter": "^4.0.2",
+    "js-yaml": "^3.13.1",
     "markdown-it": "^8.4.2",
+    "moment": "^2.24.0",
     "nuxt": "^2.9.2",
     "nuxt-buefy": "^0.3.14"
   },
