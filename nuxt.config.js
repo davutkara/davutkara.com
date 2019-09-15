@@ -3,6 +3,10 @@ import list from './static/api/pages/portfolio/list'
 
 const pkg = require('./package')
 
+const baseURL = process.env.BASE_URL
+  ? process.env.BASE_URL
+  : 'http://localhost:3000/'
+
 module.exports = {
   generate: {
     routes: Object.keys(matter(list).data)
@@ -67,6 +71,8 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options,
+    baseURL: baseURL,
+    browserBaseURL: baseURL
   },
 
   /*
@@ -83,19 +89,14 @@ module.exports = {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-        config.module.rules.push({
-          test: /\.md$/,
-          use: 'raw-loader'
-        })
-        config.module.rules.push({
-          test: /\.js$/,
-          exclude: /node_modules/,
-          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
           options: {
             formatter: require('eslint-formatter-pretty')
           }
+        })
+        config.module.rules.push({
+          test: /\.(md)$/,
+          use: 'raw-loader'
         })
       }
     }
