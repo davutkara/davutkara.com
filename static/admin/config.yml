@@ -11,7 +11,7 @@ collections:
     files:
       - label: 'Resume Page'
         name: 'about'
-        file: 'assets/content/resume.yaml'
+        file: 'static/api/content/resume.yaml'
         fields:
           - {
               label: Education Title,
