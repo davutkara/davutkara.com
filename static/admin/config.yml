@@ -8,6 +8,7 @@ public_folder: '/images/uploads'
 collections:
   - label: 'Pages'
     name: 'pages'
+    preview_path: resume/
     files:
       - label: 'Resume Page'
         name: 'resume'
@@ -144,6 +145,7 @@ collections:
               - { label: Url, name: url, widget: string }
       - label: 'Özgeçmiş Sayfası'
         name: 'ozgecmıs'
+        preview_path: tr/ozgecmis
         file: 'static/api/content/resume.tr.yaml'
         fields:
           - {
