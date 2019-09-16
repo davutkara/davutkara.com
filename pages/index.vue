@@ -76,7 +76,7 @@
                 <div v-for="({startDate, finishDate, title, position, location, lines},expIndex) in experiences.list" :key="expIndex">
                   <h3>{{ title }}</h3>
                   <b>{{ position }}</b>
-                  <p>{{ startDate | monthAndYear }} - {{ finishDate | monthAndYear }} | {{ location }}</p>
+                  <p>{{ monthAndYear(startDate) }} - {{ monthAndYear(finishDate) }} | {{ location }}</p>
                   <ul>
                     <li v-for="({line},lineIndex) in lines" :key="lineIndex">
                       {{ line }}
@@ -124,10 +124,6 @@ export default {
   layout: 'default',
   name: 'Resume',
   filters: {
-    monthAndYear(date) {
-      if (date) return moment(date).format('MMMM YYYY')
-      else this.$t('now')
-    },
     year(date) {
       return moment(date).format('YYYY')
     }
@@ -194,6 +190,12 @@ export default {
       }
     )
     return { data: yaml.safeLoad(data) }
+  },
+  methods: {
+    monthAndYear(date) {
+      if (date) return moment(date).format('MMMM YYYY')
+      else return this.$t('now')
+    }
   },
   nuxtI18n: {
     paths: {
