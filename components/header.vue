@@ -71,14 +71,3 @@ export default {
   }
 }
 </script>
-
-<i18n>
-en: 
-  job-title:  "Information Systems Engineer"
-  resume: "Resume"
-  portfolio:  "Portfolio"
-tr:
-  job-title:  "Bilişim Sistemleri Mühendisi"
-  resume: "Özgeçmiş"
-  portfolio:  "Portfolyo"
-</i18n>

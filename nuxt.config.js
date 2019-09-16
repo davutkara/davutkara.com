@@ -67,10 +67,31 @@ module.exports = {
       fallbackLocale: 'en',
       messages: {
         en: {
-          welcome: 'Welcome'
+          'job-title': 'Information Systems Engineer',
+          resume: 'Resume',
+          portfolio: 'Portfolio',
+          copyright:
+            'All the content created by Davut KARA on this website can be used and shared with giving reference.',
+          'open-source-message': 'This website supports open source',
+          'source-codes': 'Source Codes',
+          'how-to-made': `Made with,
+            <strong>NuxtJS</strong>,
+            <strong>Buefy</strong>,
+            served on
+            <strong>Netlify</strong>`
         },
         tr: {
-          welcome: 'Hoşgeldiniz'
+          'job-title': 'Bilişim Sistemleri Mühendisi',
+          resume: 'Özgeçmiş',
+          portfolio: 'Portfolyo',
+          copyright:
+            'Bu websitesinde, Davut KARA tarafindan üretilmiş tüm içerikler, referans verilerek kullanılabilir ve paylaşılabilir.',
+          'open-source-message': 'Bu websitesi açık kaynaklıdır.',
+          'source-codes': 'Kaynak Kodları',
+          'how-to-made': `<strong>NuxtJS</strong>,
+            <strong>Buefy</strong>
+            kullanıldı
+            <strong>Netlify</strong> ile barındırıldı.`
         }
       },
       vueI18nLoader: true
@@ -107,11 +128,6 @@ module.exports = {
         config.module.rules.push({
           test: /\.(md)$/,
           use: 'raw-loader'
-        })
-        config.module.rules.push({
-          resourceQuery: /blockType=i18n/,
-          type: 'javascript/auto',
-          loader: ['@kazupon/vue-i18n-loader', 'yaml-loader']
         })
       }
     }
