@@ -125,7 +125,8 @@ export default {
   name: 'Resume',
   filters: {
     monthAndYear(date) {
-      return moment(date).format('MMMM YYYY')
+      if (date) return moment(date).format('MMMM YYYY')
+      else this.$t('now')
     },
     year(date) {
       return moment(date).format('YYYY')

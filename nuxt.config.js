@@ -78,7 +78,8 @@ module.exports = {
             <strong>NuxtJS</strong>,
             <strong>Buefy</strong>,
             served on
-            <strong>Netlify</strong>`
+            <strong>Netlify</strong>`,
+          now: 'Now'
         },
         tr: {
           'job-title': 'Bilişim Sistemleri Mühendisi',
@@ -91,7 +92,8 @@ module.exports = {
           'how-to-made': `<strong>NuxtJS</strong>,
             <strong>Buefy</strong>
             kullanıldı
-            <strong>Netlify</strong> ile barındırıldı.`
+            <strong>Netlify</strong> ile barındırıldı.`,
+          now: 'Şuan'
         }
       },
       vueI18nLoader: true
