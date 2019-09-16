@@ -9,14 +9,14 @@
           Information Systems Engineer
         </p>
         <div class="buttons is-centered">
-          <router-link :to="switchLocalePath($i18n.locale,'resume')" class="button">
+          <router-link :to="localePath('index')" class="button">
             <span class="icon">
               <i class="mdi mdi-shape-plus" />
             </span>
             <span>CV</span>
           </router-link>
 
-          <router-link to="/portfolio" class="button">
+          <router-link :to="localePath('portfolio')" class="button">
             <span class="icon">
               <i class="mdi mdi-shape-plus" />
             </span>
