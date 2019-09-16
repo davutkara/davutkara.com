@@ -132,6 +132,11 @@ export default {
     }
   },
   computed: {
+    locale() {
+      const locale = this.$i18n.locale
+      moment.locale(locale)
+      return locale
+    },
     educations() {
       return {
         title: this.data['education-title'],
@@ -170,6 +175,11 @@ export default {
         title: this.data['awards-title'],
         list: this.data['awards-list']
       }
+    }
+  },
+  watch: {
+    locale(locale) {
+      //
     }
   },
   async asyncData({ app, $axios }) {

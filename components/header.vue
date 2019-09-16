@@ -5,22 +5,20 @@
         <p class="title">
           Davut KARA
         </p>
-        <p class="subtitle">
-          Information Systems Engineer
-        </p>
+        <p class="subtitle" v-text="$t('job-title')" />
         <div class="buttons is-centered">
           <router-link :to="localePath('index')" class="button">
             <span class="icon">
               <i class="mdi mdi-shape-plus" />
             </span>
-            <span>CV</span>
+            <span v-text="$t('resume')" />
           </router-link>
 
           <router-link :to="localePath('portfolio')" class="button">
             <span class="icon">
               <i class="mdi mdi-shape-plus" />
             </span>
-            <span>Portfolio</span>
+            <span v-text="$t('portfolio')" />
           </router-link>
 
           <a class="button" @click="sendWarning('Under construction.')">
@@ -74,5 +72,13 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<i18n>
+en: 
+  job-title:  "Information Systems Engineer"
+  resume: "Resume"
+  portfolio:  "Portfolio"
+tr:
+  job-title:  "Bilişim Sistemleri Mühendisi"
+  resume: "Özgeçmiş"
+  portfolio:  "Portfolyo"
+</i18n>

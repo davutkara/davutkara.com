@@ -72,7 +72,8 @@ module.exports = {
         tr: {
           welcome: 'Hoşgeldiniz'
         }
-      }
+      },
+      vueI18nLoader: true
     }
   },
   /*
@@ -106,6 +107,11 @@ module.exports = {
         config.module.rules.push({
           test: /\.(md)$/,
           use: 'raw-loader'
+        })
+        config.module.rules.push({
+          resourceQuery: /blockType=i18n/,
+          type: 'javascript/auto',
+          loader: ['@kazupon/vue-i18n-loader', 'yaml-loader']
         })
       }
     }
