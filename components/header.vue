@@ -9,7 +9,7 @@
           Information Systems Engineer
         </p>
         <div class="buttons is-centered">
-          <router-link to="/" class="button">
+          <router-link :to="switchLocalePath($i18n.locale,'resume')" class="button">
             <span class="icon">
               <i class="mdi mdi-shape-plus" />
             </span>
