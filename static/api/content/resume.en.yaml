@@ -47,7 +47,7 @@ experience-list:
       - line: >-
           Trie-Search algorithm was applied to find institution and
           organizations in articles, compatible with Turkish language
-      - line: sed Zemberek-NLP to finding Turkish root words.
+      - line: Used Zemberek-NLP to finding Turkish root words.
     location: 'Ankara, Turkey'
     position: INFORMATION SYSTEMS ENGINEERING INTERN
     startDate: 2018-07-14T15:07:05.590Z
