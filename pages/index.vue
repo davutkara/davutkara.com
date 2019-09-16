@@ -192,6 +192,9 @@ export default {
       en: '/resume',
       tr: '/ozgecmis'
     }
+  },
+  head() {
+    return this.$nuxtI18nSeo()
   }
 }
 </script>

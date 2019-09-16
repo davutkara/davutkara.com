@@ -51,7 +51,16 @@ module.exports = {
     'nuxt-i18n'
   ],
   i18n: {
-    locales: ['en', 'tr'],
+    locales: [
+      {
+        code: 'en',
+        iso: 'en'
+      },
+      {
+        code: 'tr',
+        iso: 'tr-TR'
+      }
+    ],
     defaultLocale: 'en',
     vueI18n: {
       seo: true,
