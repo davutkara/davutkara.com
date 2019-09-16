@@ -1,6 +1,5 @@
 <template>
   <div @click="$windowSize.resize()">
-    <header-cmp />
     <section class="section main-icerik">
       <div
         :class="{container: true,'container-plr': $windowSize ? $windowSize.breakpoints.sm : true, 'is-narrow':$windowSize ? $windowSize.breakpoints.sm : true }"
@@ -119,13 +118,11 @@
 
 <script>
 import moment from 'moment'
-import headerCmp from '~/components/header.vue'
 const yaml = require('js-yaml')
 
 export default {
   layout: 'default',
   name: 'Resume',
-  components: { headerCmp },
   filters: {
     monthAndYear(date) {
       return moment(date).format('MMMM YYYY')

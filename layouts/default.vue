@@ -1,6 +1,8 @@
 <template>
   <div>
+    <header-cmp />
     <nuxt />
+    <footer-cmp />
   </div>
 </template>
 
@@ -21,7 +23,10 @@
 
 
 <script>
+import headerCmp from '@/components/header.vue'
+import footerCmp from '@/components/footer.vue'
 export default {
+  components: { headerCmp, footerCmp },
   data() {
     return {
       items: [

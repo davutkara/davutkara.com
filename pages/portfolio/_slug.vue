@@ -1,6 +1,5 @@
 <template>
   <div>
-    <header-cmp />
     <section class="section main-icerik">
       <div class="container is-narrowed">
         <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="true" />
@@ -16,7 +15,6 @@
         </article>
       </div>
     </section>
-    <footer-cmp />
   </div>
 </template>
 
@@ -25,9 +23,6 @@
 <script>
 import matter from 'gray-matter'
 import Markdown from 'markdown-it'
-import headerCmp from '~/components/header.vue'
-import footerCmp from '~/components/footerCmp.vue'
-
 const md = new Markdown({
   html: true,
   linkify: true,
@@ -35,7 +30,6 @@ const md = new Markdown({
 })
 export default {
   layout: 'resume',
-  components: { headerCmp, footerCmp },
   computed: {
     isLoading: function() {
       return this.context[this.lang] === undefined

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <header-cmp />
     <section class="section main-icerik">
       <div class="container is-narrowed">
         <div v-for="(project,link) in context.data" :key="link" class="box">
@@ -29,20 +28,16 @@
         </div>
       </div>
     </section>
-    <footer-cmp />
   </div>
 </template>
 
 
 <script>
 import matter from 'gray-matter'
-import headerCmp from '~/components/header.vue'
-import footerCmp from '~/components/footerCmp.vue'
 import list from '~/static/api/pages/portfolio/list'
 
 export default {
   layout: 'resume',
-  components: { headerCmp, footerCmp },
   filters: {
     monthName: function(month) {
       if (month === 1) return 'January'
