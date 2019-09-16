@@ -123,7 +123,8 @@ import headerCmp from '~/components/header.vue'
 const yaml = require('js-yaml')
 
 export default {
-  layout: 'resume-page',
+  layout: "default",
+  name: 'resume',
   components: { headerCmp },
   filters: {
     monthAndYear(date) {
