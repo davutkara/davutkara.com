@@ -1,4 +1,4 @@
 /*
   Access-Control-Allow-Origin: https://davutkara.com
 # Redirects from what the browser requests to what we serve
-/              /resume
+/         /resume              301
