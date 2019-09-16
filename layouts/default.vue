@@ -37,6 +37,12 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    if (process.client) {
+      const html = document.documentElement // returns the html tag
+      html.setAttribute('lang', this.$i18n.locale)
+    }
   }
 }
 </script>
