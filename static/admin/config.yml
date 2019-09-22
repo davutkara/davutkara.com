@@ -6,6 +6,40 @@ publish_mode: editorial_workflow
 media_folder: 'static/images/uploads' # Media files will be stored in the repo under images/uploads
 public_folder: '/images/uploads'
 collections:
+  - name: 'blog-tr'
+    label: 'Türkçe Blog'
+    create: true
+    folder: 'static/api/content/blog-tr'
+    slug: '{{fields.slug}}'
+    fields:
+      - label: 'Blog Türü'
+        name: 'type'
+        widget: 'select'
+        options:
+          - { label: 'Bilişim Hakkında', value: 'ABOUT_IT' }
+          - { label: 'Kişisel Şeyler', value: 'ABOUT_PERSONAL' }
+          - { label: 'Paylaşım', value: 'FEED' }
+          - { label: 'Sözler', value: 'QUOTE' }
+      - { label: 'Başlık', name: 'title', widget: 'string', required: true }
+      - { label: 'URL Slug', name: 'slug', widget: 'string', required: true }
+      - label: 'Ön Görsel'
+        name: 'thumbnail'
+        widget: 'image'
+        required: false
+      - {
+          label: 'content',
+          name: 'content',
+          widget: 'markdown',
+          required: false,
+        }
+      - { label: 'author', name: 'author', widget: 'string', required: false }
+      - label: 'links'
+        name: 'Bağlantılar'
+        widget: 'list'
+        required: false
+        fields:
+          - { label: Link Adı, name: name, widget: string }
+          - { label: Link URL, name: url, widget: string }
   - label: 'Pages'
     name: 'pages'
     preview_path: resume/
