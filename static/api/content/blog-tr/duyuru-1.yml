@@ -1,7 +1,0 @@
-type: FEED
-title: Duyuru
-slug: duyuru-1
-content: Duyuru test 1
-Bağlantılar:
-  - name: link1
-    url: 'http://davutkara.com'
