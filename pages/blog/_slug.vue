@@ -38,7 +38,7 @@ const md = new Markdown({
   linkify: true,
   typographer: true
 })
-
+import { mapMutations } from 'vuex'
 export default {
   computed: {
     title: function() {
@@ -47,6 +47,23 @@ export default {
     content: function() {
       const content = this.data.content
       return md.render(content)
+    },
+    englishVersionUrl: function() {
+      return this.data.englishVersionUrl
+    },
+    turkishVersionUrl: function() {
+      return this.data.englishVersionUrl
+    }
+  },
+  mounted() {
+    if (this.$i18n.locale === 'en') {
+      if (this.turkishVersionUrl === undefined) {
+        this.disableLang('tr')
+      }
+    } else if (this.$i18n.locale === 'tr') {
+      if (this.englishVersionUrl === undefined) {
+        this.disableLang('en')
+      }
     }
   },
   async asyncData({ app, $axios, route }) {
@@ -60,6 +77,12 @@ export default {
       }
     )
     return { data: yaml.safeLoad(data) }
+  },
+  methods: {
+    ...mapMutations('language', ['disableLang'])
+  },
+  destroyed() {
+    this.disableLang(undefined)
   }
 }
 </script>

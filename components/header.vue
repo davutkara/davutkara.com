@@ -28,22 +28,36 @@
         </div>
         <div class="is-clearfix" />
         <div class="buttons is-centered">
-          <nuxt-link
-            :class="{
+          <b-tooltip
+            label="No english version of the page"
+            :active="this.disabledLang === 'en'"
+            position="is-bottom"
+          >
+            <nuxt-link
+              :class="{
               button:true, 
               'is-danger': true,
               'is-outlined': $i18n.locale !== 'en'
             }"
-            :to="switchLocalePath('en')"
-          >English</nuxt-link>
-          <nuxt-link
-            :class="{
+              :disabled="this.disabledLang === 'en'"
+              :to="switchLocalePath('en')"
+            >English</nuxt-link>
+          </b-tooltip>
+          <b-tooltip
+            label="Sayfanın türkçe versiyonu mevcut değil"
+            :active="this.disabledLang === 'tr'"
+            position="is-bottom"
+          >
+            <nuxt-link
+              :class="{
               button:true, 
               'is-danger': true,
               'is-outlined': $i18n.locale !== 'tr'
             }"
-            :to="switchLocalePath('tr')"
-          >Türkçe</nuxt-link>
+              :disabled="this.disabledLang === 'tr'"
+              :to="switchLocalePath('tr')"
+            >Türkçe</nuxt-link>
+          </b-tooltip>
         </div>
       </div>
     </div>
@@ -51,8 +65,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HeaderCmp',
+  computed: {
+    ...mapState('language', ['disabledLang'])
+  },
   methods: {
     sendWarning: function(text) {
       this.$toast.open({
