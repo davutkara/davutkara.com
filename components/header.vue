@@ -21,35 +21,49 @@
             <span v-text="$t('portfolio')" />
           </router-link>
 
-          <a class="button" @click="sendWarning('Under construction.')">
+          <router-link :to="localePath('blog')" class="button">
             <span class="icon">
               <i class="mdi mdi-arrow-right-bold" />
             </span>
             <span>Blog</span>
-          </a>
+          </router-link>
         </div>
         <div class="is-clearfix" />
         <div class="buttons is-centered">
-          <nuxt-link
-            :class="{
-              button:true, 
-              'is-danger': true,
-              'is-outlined': $i18n.locale !== 'en'
-            }"
-            :to="switchLocalePath('en')"
+          <b-tooltip
+            label="No english version of the page"
+            :active="this.disabledLang === 'en'"
+            position="is-bottom"
           >
-            English
-          </nuxt-link>
-          <nuxt-link
-            :class="{
-              button:true, 
-              'is-danger': true,
-              'is-outlined': $i18n.locale !== 'tr'
-            }"
-            :to="switchLocalePath('tr')"
+            <nuxt-link
+              :class="{
+                button:true, 
+                'is-danger': true,
+                'is-outlined': $i18n.locale !== 'en'
+              }"
+              :disabled="this.disabledLang === 'en'"
+              :to="switchLocalePath('en')"
+            >
+              English
+            </nuxt-link>
+          </b-tooltip>
+          <b-tooltip
+            label="Sayfanın türkçe versiyonu mevcut değil"
+            :active="this.disabledLang === 'tr'"
+            position="is-bottom"
           >
-            Türkçe
-          </nuxt-link>
+            <nuxt-link
+              :class="{
+                button:true, 
+                'is-danger': true,
+                'is-outlined': $i18n.locale !== 'tr'
+              }"
+              :disabled="this.disabledLang === 'tr'"
+              :to="switchLocalePath('tr')"
+            >
+              Türkçe
+            </nuxt-link>
+          </b-tooltip>
         </div>
       </div>
     </div>
@@ -57,8 +71,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HeaderCmp',
+  computed: {
+    ...mapState('language', ['disabledLang'])
+  },
   methods: {
     sendWarning: function(text) {
       this.$toast.open({

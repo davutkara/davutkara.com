@@ -4,11 +4,15 @@ export const state = () => ({
       ? navigator.language === 'tr'
         ? 'tr'
         : 'en'
-      : 'en'
+      : 'en',
+  disabledLang: undefined
 })
 
 export const mutations = {
   set(state, text) {
     state.lang = text
+  },
+  disableLang(state, lang) {
+    state.disabledLang = lang
   }
 }
