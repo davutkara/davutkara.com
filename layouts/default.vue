@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="mainLayout">
     <header-cmp />
     <nuxt />
     <footer-cmp />
@@ -7,6 +7,9 @@
 </template>
 
 <style>
+#mainLayout {
+  background: #f5f5f5;
+}
 .main-icerik {
   margin-top: -5em;
   padding-bottom: 1em;
