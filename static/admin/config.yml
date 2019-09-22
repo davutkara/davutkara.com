@@ -30,6 +30,7 @@ collections:
         searchFields: ['title', 'slug']
         valueField: 'slug'
         displayFields: ['title', 'slug']
+        required: false
       - label: 'Ön Görsel'
         name: 'thumbnail'
         widget: 'image'
