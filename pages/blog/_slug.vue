@@ -51,7 +51,7 @@ export default {
   },
   async asyncData({ app, $axios, route }) {
     const data = await $axios.$get(
-      `/api/content/blog-${app.i18n.locale}/${route.params.slug}.yaml`,
+      `/api/content/blog-${app.i18n.locale}/${route.params.slug}.yml`,
       {
         headers: {
           'Access-Control-Allow-Origin': '*',
