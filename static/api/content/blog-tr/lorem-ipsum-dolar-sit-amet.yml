@@ -6,7 +6,11 @@ content: |-
   **Lorem ipsum dolor sit amet**, consectetur adipiscing elit. Maecenas et enim
     faucibus, sollicitudin augue et, gravida quam. Proin elit nisl, dictum sed
     laoreet vitae, imperdiet vel mauris. Mauris convallis est quis ante ultricies
-    aliquam. Nullam massa massa, commodo ut pellentesque ac, efficitur a ligula.
+    aliquam. 
+    
+    <!-- more -->
+
+    Nullam massa massa, commodo ut pellentesque ac, efficitur a ligula.
     Aenean cursus tristique accumsan. Donec fringilla orci aliquet, pharetra nulla
     sed, lobortis ligula.
 
@@ -18,6 +22,6 @@ content: |-
 
      Quisque eu felis eu eros condimentum euismod a eu dui. Maecenas rhoncus nulla quis tortor posuere egestas. Nunc auctor diam vitae mi imperdiet faucibus.
 author: John Doe
-Bağlantılar:
+links:
   - name: google
     url: 'https://google.com'

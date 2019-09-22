@@ -8,8 +8,8 @@
           <div class="hero-body">
             <div class="container">
               <h1 class="title">
-                <i class="fa fa-bell-o"></i>
-                {{title}}
+                <i class="fa fa-bell-o" />
+                {{ title }}
               </h1>
               <span class="tag is-black is-medium is-rounded">Kişisel Yazılar</span>
             </div>
@@ -19,7 +19,7 @@
         <!-- START ARTICLE -->
         <div class="card article">
           <div class="card-content">
-            <div class="content article-body" v-html="content"></div>
+            <div class="content article-body" v-html="content" />
           </div>
         </div>
         <!-- END ARTICLE -->

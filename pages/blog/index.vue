@@ -2,138 +2,154 @@
   <div
     :class="{container: true,'container-plr': $windowSize ? $windowSize.breakpoints.sm : true, 'is-narrow':$windowSize ? $windowSize.breakpoints.sm : true }"
   >
-    <div class="tabs is-toggle is-fullwidth">
-      <ul>
-        <li class="is-active">
-          <a>
-            <span class="icon is-small">
-              <i class="fas fa-image" aria-hidden="true"></i>
-            </span>
-            <span>Bilişim Hakkında</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <span class="icon is-small">
-              <i class="fas fa-music" aria-hidden="true"></i>
-            </span>
-            <span>Kişisel Yazılar</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <span class="icon is-small">
-              <i class="fas fa-film" aria-hidden="true"></i>
-            </span>
-            <span>Sözler</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <span class="icon is-small">
-              <i class="far fa-file-alt" aria-hidden="true"></i>
-            </span>
-            <span>Paylaşımlar</span>
-          </a>
-        </li>
-      </ul>
+    <div class="toTop buttons is-centered">
+      <div
+        :class="{
+          button : true,
+          'is-light': true,
+          'is-outlined': !selected.includes('ABOUT_IT')
+        }"
+        @click="select('ABOUT_IT')"
+      >
+        <span v-text="$t('ABOUT_IT')" />
+      </div>
+
+      <div
+        :class="{
+          button : true,
+          'is-light': true,
+          'is-outlined': !selected.includes('ABOUT_PERSONAL')
+        }"
+        @click="select('ABOUT_PERSONAL')"
+      >
+        <span v-text="$t('ABOUT_PERSONAL')" />
+      </div>
+
+      <div
+        :class="{
+          button : true,
+          'is-light': true,
+          'is-outlined': !selected.includes('FEED')
+        }"
+        @click="select('FEED')"
+      >
+        <span v-text="$t('FEED')" />
+      </div>
+
+      <div
+        :class="{
+          button : true,
+          'is-light': true,
+          'is-outlined': !selected.includes('QUOTE')
+        }"
+        @click="select('QUOTE')"
+      >
+        <span v-text="$t('QUOTE')" />
+      </div>
     </div>
-    <div class="columns is-multiline is-mobile">
-      <div class="column is-one-quarter" v-for="k in [0,1,2,3,4,5,6,7,8]" :key="k">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
+
+    <div class="columns is-multiline">
+      <template v-for="({type,title, content, slug, thumbnail, author, links},index) in list">
+        <template v-if="selected.includes(type)">
+          <div v-if="type==='ABOUT_IT' || type === 'ABOUT_PERSONAL'" :key="index" class="column is-one-third">
+            <b-article :title="title" :description="content" :slug="`/${$i18n.locale}/blog/${slug}`" :thumbnail="thumbnail" />
           </div>
-          <div class="card-content">
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris.
-              <a>@bulmaio</a>.
-              <a href="#">#css</a>
-              <a href="#">#responsive</a>
-              <br />
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            </div>
+          <div v-else-if="type==='FEED'" :key="index" class="column is-one-quarter">
+            <feed :title="title" :description="content" :author="author" :links="links" :slug="`/${$i18n.locale}/blog/${slug}`" />
           </div>
-        </div>
+          <div v-else-if="type==='QUOTE'" :key="index" class="column">
+            <quote :title="title" :author="author" :links="links" :slug="`/${$i18n.locale}/blog/${slug}`" />       
+          </div>
+        </template>
+      </template>
+   
+      <div v-show="list.length < 1 || hasPost < 1" class="column">
+        <quote :title="$t('NO_POST')" />   
       </div>
-      <div class="column is-one-quarter">
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">Component</p>
-            <a href="#" class="card-header-icon" aria-label="more options">
-              <span class="icon">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
-              </span>
-            </a>
-          </header>
-          <div class="card-content">
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-              <a
-                href="#"
-              >@bulmaio</a>.
-              <a href="#">#css</a>
-              <a href="#">#responsive</a>
-              <br />
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            </div>
-          </div>
-          <footer class="card-footer">
-            <a href="#" class="card-footer-item">Save</a>
-            <a href="#" class="card-footer-item">Edit</a>
-            <a href="#" class="card-footer-item">Delete</a>
-          </footer>
-        </div>
+   
+      <div v-show="selected.length < 1" class="column">
+        <quote :title="$t('CHOOSE_A_CATEGORY')" />   
       </div>
-      <div class="column">
-        <router-link to="/blog/123">
-          <div class="card">
-            <div class="card-content">
-              <p
-                class="title"
-              >“There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”</p>
-              <p class="subtitle">Jeff Atwood</p>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <span>
-                  View on
-                  <a
-                    href="https://twitter.com/codinghorror/status/506010907021828096"
-                  >Twitter</a>
-                </span>
-              </p>
-              <p class="card-footer-item">
-                <span>
-                  Share on
-                  <a href="#">Facebook</a>
-                </span>
-              </p>
-            </footer>
-          </div>
-        </router-link>
-      </div>
+    </div>
+  </div>
+</template>
     </div>
   </div>
 </template>
 
 <script>
+import Markdown from 'markdown-it'
+import bArticle from '@/components/cards/article.vue'
+import feed from '@/components/cards/feed.vue'
+import quote from '@/components/cards/quote.vue'
+const yaml = require('js-yaml')
+/* eslint-disable */
 export default {
+  components: {
+    bArticle,
+    feed,
+    quote
+  },
   layout: 'default',
   nuxtI18n: {
     paths: {
       en: '/blog',
       tr: '/blog'
     }
+  },
+  computed:{
+    hasPost(){
+      let posts = this.list.filter(({type}) => this.selected.includes(type))
+      return posts.length;
+    }
+  },
+  data(){
+    return {
+      selected: ['ABOUT_IT', 'ABOUT_PERSONAL', 'FEED', 'QUOTE']
+    }
+  },
+  methods:{
+    select (key) {
+      if(this.selected.includes(key))
+        this.selected.splice(this.selected.indexOf(key),1)
+      else 
+        this.selected.push(key)
+    }
+  },
+  async asyncData({app}) {
+    if (process.server) {
+      const fs = require('fs')
+      const path = require('path')
+      const md = new Markdown({
+        html: true,
+        linkify: true,
+        typographer: true
+      })
+      let list = []
+      const folderPath = process.cwd() + `/static/api/content/blog-${app.i18n.locale}`
+      const files = await fs.readdirSync(folderPath)
+
+      let fileNumber = files.length
+
+      while (fileNumber--) {
+        const file = files[fileNumber]
+        if (path.extname(file) === '.yml') {
+          let content = yaml.safeLoad(
+            await fs.readFileSync(folderPath + '/' + file, 'utf8')
+          )
+          if(content.content !== undefined)
+          content.content = md.render(content.content.split("<!-- more -->")[0])
+          list.push(content)
+        }
+      }
+      return { list }
+    }
   }
 }
 </script>
 
 <style>
-.tabs {
+.toTop {
   margin-top: -8vw;
 }
 .tabs li {
