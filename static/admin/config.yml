@@ -9,6 +9,7 @@ collections:
   - name: 'blog-tr'
     label: 'Türkçe Blog'
     create: true
+    format: 'yaml'
     folder: 'static/api/content/blog-tr'
     slug: '{{fields.slug}}'
     fields:
@@ -22,6 +23,14 @@ collections:
           - { label: 'Sözler', value: 'QUOTE' }
       - { label: 'Başlık', name: 'title', widget: 'string', required: true }
       - { label: 'URL Slug', name: 'slug', widget: 'string', required: true }
+      - label: 'İngilizce Versiyonu'
+        name: 'englishVersionUrl'
+        widget: 'relation'
+        collection: 'blog-en'
+        searchFields: ['title', 'slug']
+        valueField: 'slug'
+        displayFields: ['title', 'slug']
+        required: false
       - label: 'Ön Görsel'
         name: 'thumbnail'
         widget: 'image'
