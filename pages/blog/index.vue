@@ -107,6 +107,7 @@ export default {
     }
   },
   async asyncData({ app }) {
+    const list = []
     if (process.server) {
       const fs = require('fs')
       const path = require('path')
@@ -115,7 +116,6 @@ export default {
         linkify: true,
         typographer: true
       })
-      const list = []
       const folderPath =
         process.cwd() + `/static/api/content/blog-${app.i18n.locale}`
       const files = await fs.readdirSync(folderPath)
@@ -135,8 +135,9 @@ export default {
           list.push(content)
         }
       }
-      return { list }
     }
+
+    return { list }
   },
   methods: {
     select(key) {
