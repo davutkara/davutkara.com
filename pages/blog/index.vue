@@ -73,9 +73,7 @@
     </div>
   </div>
 </template>
-    </div>
-  </div>
-</template>
+
 
 <script>
 import Markdown from 'markdown-it'
@@ -83,7 +81,7 @@ import bArticle from '@/components/cards/article.vue'
 import feed from '@/components/cards/feed.vue'
 import quote from '@/components/cards/quote.vue'
 const yaml = require('js-yaml')
-/* eslint-disable */
+
 export default {
   components: {
     bArticle,
@@ -97,26 +95,18 @@ export default {
       tr: '/blog'
     }
   },
-  computed:{
-    hasPost(){
-      let posts = this.list.filter(({type}) => this.selected.includes(type))
-      return posts.length;
-    }
-  },
-  data(){
+  data() {
     return {
       selected: ['ABOUT_IT', 'ABOUT_PERSONAL', 'FEED', 'QUOTE']
     }
   },
-  methods:{
-    select (key) {
-      if(this.selected.includes(key))
-        this.selected.splice(this.selected.indexOf(key),1)
-      else 
-        this.selected.push(key)
+  computed: {
+    hasPost() {
+      const posts = this.list.filter(({ type }) => this.selected.includes(type))
+      return posts.length
     }
   },
-  async asyncData({app}) {
+  async asyncData({ app }) {
     if (process.server) {
       const fs = require('fs')
       const path = require('path')
@@ -125,8 +115,9 @@ export default {
         linkify: true,
         typographer: true
       })
-      let list = []
-      const folderPath = process.cwd() + `/static/api/content/blog-${app.i18n.locale}`
+      const list = []
+      const folderPath =
+        process.cwd() + `/static/api/content/blog-${app.i18n.locale}`
       const files = await fs.readdirSync(folderPath)
 
       let fileNumber = files.length
@@ -134,15 +125,24 @@ export default {
       while (fileNumber--) {
         const file = files[fileNumber]
         if (path.extname(file) === '.yml') {
-          let content = yaml.safeLoad(
+          const content = yaml.safeLoad(
             await fs.readFileSync(folderPath + '/' + file, 'utf8')
           )
-          if(content.content !== undefined)
-          content.content = md.render(content.content.split("<!-- more -->")[0])
+          if (content.content !== undefined)
+            content.content = md.render(
+              content.content.split('<!-- more -->')[0]
+            )
           list.push(content)
         }
       }
       return { list }
+    }
+  },
+  methods: {
+    select(key) {
+      if (this.selected.includes(key))
+        this.selected.splice(this.selected.indexOf(key), 1)
+      else this.selected.push(key)
     }
   }
 }
