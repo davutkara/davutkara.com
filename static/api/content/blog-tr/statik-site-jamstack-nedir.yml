@@ -1,0 +1,15 @@
+type: ABOUT_IT
+title: Statik Siteler ve JAMStack Üzerine
+slug: statik-site-jamstack-nedir
+date: 2019-09-22T18:54:38.434Z
+content: >-
+  Statik dünyasına merhaba deyin, yaklaşık 3 yıl aradan sonra blogu tekrar aktif
+  etmeye karar verdim. Bu siteyi 2013 Temmuz da açmıştım yaklaşık 6 yıl oldu.
+  İlk olarak wordpress kurarak ve kendi temalarımı kodlayarak siteyi uzun bir
+  süre kullandım, yeri geldi hosting aldım yeri geldi sunucu tuttum, ama hiç
+  birisi şuan ki kadar rahat olmadı, wordpress kullanırken arada bir database
+  established hatası verir, bazen sunucuda ki loglar şişer, sürekli bakım
+  isterdi, üzerine birde ayda 10$ gibi bir ücret ile getirisiz götürü olurdu,
+  son 1 yıldır böyle bir derdim yok çünkü statik siteye geçtim, bu ilk yazıda da
+  biraz statik sitenin gücünden, JAMStack dedikleri şeyden, bir veritabanına ve
+  bir sunucuya ne kadar ihtiyacımız var bunlardan bahsetmek istiyorum.
