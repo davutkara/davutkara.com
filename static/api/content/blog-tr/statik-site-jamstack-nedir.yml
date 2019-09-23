@@ -4,12 +4,14 @@ slug: statik-site-jamstack-nedir
 date: 2019-09-22T18:54:38.434Z
 content: >-
   Statik dünyasına merhaba deyin, yaklaşık 3 yıl aradan sonra blogu tekrar aktif
-  etmeye karar verdim. Bu siteyi 2013 Temmuz da açmıştım yaklaşık 6 yıl oldu.
-  İlk olarak wordpress kurarak ve kendi temalarımı kodlayarak siteyi uzun bir
-  süre kullandım, yeri geldi hosting aldım yeri geldi sunucu tuttum, ama hiç
+  etmeye karar verdim. Bu siteyi 2013 Temmuz ayında açmıştım yaklaşık 6 yıl
+  oldu. İlk olarak wordpress kurarak ve kendi temalarımı kodlayarak siteyi uzun
+  bir süre kullandım, yeri geldi hosting aldım yeri geldi sunucu tuttum, ama hiç
   birisi şuan ki kadar rahat olmadı
 
+
   <!-- more -->
+
 
   Wordpress kullanırken arada bir database established hatası verir, bazen
   sunucuda ki loglar şişer, sürekli bakım isterdi, üzerine birde ayda 10$ gibi
@@ -17,3 +19,144 @@ content: >-
   statik siteye geçtim, bu ilk yazıda da biraz statik sitenin gücünden, JAMStack
   dedikleri şeyden, bir veritabanına ve bir sunucuya ne kadar ihtiyacımız var
   bunlardan bahsetmek istiyorum.
+
+
+  ## Neden veritabanına ihtiyaç duyarız ?
+
+
+  Veritabanları yapısal verileri tutmak için idealdir, aksi takdirde dosya
+  depolamaktan öteye gitmez, veritabanlarında asıl ihtiyacımız olan şeyler,
+  verileri sorgularla parçalamak birleştirmek, aynı yapıdaki verileri bir arada
+  tutarak redundancy (gereksiz fazlalığı) azaltmaktır. Nitekim bir çok konuda
+  işimize de yarar, ancak fark ettim ki veritabanları zaman zaman dosya
+  depolamak içinde kullanılıyor, aslında anlatmak istediğim veritabanı
+  gerekmeyen yerlerde veritabanı kullanmak, gereksiz yere bakım ve masraf
+  çıkarıyor. 
+
+
+  ## Wordpress vb CMS ler ne kadar gerekli ?
+
+
+  Wordpress gibi modüler içerik yönetim sistemleri, günümüzde sıkça kullanılıyor
+  hatta bugün wordpress en çok kullanılan cms dir. Bir çok işletme kurulumu ve
+  kullanımı hızlı olduğu için tercih ederler, aslında 3-4 senedir wordpress
+  temalarının ve eklentilerinin gelişmesi aynı zamanda wordpress in sosyal medya
+  sitelerine kadar her şekle sokulmasına talep olduğundan dolayı, wordpress in
+  complexity si (karmaşıklığı)  çok fazla artmış durumda. Karmaşıklık ise
+  maliyet ve zaman kaybı ile sonuçlanır. 
+
+
+  Örneğin bir esnafsınız ve işletmenizi tanıtmak amaçlı bir web sitesi açtırmak
+  istiyorsunuz, ihtiyacınız olan şey aslında basit bir sayfa bir adres ve
+  işletmeniz hakkında bir kaç bilgidir.  Bunu yapmanın en masrafsız yolu elinize
+  bir kağıt kalem alıp, istediğiniz şeyleri üzerine yazıp fotoğrafını çekip,
+  ücretsiz görsel barındırma hizmeti veren bir siteye fotoğrafı yükleyip,
+  alabildiğiniz en ucuz domaine (alanadı) fotoğrafınıza yönlendirmektir. Bu
+  şekilde sanırım yıl da 5₺ masraf ile işinizi görmüş olursunuz. Tabi burada
+  yapılabilecek en kötü senaryolardan birini anlattım.
+
+
+  Wordpress kullanırsanız en ucuz domain ve ucuz yıllık hosting ile min 70₺
+  civarı bir tutar oluyor, Ancak bu görünen masraflardan bir tanesi, çünkü
+  wordpress de güvenlik açıkları çıkabilir, veritabanı hataları oluşabilir,
+  dahası güzel bir tema satın almak isteyebilir, ekstra istekler ile özel şeyler
+  geliştirme ihtiyacı duyabilirsiniz. Bu masraflarda giderek artar.
+
+
+  Bu başlık ayrı bir yazının konusu olduğu için fazla uzatmak istemiyorum, bir
+  web sitesi yaparken, ihtiyaçlar iyi analiz edilmesinde fayda var, asıl
+  bağlamak istediğim nokta ise, wordpress in sandığınızdan daha fazla masraf
+  çıkarabileceği, bakım istediği ve kur kullan rahatına bak şeklinde
+  olmadığıdır, bunları da ilerde başka bir yazıda açıklayacağım.
+
+
+  ## İşi Client a yaptırmak
+
+
+  Günümüzde bilgisayarların işlemci kapasitesi arttı, artık her bilgisayar bir
+  sunucu olabilecek düzeyde, önceden 2GB ram ile idare ederken şimdi 16GB ram
+  yetiyor da artıyor. Klasik olarak client, server a bir istek yollar ve server
+  client a bir cevap döner, bu yöntem uzunca bir süre devam etti sonra baktılar
+  ki, server 1 taneyken client çoğaldıkça, server yanıt veremez duruma geldi,
+  (Erkekseniz teker teker gelin lan karikatürü.) Bu durumu aşmak için, server
+  dedi ki ben bana gelen aynı soruları kağıda yazıp kapıya asayım, aynı soruyu
+  soran cevabı hemen alıp gitsin beni uğraştırmasın ( bu durum cache e bir
+  örnek), bu güzel bir çözüm oldu, ama yine yetmedi. Dediler ki madem öyle
+  client larında biraz gelişmesiyle, clientlarda sunucuların yaptığı işleri
+  yapacak kapasitede olduğu için, artık server, soruya karşılık yöntemi dönüyor,
+  client da yöntemi uygulayarak cevabı buluyor. Bu sayede server cevabı bulmakla
+  uğraşmıyor, tıpkı soru çözmeyi öğreten bir öğretmen gibi, ben sana yöntemi
+  anlattım kendi sorunu artık kendin çöz diyor, ve server ın yükü hafifliyor. 
+
+
+  ## Statik siteler
+
+
+  Bundan önceki 3 başlıktan çıkaracağımız sonuç aslında, veritabanına her zaman
+  ihtiyaç duymadığımız, wordpress gibi kolaya kaçma yöntemlerinin aslında ilerde
+  başımıza derlet açtığını, işi client a yaptırmanın bize kolaylık sağlayacağını
+  öğrenmiş olduk. Yani statik sitelerde aşağı yukarı böyle çalışıyor, site
+  olabildiğince sunucusuz yapılmaya çalışılıyor, örneğin bir yazı sayfasında
+  yazılar veritabanından veya depolama alanından tekrar tekrar getirilmek
+  yerine, bir defa getiriliyor, ve tekrar güncellenene kadar o şekilde kalıyor.
+  Önceden olsaydı, statik siteler basma kalıp etkileşimi olmayan düz sayfalar
+  olarak karşımıza çıkardı, ancak artık javascriptin ve destekçi kütüphanelerin
+  bir hayli gelişmesiyle, statik sitelerin yeteri kadar dinamik olduğunu
+  görebilirsiniz. Ben kişisel sitemde, yazılarımı bir yaml dosyasında tutuyor,
+  ve yazıları sorgulamak istediğimde veritabanı içereyen bir sunucuya sorgu
+  atmıyor, direk yazıyı statik olarak servis ettiğim lokasyona istek atıyorum ve
+  cevabı bu şekilde alıyorum. Bu sayede veritabanına ihtiyaç duymuyorum. Mesela
+  yazılarımda geçen kelime sayısını hesaplamak istersem, eğer veritabanım
+  olsaydı tabiki sorgu yazmam gerekcekti, şimdi ise her bir yazıma request atıp,
+  dönen sonuçları client da tutup her kelimeyi saydırabilirim, bu sayede yine
+  sunucusuz olarak isteğime erişmiş olurum.
+
+
+  > Ters köşe yapmak isteyen arkadaşlara ön cevabım evet benim 10 bin tane yazım
+  yok, ve tabi ki 10 bin tane sorgu atmayacağım. 
+
+
+  Client ın da canını sıkmak istemiyorsak, ( bu fan niye çalışıp duruyo ya!) bu
+  işlemi sitatik sitenin üretimi esnasında da yapabiliriz bu sayede cevabı da
+  statik olarak tutmuş oluruz.
+
+
+  ## JAMStack Nedir ?
+
+
+  JavaScript, API,ve prerendered Markup, ın birleşiminden oluşan bir yapı, yani
+  adam diyor ki elinde önceden üretilmiş bir şablon olacak, API ile aldığın
+  dataları javascript ile şablonuna koyacaksın. Bu sayede statik olan ama
+  dinamik gibi görünen bir şey elde edeceksin. ( Şey dedim çünkü web artık web
+  sayfalarından öte bir konuma geçti.) Bunun faydaları olarakta performansın
+  daha iyi olduğunu, ucuz kolay ölçeklenen, yüksek güvenlikli, daha kolay
+  geliştirmeyi sıralıyor.
+
+
+  Zaten ortadan sunucuya kaldırınca bir çok problemde ortadan kalkıyor. 
+
+
+  Yöntemler
+
+
+  Her şeyi git de yaşat. Aslına bakarsanız bu şart değil ama git bir çok
+  kolaylık sağlıyor, 
+
+
+  Tüm projeyi CDN de tut. Sunucu yerine tüm siteyi CDN de tutarak, sunucu
+  masrafından kurtuluyorsun, daha hızlı ve performanslı oluyor. 
+
+
+  Modern teknolojileri kullan: React, Vue vb kütüphaneler.
+
+
+  Üretimi otomatik hale getir: Scriptler yazarak, datanın güncellenmesini
+  otomaitk hale getirebilirsin.
+
+
+  Otomatik dağıtım: Aynı şekilde scriptler yazar, otomatik olarak siteyi cdn e
+  veya serve ettiğin sunucuya yollayabilrsin.
+
+
+  Anlık cache geçersizliği: CDN kullanarak cache i geçersiz kılabilirsin, bu
+  sayede yayınladığın yeni sürüm direk olarak herkese ulaşır.
