@@ -51,24 +51,44 @@
     <div class="columns is-multiline">
       <template v-for="({type,title, content, slug, thumbnail, author, links},index) in list">
         <template v-if="selected.includes(type)">
-          <div v-if="type==='ABOUT_IT' || type === 'ABOUT_PERSONAL'" :key="index" class="column is-one-third">
-            <b-article :title="title" :description="content" :slug="`/${$i18n.locale}/blog/${slug}`" :thumbnail="thumbnail" />
+          <div
+            v-if="type==='ABOUT_IT' || type === 'ABOUT_PERSONAL'"
+            :key="index"
+            class="column is-one-third"
+          >
+            <b-article
+              :title="title"
+              :description="content"
+              :slug="`/${$i18n.locale}/blog/${slug}`"
+              :thumbnail="thumbnail"
+            />
           </div>
           <div v-else-if="type==='FEED'" :key="index" class="column is-one-quarter">
-            <feed :title="title" :description="content" :author="author" :links="links" :slug="`/${$i18n.locale}/blog/${slug}`" />
+            <feed
+              :title="title"
+              :description="content"
+              :author="author"
+              :links="links"
+              :slug="`/${$i18n.locale}/blog/${slug}`"
+            />
           </div>
           <div v-else-if="type==='QUOTE'" :key="index" class="column">
-            <quote :title="title" :author="author" :links="links" :slug="`/${$i18n.locale}/blog/${slug}`" />       
+            <quote
+              :title="title"
+              :author="author"
+              :links="links"
+              :slug="`/${$i18n.locale}/blog/${slug}`"
+            />
           </div>
         </template>
       </template>
-   
+
       <div v-show="list.length < 1 || hasPost < 1" class="column">
-        <quote :title="$t('NO_POST')" />   
+        <quote :title="$t('NO_POST')" />
       </div>
-   
+
       <div v-show="selected.length < 1" class="column">
-        <quote :title="$t('CHOOSE_A_CATEGORY')" />   
+        <quote :title="$t('CHOOSE_A_CATEGORY')" />
       </div>
     </div>
   </div>
@@ -76,11 +96,9 @@
 
 
 <script>
-import Markdown from 'markdown-it'
 import bArticle from '@/components/cards/article.vue'
 import feed from '@/components/cards/feed.vue'
 import quote from '@/components/cards/quote.vue'
-const yaml = require('js-yaml')
 
 export default {
   components: {
@@ -106,36 +124,19 @@ export default {
       return posts.length
     }
   },
-  async asyncData({ app }) {
-    const list = []
-    if (process.server) {
-      const fs = require('fs')
-      const path = require('path')
-      const md = new Markdown({
-        html: true,
-        linkify: true,
-        typographer: true
-      })
-      const folderPath =
-        process.cwd() + `/static/api/content/blog-${app.i18n.locale}`
-      const files = await fs.readdirSync(folderPath)
+  async asyncData({ app, $axios }) {
+    let list = []
 
-      let fileNumber = files.length
-
-      while (fileNumber--) {
-        const file = files[fileNumber]
-        if (path.extname(file) === '.yml') {
-          const content = yaml.safeLoad(
-            await fs.readFileSync(folderPath + '/' + file, 'utf8')
-          )
-          if (content.content !== undefined)
-            content.content = md.render(
-              content.content.split('<!-- more -->')[0]
-            )
-          list.push(content)
+    try {
+      list = await $axios.$get(
+        `/api/content/blog-${app.i18n.locale}/list.json`,
+        {
+          headers: {
+            'Access-Control-Allow-Origin': '*'
+          }
         }
-      }
-    }
+      )
+    } catch (err) {}
 
     return { list }
   },

@@ -48,7 +48,8 @@ module.exports = {
     // Doc: https://buefy.github.io/#/documentation
     'nuxt-buefy',
     '@nuxtjs/pwa',
-    'nuxt-i18n'
+    'nuxt-i18n',
+    ['~/modules/createBlogList', { locales: ['en', 'tr'] }]
   ],
   i18n: {
     locales: [
