@@ -31,7 +31,7 @@ content: >-
   işimize de yarar, ancak fark ettim ki veritabanları zaman zaman dosya
   depolamak içinde kullanılıyor, aslında anlatmak istediğim veritabanı
   gerekmeyen yerlerde veritabanı kullanmak, gereksiz yere bakım ve masraf
-  çıkarıyor. 
+  çıkarıyor.
 
 
   ## Wordpress vb CMS ler ne kadar gerekli ?
@@ -43,7 +43,7 @@ content: >-
   temalarının ve eklentilerinin gelişmesi aynı zamanda wordpress in sosyal medya
   sitelerine kadar her şekle sokulmasına talep olduğundan dolayı, wordpress in
   complexity si (karmaşıklığı)  çok fazla artmış durumda. Karmaşıklık ise
-  maliyet ve zaman kaybı ile sonuçlanır. 
+  maliyet ve zaman kaybı ile sonuçlanır.
 
 
   Örneğin bir esnafsınız ve işletmenizi tanıtmak amaçlı bir web sitesi açtırmak
@@ -133,18 +133,18 @@ content: >-
   geliştirmeyi sıralıyor.
 
 
-  Zaten ortadan sunucuya kaldırınca bir çok problemde ortadan kalkıyor. 
+  Zaten ortadan sunucuya kaldırınca bir çok problemde ortadan kalkıyor.
 
 
   Yöntemler
 
 
   Her şeyi git de yaşat. Aslına bakarsanız bu şart değil ama git bir çok
-  kolaylık sağlıyor, 
+  kolaylık sağlıyor,
 
 
   Tüm projeyi CDN de tut. Sunucu yerine tüm siteyi CDN de tutarak, sunucu
-  masrafından kurtuluyorsun, daha hızlı ve performanslı oluyor. 
+  masrafından kurtuluyorsun, daha hızlı ve performanslı oluyor.
 
 
   Modern teknolojileri kullan: React, Vue vb kütüphaneler.
