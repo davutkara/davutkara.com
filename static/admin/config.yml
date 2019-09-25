@@ -52,7 +52,7 @@ collections:
           - { label: Link URL, name: url, widget: string }
   - label: 'Pages'
     name: 'pages'
-    preview_path: resume/
+    preview_path: tr/blog/{{slug}}?preview=true
     files:
       - label: 'Resume Page'
         name: 'resume'

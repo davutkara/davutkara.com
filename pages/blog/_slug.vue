@@ -39,6 +39,8 @@ const md = new Markdown({
   typographer: true
 })
 import { mapMutations } from 'vuex'
+import { URL, URLSearchParams } from 'url'
+import { decode as base64_decode } from 'universal-base64'
 export default {
   computed: {
     title: function() {
@@ -67,16 +69,37 @@ export default {
     }
   },
   async asyncData({ app, $axios, route }) {
+    const requestUrl = new URL($axios.defaults.baseURL + route.fullPath)
+    const preview = new URLSearchParams(requestUrl.search).get('preview')
+    $axios.interceptors.request.use(request => {
+      console.log('Starting Request', request)
+      return request
+    })
+
+    $axios.interceptors.response.use(response => {
+      console.log('Response:', response)
+      return response
+    })
     const data = await $axios.$get(
-      `/api/content/blog-${app.i18n.locale}/${route.params.slug}.yml`,
+      preview === 'true'
+        ? `https://api.github.com/repos/davutkara/davutkara.com/contents/static/api/content/blog-${
+            app.i18n.locale
+          }/${route.params.slug}.yml?ref=cms%2F${route.params.slug}`
+        : `/api/content/blog-${app.i18n.locale}/${route.params.slug}.yml`,
       {
         headers: {
           'Access-Control-Allow-Origin': '*',
-          Accept: 'application/x-yaml, text/yaml'
+          Accept: `application/x-yaml,text/yaml,${
+            preview === 'true' ? `application/json` : ''
+          }`
         }
       }
     )
-    return { data: yaml.safeLoad(data) }
+    let content
+    if (preview === 'true') {
+      content = base64_decode(data.content)
+    } else content = data
+    return { data: yaml.safeLoad(content) }
   },
   methods: {
     ...mapMutations('language', ['disableLang'])
