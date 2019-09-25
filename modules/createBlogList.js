@@ -9,7 +9,7 @@ const md = new Markdown({
 })
 
 export default function createBlogList({ locales }) {
-  this.nuxt.hook('render:before', async renderer => {
+  this.nuxt.hook('render:before', () => {
     locales.every(locale => createList(locale))
   })
 }
