@@ -39,7 +39,7 @@ const md = new Markdown({
   typographer: true
 })
 import { mapMutations } from 'vuex'
-import { URL, URLSearchParams } from 'url'
+const url_parse = require('url-parse')
 import { decode as base64_decode } from 'universal-base64'
 export default {
   computed: {
@@ -69,17 +69,9 @@ export default {
     }
   },
   async asyncData({ app, $axios, route }) {
-    const requestUrl = new URL($axios.defaults.baseURL + route.fullPath)
-    const preview = new URLSearchParams(requestUrl.search).get('preview')
-    $axios.interceptors.request.use(request => {
-      console.log('Starting Request', request)
-      return request
-    })
+    const preview = url_parse($axios.defaults.baseURL + route.fullPath, true)
+      .query.preview
 
-    $axios.interceptors.response.use(response => {
-      console.log('Response:', response)
-      return response
-    })
     const data = await $axios.$get(
       preview === 'true'
         ? `https://api.github.com/repos/davutkara/davutkara.com/contents/static/api/content/blog-${
