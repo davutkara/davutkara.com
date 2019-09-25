@@ -12,6 +12,22 @@ export default function createBlogList({ locales }) {
   this.nuxt.hook('render:before', () => {
     locales.every(locale => createList(locale))
   })
+  this.nuxt.hook('generate:before', async ({ options }) => {
+    let localesLength = locales.length
+    while (localesLength--) {
+      const locale = locales[localesLength]
+      const folderPath = process.cwd() + `/static/api/content/blog-${locale}`
+
+      let list = await fs.readFileSync(`${folderPath}/list.json`, 'utf8')
+      if (list) {
+        list = JSON.parse(list)
+      }
+      const routes = list.map(
+        entry => (locale !== 'en' ? `/${locale}` : '') + `/blog/` + entry.slug
+      )
+      options.generate.routes = options.generate.routes.concat(routes)
+    }
+  })
 }
 
 async function createList(locale) {
