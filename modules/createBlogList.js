@@ -42,7 +42,8 @@ export default async function createBlogList({ locales }) {
         list = JSON.parse(list)
       }
       const routes = list.map(
-        entry => (locale !== 'en' ? `/${locale}` : '') + `/blog/` + entry.slug + `/`
+        entry =>
+          (locale !== 'en' ? `/${locale}` : '') + `/blog/` + entry.slug + `/`
       )
       options.generate.routes = options.generate.routes.concat(routes)
     }
