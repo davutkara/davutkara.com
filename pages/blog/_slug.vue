@@ -11,7 +11,7 @@
                 <i class="fa fa-bell-o" />
                 {{ title }}
               </h1>
-              <span class="tag is-black is-medium is-rounded">Kişisel Yazılar</span>
+              <span class="tag is-black is-medium is-rounded">{{$t(type)}}</span>
             </div>
           </div>
         </section>
@@ -45,6 +45,9 @@ export default {
   computed: {
     title: function() {
       return this.data.title
+    },
+    type: function() {
+      return this.data.type
     },
     content: function() {
       const content = this.data.content
