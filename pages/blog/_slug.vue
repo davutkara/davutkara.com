@@ -11,7 +11,7 @@
                 <i class="fa fa-bell-o" />
                 {{ title }}
               </h1>
-              <span class="tag is-black is-medium is-rounded">{{$t(type)}}</span>
+              <span class="tag is-black is-medium is-rounded">{{ $t(type) }}</span>
             </div>
           </div>
         </section>
@@ -40,8 +40,57 @@ const md = new Markdown({
 })
 import { mapMutations } from 'vuex'
 const url_parse = require('url-parse')
-import { decode as base64_decode } from 'universal-base64'
+import {
+  decode as base64_decode,
+  encode as base64_encode
+} from 'universal-base64'
+import striptags from 'striptags'
+import svg from '@/modules/svgGenerate'
 export default {
+  head() {
+    return {
+      title: this.metaTitle,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.metaDescription
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.metaTitle
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.metaDescription
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://davutkara.com' + this.$nuxt._route.fullPath
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content:
+            `data:image/svg+xml;base64,` +
+            base64_encode(
+              svg(this.title, {
+                title: this.$t(this.type),
+                width: 130
+              })
+            )
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: this.metaDescription
+        }
+      ]
+    }
+  },
   computed: {
     title: function() {
       return this.data.title
@@ -51,14 +100,36 @@ export default {
     },
     content: function() {
       const content = this.data.content
-      if(content)      
-      return md.render(content)
+      if (content) return md.render(content)
+    },
+    metaTitle() {
+      return this.title + ' | Davut KARA'
+    },
+    metaDescription: function() {
+      return striptags(this.content)
+        .split(' ')
+        .reduce((str, word, i, arr) => {
+          if (str.substr(-9) === '#FINISHED') return str
+          if (str.length + word.length + 1 < 120) str += word + ' '
+          else str += '#FINISHED'
+          return str
+        }, '')
+        .replace('#FINISHED', '...')
+        .replace(/[\"\']/g, '')
     },
     englishVersionUrl: function() {
       return this.data.englishVersionUrl
     },
     turkishVersionUrl: function() {
       return this.data.englishVersionUrl
+    },
+    svgTypeTextSize() {
+      return {
+        'Bilişim Hakkında': 150,
+        'Kişisel Yazılar': 130,
+        Paylaşımlar: 110,
+        Sözler: 75
+      }
     }
   },
   mounted() {
@@ -98,6 +169,8 @@ export default {
     return { data: yaml.safeLoad(content) }
   },
   methods: {
+    svg,
+    base64_encode,
     ...mapMutations('language', ['disableLang'])
   },
   destroyed() {
