@@ -48,6 +48,7 @@ export default {
     },
     content: function() {
       const content = this.data.content
+      if(content)      
       return md.render(content)
     },
     englishVersionUrl: function() {
