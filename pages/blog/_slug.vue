@@ -104,7 +104,7 @@ export default {
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: this.metaDescription
+          content: this.title
         }
       ]
     }
