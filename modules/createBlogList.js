@@ -1,4 +1,5 @@
 import Markdown from 'markdown-it'
+import svgGenerate from './svgGenerate'
 const fs = require('fs')
 const path = require('path')
 const yaml = require('js-yaml')
@@ -7,10 +8,22 @@ const md = new Markdown({
   linkify: true,
   typographer: true
 })
+const svgpng = require('svgpng')
+
+const svgTypeTextSize = {
+  'About IT': 100,
+  'Blog Posts': 110,
+  Feeds: 75,
+  Quotes: 80,
+  'Bilişim Hakkında': 150,
+  'Kişisel Yazılar': 130,
+  Paylaşımlar: 110,
+  Sözler: 75
+}
 
 export default function createBlogList({ locales }) {
-  this.nuxt.hook('render:before', () => {
-    locales.every(locale => createList(locale))
+  this.nuxt.hook('render:before', ({ options }) => {
+    locales.every(locale => createList(locale, options.i18n.vueI18n.messages))
   })
   this.nuxt.hook('generate:before', async ({ options }) => {
     let localesLength = locales.length
@@ -30,9 +43,10 @@ export default function createBlogList({ locales }) {
   })
 }
 
-async function createList(locale) {
+async function createList(locale, messages) {
   const list = []
   const folderPath = process.cwd() + `/static/api/content/blog-${locale}`
+  const uploadPath = process.cwd() + `/static/images/uploads/generated`
   const files = await fs.readdirSync(folderPath)
 
   let fileNumber = files.length
@@ -46,6 +60,24 @@ async function createList(locale) {
       if (content.content !== undefined)
         content.content = md.render(content.content.split('<!-- more -->')[0])
       list.push(content)
+
+      const svg = svgGenerate(content.title, {
+        title: messages[locale][content.type],
+        width: svgTypeTextSize[messages[locale][content.type]]
+      })
+
+      await fs.writeFileSync(`/tmp/${content.slug}.svg`, svg)
+
+      await svgpng(
+        `/tmp/${content.slug}.svg`,
+        `${uploadPath}/${content.slug}.png`,
+        {
+          size: {
+            width: 507,
+            height: 265
+          }
+        }
+      )
     }
   }
 

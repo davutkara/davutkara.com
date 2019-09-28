@@ -53,6 +53,7 @@
     "require-extension-hooks": "^0.3.3",
     "require-extension-hooks-babel": "^0.1.1",
     "require-extension-hooks-vue": "^2.0.0",
+    "svgpng": "^4.0.1",
     "vue-dompurify-html": "^2.1.0"
   }
 }

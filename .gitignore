@@ -84,3 +84,4 @@ dist
 sw.*
 
 static/api/content/**/list.json
+static/images/uploads/generated

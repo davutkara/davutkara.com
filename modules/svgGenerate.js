@@ -1,4 +1,4 @@
-export default function svg(title, category) {
+export default function svg(title, category, responsive = true) {
   const wordLimitByLine = 4
 
   const titleArray = title.split(' ')
@@ -19,7 +19,11 @@ export default function svg(title, category) {
   return `
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 507 264">
+<svg xmlns="http://www.w3.org/2000/svg" ${
+    responsive
+      ? `preserveAspectRatio="none" viewBox="0 0 507 265"`
+      : `width="507" height="265`
+  }>
  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
   <defs>
      <linearGradient id="grad1"  gradientTransform="rotate(41)">
@@ -31,11 +35,11 @@ export default function svg(title, category) {
  
  <g>
   <title>Svg Test</title>
-  <rect id="svg_2" height="264" width="5072" y="-0.000005" x="-2.000015" fill="url(#grad1)"/>
+  <rect id="svg_2" height="264" width="507" y="-0.000005" x="-2.000015" fill="url(#grad1)"/>
   <text 
   xml:space="preserve" 
     font-family='BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif' 
-    font-size="32" 
+    font-size="28" 
     id="svg_3" 
     font-weight="bold"     
     fill="#ffffff"
@@ -60,7 +64,7 @@ export default function svg(title, category) {
     font-family='BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif'
     font-size="16" 
     id="svg_6" 
-    y="${50 + lineCount * 10}%" x="63%"
+    y="${50 + lineCount * 5}%" x="63%"
     fill="#ffffff"
   >davutkara.com</text>
  </g>
