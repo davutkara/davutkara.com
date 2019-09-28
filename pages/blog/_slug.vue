@@ -74,14 +74,32 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content:
-            `data:image/svg+xml;base64,` +
-            base64_encode(
-              svg(this.title, {
-                title: this.$t(this.type),
-                width: 130
-              })
-            )
+          content: this.metaImage
+        },
+        {
+          hid: 'twitter:card',
+          property: 'twitter:card',
+          content: this.metaDescription
+        },
+        {
+          hid: 'twitter:site',
+          property: 'twitter:site',
+          content: '@bydavutkara'
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: this.metaTitle
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.metaDescription
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.metaImage
         },
         {
           hid: 'twitter:image:alt',
@@ -92,6 +110,9 @@ export default {
     }
   },
   computed: {
+    slug: function() {
+      return this.data.slug
+    },
     title: function() {
       return this.data.title
     },
@@ -123,13 +144,8 @@ export default {
     turkishVersionUrl: function() {
       return this.data.englishVersionUrl
     },
-    svgTypeTextSize() {
-      return {
-        'Bilişim Hakkında': 150,
-        'Kişisel Yazılar': 130,
-        Paylaşımlar: 110,
-        Sözler: 75
-      }
+    metaImage() {
+      return `https://davutkara.com/images/uploads/generated/${this.slug}.png`
     }
   },
   mounted() {
@@ -169,8 +185,6 @@ export default {
     return { data: yaml.safeLoad(content) }
   },
   methods: {
-    svg,
-    base64_encode,
     ...mapMutations('language', ['disableLang'])
   },
   destroyed() {
