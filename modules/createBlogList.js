@@ -27,22 +27,25 @@ export default async function createBlogList({ locales }) {
   })
 
   await this.nuxt.hook('generate:before', async ({ options }) => {
-    setTimeout(async () => {
-      let localesLength = locales.length
-      while (localesLength--) {
-        const locale = locales[localesLength]
-        const folderPath = process.cwd() + `/static/api/content/blog-${locale}`
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve()
+      }, 2000)
+    })
+    let localesLength = locales.length
+    while (localesLength--) {
+      const locale = locales[localesLength]
+      const folderPath = process.cwd() + `/static/api/content/blog-${locale}`
 
-        let list = await fs.readFileSync(`${folderPath}/list.json`, 'utf8')
-        if (list) {
-          list = JSON.parse(list)
-        }
-        const routes = list.map(
-          entry => (locale !== 'en' ? `/${locale}` : '') + `/blog/` + entry.slug
-        )
-        options.generate.routes = options.generate.routes.concat(routes)
+      let list = await fs.readFileSync(`${folderPath}/list.json`, 'utf8')
+      if (list) {
+        list = JSON.parse(list)
       }
-    }, 500)
+      const routes = list.map(
+        entry => (locale !== 'en' ? `/${locale}` : '') + `/blog/` + entry.slug
+      )
+      options.generate.routes = options.generate.routes.concat(routes)
+    }
   })
 }
 
