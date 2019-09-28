@@ -21,25 +21,28 @@ const svgTypeTextSize = {
   Sözler: 75
 }
 
-export default function createBlogList({ locales }) {
-  this.nuxt.hook('render:before', ({ options }) => {
+export default async function createBlogList({ locales }) {
+  await this.nuxt.hook('render:before', ({ options }) => {
     locales.every(locale => createList(locale, options.i18n.vueI18n.messages))
   })
-  this.nuxt.hook('generate:before', async ({ options }) => {
-    let localesLength = locales.length
-    while (localesLength--) {
-      const locale = locales[localesLength]
-      const folderPath = process.cwd() + `/static/api/content/blog-${locale}`
 
-      let list = await fs.readFileSync(`${folderPath}/list.json`, 'utf8')
-      if (list) {
-        list = JSON.parse(list)
+  await this.nuxt.hook('generate:before', async ({ options }) => {
+    setTimeout(async () => {
+      let localesLength = locales.length
+      while (localesLength--) {
+        const locale = locales[localesLength]
+        const folderPath = process.cwd() + `/static/api/content/blog-${locale}`
+
+        let list = await fs.readFileSync(`${folderPath}/list.json`, 'utf8')
+        if (list) {
+          list = JSON.parse(list)
+        }
+        const routes = list.map(
+          entry => (locale !== 'en' ? `/${locale}` : '') + `/blog/` + entry.slug
+        )
+        options.generate.routes = options.generate.routes.concat(routes)
       }
-      const routes = list.map(
-        entry => (locale !== 'en' ? `/${locale}` : '') + `/blog/` + entry.slug
-      )
-      options.generate.routes = options.generate.routes.concat(routes)
-    }
+    }, 500)
   })
 }
 
@@ -82,4 +85,5 @@ async function createList(locale, messages) {
   }
 
   await fs.writeFileSync(`${folderPath}/list.json`, JSON.stringify(list))
+  return true
 }
