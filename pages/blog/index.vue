@@ -59,7 +59,7 @@
             <b-article
               :title="title"
               :description="content"
-              :slug="`/${$i18n.locale}/blog/${slug}`"
+              :slug="`/${$i18n.locale}/blog/${slug}/`"
               :thumbnail="thumbnail"
             />
           </div>
@@ -69,7 +69,7 @@
               :description="content"
               :author="author"
               :links="links"
-              :slug="`/${$i18n.locale}/blog/${slug}`"
+              :slug="`/${$i18n.locale}/blog/${slug}/`"
             />
           </div>
           <div v-else-if="type==='QUOTE'" :key="index" class="column">
@@ -77,7 +77,7 @@
               :title="title"
               :author="author"
               :links="links"
-              :slug="`/${$i18n.locale}/blog/${slug}`"
+              :slug="`/${$i18n.locale}/blog/${slug}/`"
             />
           </div>
         </template>
