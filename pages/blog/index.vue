@@ -136,6 +136,11 @@ export default {
           }
         }
       )
+      list = list.sort((post1, post2) => {
+        const time1 = new Date(post1.date).getTime()
+        const time2 = new Date(post2.date).getTime()
+        return time2 - time1
+      })
     } catch (err) {}
 
     return { list }
