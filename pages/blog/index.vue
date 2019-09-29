@@ -49,7 +49,7 @@
     </div>
 
     <div class="columns is-multiline">
-      <template v-for="({type,title, content, slug, thumbnail, author, links},index) in list">
+      <template v-for="({type,title, content, slug, thumbnail, author, links,date},index) in list">
         <template v-if="selected.includes(type)">
           <div
             v-if="type==='ABOUT_IT' || type === 'ABOUT_PERSONAL'"
@@ -61,6 +61,7 @@
               :description="content"
               :slug="`/${$i18n.locale}/blog/${slug}/`"
               :thumbnail="thumbnail"
+              :date="date"
             />
           </div>
           <div v-else-if="type==='FEED'" :key="index" class="column is-one-quarter">
@@ -70,6 +71,7 @@
               :author="author"
               :links="links"
               :slug="`/${$i18n.locale}/blog/${slug}/`"
+              :date="date"
             />
           </div>
           <div v-else-if="type==='QUOTE'" :key="index" class="column">
@@ -78,6 +80,7 @@
               :author="author"
               :links="links"
               :slug="`/${$i18n.locale}/blog/${slug}/`"
+              :date="date"
             />
           </div>
         </template>

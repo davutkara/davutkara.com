@@ -10,7 +10,7 @@
               <div class="content">
                 <!-- EDUCATION -->
                 <h2>{{ educations.title }}</h2>
-                
+
                 <div v-for="(education,eduIndex) in educations.list" :key="eduIndex">
                   <h3>{{ education.university }}</h3>
                   <b>{{ education.department }}</b>
@@ -19,7 +19,7 @@
                     {{ line }}
                   </span>
                   <hr v-show="educations.list.length > 1">
-                </div> 
+                </div>
                 <!-- / EDUCATION -->
 
                 <!-- LINKS -->
@@ -36,10 +36,12 @@
                 <!-- COMMUNICATION -->
                 <h2>{{ communication.title }}</h2>
                 <p>
-                  <b>{{ communication.motherLanguageTitle }}</b> <br>
+                  <b>{{ communication.motherLanguageTitle }}</b>
+                  <br>
                   {{ communication.motherLanguage }}
                   <br>
-                  <b>{{ communication.foreignLanguageTitle }}</b> <br>
+                  <b>{{ communication.foreignLanguageTitle }}</b>
+                  <br>
                   <span
                     v-for="({language},langIndex) in communication.foreignLanguages"
                     :key="langIndex"
@@ -55,11 +57,7 @@
                 <h2>{{ skills.title }}</h2>
                 <div v-for="({skill,points},skillIndex) in skills.list" :key="skillIndex">
                   <b>{{ skill }} :</b>
-                  <progress
-                    class="progress is-small"
-                    :value="points"
-                    max="100"
-                  >
+                  <progress class="progress is-small" :value="points" max="100">
                     {{ points }}%
                   </progress>
                 </div>
@@ -73,7 +71,10 @@
             <div class="box">
               <div class="content">
                 <h2>{{ experiences.title }}</h2>
-                <div v-for="({startDate, finishDate, title, position, location, lines},expIndex) in experiences.list" :key="expIndex">
+                <div
+                  v-for="({startDate, finishDate, title, position, location, lines},expIndex) in experiences.list"
+                  :key="expIndex"
+                >
                   <h3>{{ title }}</h3>
                   <b>{{ position }}</b>
                   <p>{{ monthAndYear(startDate) }} - {{ monthAndYear(finishDate) }} | {{ location }}</p>

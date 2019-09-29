@@ -12,15 +12,19 @@
         </p>
         <div class="content">
           <div v-html="description" />
+          <time :datetime="date" class="is-pulled-right">{{ timeAgo(date) }}</time>
         </div>
+        <div class="is-clearfix" />
       </div>
     </div>
   </router-link>
 </template>
 
 <script>
+import timeAgo from '@/mixins/timeAgo'
 export default {
-  props: ['title', 'description', 'thumbnail', 'slug']
+  mixins: [timeAgo],
+  props: ['title', 'description', 'thumbnail', 'slug', 'date']
 }
 </script>
 

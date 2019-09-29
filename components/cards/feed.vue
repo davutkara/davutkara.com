@@ -6,11 +6,14 @@
       </p>
     </header>
     <div class="card-content">
-      <div class="content" v-html="description" />
+      <div class="content" v-html="description">
+        <time :datetime="date" class="is-pulled-right">{{ timeAgo(date) }}</time>
+      </div>
+      <div class="is-clearfix" />
     </div>
     <footer class="card-footer">
       <p v-for="({name,url},index) in links" :key="index" class="card-footer-item">
-        <span>          
+        <span>
           <a :href="url" target="_blank">{{ name }}</a>
         </span>
       </p>
@@ -19,7 +22,9 @@
 </template>
 
 <script>
+import timeAgo from '@/mixins/timeAgo'
 export default {
-  props: ['title', 'description', 'author', 'links', 'slug']
+  mixins: [timeAgo],
+  props: ['title', 'description', 'author', 'links', 'slug', 'date']
 }
 </script>
