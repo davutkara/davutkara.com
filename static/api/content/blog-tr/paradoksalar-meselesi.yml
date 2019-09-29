@@ -5,7 +5,7 @@ date: 2019-09-29T08:15:26.217Z
 content: >-
   Bu yazıda anlamlarından biri çelişki olan paradoks hakkında bir şeyler yazmak
   istiyorum. Çelişkiler genelde, kendilerini mantık alanında sonuçsuz bırakan
-  önermelerdir. Bunların en ünlüsü "Bu cümle yanıştır" önermesidir 
+  önermelerdir. Bunların en ünlüsü "Bu cümle yanıştır" önermesidir.
 
 
   <!-- more -->
@@ -17,7 +17,7 @@ content: >-
   dönmesidir,  tıpkı bir aynanın kendisini göstermeye çalışması gibi, işler
   çıkmaza girer. Yazılım alanında da kısır döngüler ile bu ve benzeri şeylerle
   karşılaşırız, bu önerme ise yazılımda kısır döngüye girmiş bir recursion
-  (yinelenen) fonksiyona benzemektedir. 
+  (yinelenen) fonksiyona benzemektedir.
 
 
   Yine çok benzer olan Giritli Epimenides'in "Bütün Giritlilier yalancıdır."
@@ -31,7 +31,7 @@ content: >-
   bulması gerekti. Önermelerde, önerme doğru ise sonuç 1, önerme yanlış ise
   sonuç 0 dır. Bu önermeye (ilk halini belirtmek için) Pe dediler önermenin
   sonucuna da (son halini belirtmek için) Py dediler. Bu durumda `Py = 1 - Pe`
-  denklemine ulaşıldı. 
+  denklemine ulaşıldı.
 
 
   Burada P ye 1 veya 0 vermek denklemi çözmez, ancak P=1/2 denklemi çözer, sonuç
