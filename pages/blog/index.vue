@@ -4,86 +4,41 @@
   >
     <div class="toTop buttons is-centered">
       <div
+        v-for="(type,i) in ['ABOUT_IT','ABOUT_PERSONAL','FEED','QUOTE']"
+        :key="i"
         :class="{
           button : true,
           'is-light': true,
-          'is-outlined': !selected.includes('ABOUT_IT')
+          'is-outlined': !selected.includes(type)
         }"
-        @click="select('ABOUT_IT')"
+        @click="select(type)"
       >
-        <span v-text="$t('ABOUT_IT')" />
-      </div>
-
-      <div
-        :class="{
-          button : true,
-          'is-light': true,
-          'is-outlined': !selected.includes('ABOUT_PERSONAL')
-        }"
-        @click="select('ABOUT_PERSONAL')"
-      >
-        <span v-text="$t('ABOUT_PERSONAL')" />
-      </div>
-
-      <div
-        :class="{
-          button : true,
-          'is-light': true,
-          'is-outlined': !selected.includes('FEED')
-        }"
-        @click="select('FEED')"
-      >
-        <span v-text="$t('FEED')" />
-      </div>
-
-      <div
-        :class="{
-          button : true,
-          'is-light': true,
-          'is-outlined': !selected.includes('QUOTE')
-        }"
-        @click="select('QUOTE')"
-      >
-        <span v-text="$t('QUOTE')" />
+        <span v-text="$t(type)" />
       </div>
     </div>
 
     <div class="columns is-multiline">
       <template v-for="({type,title, content, slug, thumbnail, author, links,date},index) in list">
-        <template v-if="selected.includes(type)">
-          <div
-            v-if="type==='ABOUT_IT' || type === 'ABOUT_PERSONAL'"
-            :key="index"
-            class="column is-one-third"
-          >
-            <b-article
-              :title="title"
-              :description="content"
-              :slug="`/${$i18n.locale}/blog/${slug}/`"
-              :thumbnail="thumbnail"
-              :date="date"
-            />
-          </div>
-          <div v-else-if="type==='FEED'" :key="index" class="column is-one-quarter">
-            <feed
-              :title="title"
-              :description="content"
-              :author="author"
-              :links="links"
-              :slug="`/${$i18n.locale}/blog/${slug}/`"
-              :date="date"
-            />
-          </div>
-          <div v-else-if="type==='QUOTE'" :key="index" class="column">
-            <quote
-              :title="title"
-              :author="author"
-              :links="links"
-              :slug="`/${$i18n.locale}/blog/${slug}/`"
-              :date="date"
-            />
-          </div>
-        </template>
+        <div
+          v-show="selected.includes(type)"
+          :key="index"
+          :class="{column: true , 
+                   'is-one-third' : (type==='ABOUT_IT' || type === 'ABOUT_PERSONAL'),
+                   'is-one-quarter' : type==='FEED'               
+          }"
+        >
+          <!-- Dynamic Component -->
+          <component
+            :is="getComponentByThePostType(type)"
+            :title="title"
+            :description="content"
+            :author="author"
+            :links="links"
+            :slug="`/${$i18n.locale}/blog/${slug}/`"
+            :thumbnail="thumbnail"
+            :date="date"
+          />
+        </div>
       </template>
 
       <div v-show="list.length < 1 || hasPost < 1" class="column">
@@ -153,6 +108,13 @@ export default {
       if (this.selected.includes(key))
         this.selected.splice(this.selected.indexOf(key), 1)
       else this.selected.push(key)
+    },
+    getComponentByThePostType(type) {
+      return type === 'ABOUT_IT' || type === 'ABOUT_PERSONAL'
+        ? 'b-article'
+        : type === 'FEED'
+          ? 'feed'
+          : 'quote'
     }
   }
 }
