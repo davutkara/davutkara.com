@@ -12,6 +12,7 @@ collections:
     format: 'yaml'
     folder: 'static/api/content/blog-tr'
     slug: '{{fields.slug}}'
+    preview_path: tr/blog/{{slug}}/?preview=true
     fields:
       - label: 'Blog Türü'
         name: 'type'
@@ -52,11 +53,11 @@ collections:
           - { label: Link URL, name: url, widget: string }
   - label: 'Pages'
     name: 'pages'
-    preview_path: tr/blog/{{slug}}?preview=true
     files:
       - label: 'Resume Page'
         name: 'resume'
         file: 'static/api/content/resume.en.yaml'
+        preview_path: resume
         fields:
           - {
               label: Education Title,
