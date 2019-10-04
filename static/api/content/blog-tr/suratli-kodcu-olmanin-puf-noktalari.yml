@@ -9,6 +9,9 @@ content: >-
   gördüm.
 
 
+  <!-- more -->
+
+
   Bu yazıda daha hızlı terminal kullanımı ve daha hızlı kod yazmak hakkında
   özellikle çoğu kişinin öğrenme ihtiyacı duymadığı için farkında olmadığı
   bilgiler vermeyi düşünüyorum. Daha hızlı terminal nasıl kullanabiliriz, proje
@@ -19,14 +22,14 @@ content: >-
 
 
 
-  ## 10 Parmak Klavye Kullanmak.
+  ## 10 Parmak Klavye Kullanmak
 
 
   Eğer tuşlarken klavyeye bakıyorsanız, bu gerçek anlamda bir yavaşlıktır, 10
   parmak kullanarak tuşlamayı bilmeyen çoğu insan özellikle 5-6 parmağını
   kullanarak tuşlar bu da genelde dakika da 80 kelimenin altındadır. Sadece 10
   parmak tuşlamayı öğrenerek dakikada 80 kelimeden fazla yazabilirsiniz ben 10
-  parmak kullanarak dakikada 95 kelime civarı tuşluyorum. 
+  parmak kullanarak dakikada 95 kelime civarı tuşluyorum.
 
 
   ## İngilizce Klavye Kullanmak
@@ -51,10 +54,10 @@ content: >-
 
   Terminal komutlarını çoğumuz biliriz, özellikle klasörler arasında gezmek ana
   dizine ve kullanıcı dizinine girmeyi biliyoruzdur, ancak bunların daha fazlası
-  da var ve gerçekten çok pratik. 
+  da var ve gerçekten çok pratik.
 
 
-  Bildiğimiz klasik komutlar şunlardır : 
+  Bildiğimiz klasik komutlar şunlardır :
 
 
   ```
@@ -76,7 +79,7 @@ content: >-
 
   Benim bildiklerim bunlardı ve bu komutları kullanarak hoyratça klasörler
   arasında dolaşıyordum, bir gün uzunca derin bir klasöre girdikten sonra tekrar
-  eski bulunduğum klasöre dönmem gerekti, bunun sonucunda dedim ki
+  eski bulunduğum klasöre dönmem gerekti, bunun sonucunda dedim ki,
 
 
   > Ulan bu linux cular akıllı adamlar baksana ls komutu bile list anlamında,
@@ -162,7 +165,7 @@ content: >-
 
   Yukarıdaki örnek dosyada Path dizini içerisinde Exec komutunu çalıştırıyor. Bu
   sayede Visual Studio Code editöründe direk olarak projemi açıyorum. Sizde
-  menüye bu tarz eklemeler yapabilirsiniz. 
+  menüye bu tarz eklemeler yapabilirsiniz.
 
 
   Şimdilik tavsiyelerim bu kadar, eğer sizinde eklemek veya düzeltmek
