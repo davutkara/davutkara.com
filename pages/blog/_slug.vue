@@ -69,7 +69,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://davutkara.com' + this.$nuxt._route.fullPath
+          content: 'https://davutkara.com' + this.fullPath
         },
         {
           hid: 'og:image',
@@ -182,7 +182,12 @@ export default {
     if (preview === 'true') {
       content = base64_decode(data.content)
     } else content = data
-    return { data: yaml.safeLoad(content) }
+    return {
+      data: yaml.safeLoad(content),
+      fullPath: `${
+        app.i18n.locale !== 'en' ? `/${app.i18n.locale}` : ``
+      }/blog/${route.params.slug}`
+    }
   },
   methods: {
     ...mapMutations('language', ['disableLang'])
