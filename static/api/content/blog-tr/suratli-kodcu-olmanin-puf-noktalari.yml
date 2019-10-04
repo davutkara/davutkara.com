@@ -90,4 +90,40 @@ content: >-
 
   Gel gelelim devamında terminalde uzunca bir kod yazdıktan sonra kodun başına
   dönmem gerekiyordu, bende tabi ki sol tuşa basılı tutarak sola doğru gidiyor
-  düzeltiyor devam ediyordum.
+  düzeltiyor devam ediyordum, daha sonra bununda kesinlikle bir kısa yolu
+  olacağını fark ederek, aşağıdaki kısayollara ulaştım.
+
+
+  ```
+    Ctrl + a : İmleci satır başına getirir.
+    Ctrl + e : İmleci satır sonuna getirir.
+    Ctrl + d : İmlecin sağındaki karakteri siler.
+    Alt  + d : İmlecin sağ tarafındaki ilk kelimeyi siler.
+    Ctrl + u : Satırın tamamını siler.
+    Ctrl + l : Terminaldeki tüm çıktıları siler.
+    Ctrl + r : Komut geçmişinde arama yapar.
+    Alt  + b : Bir önceki kelimeye döner
+  ```
+
+    Şimdi bu kısayollar gerçekten işinizi çok kolaylaştırır özellikle terminalde dizin yolu yazarken yanlış yazabiliyoruz, yukarıdaki kısayollar ile ok tuşlarını kullanmamıza pek gerek kalmıyor.
+
+    ## Terminalde Alias Tanımlamak
+
+  Sürekli yazdığımız uzun uzun komutlar varsa bu komutlara alias tanımlayarak 
+  kısaltabiliriz, biz tanımladığımız aliasları terminale yazdığımızda arka
+  tarafta  asıl uzun komut çalışır.
+
+    ## Kod Editöründe Snippet Tanımlamak
+
+  Son zamanlardaki yeni kod editörleri hali hazırda bir çok snippeti
+  barındırarak geliyor artık eskisi gibi uzun uzun fonksiyon tanımlamak yerine
+  func yazıp seçerek boş bir fonksiyonu ekrana getirebiliyoruz. Bu tanımlamalar
+  editörden editöre değişeceği için kullandığınız editöre göre internette arama
+  yapabilirsiniz.
+
+    ## Masaüst Kısayolları Eklemek
+
+  Windows kullanıcıları için kısayol kısayoldur, Ancak linux kullanıcıları için,
+  bir dizin veya dosya kısayolu link köprü olarak geçer, ben bunun yanında
+  kısayol olarak programları başlatmasını sağlayan .desktop dosyalarına da
+  değinmek istiyorum. Örneğin ben dizine girip klasörü editörde açmak yerine,
