@@ -1,7 +1,7 @@
 type: ABOUT_IT
 title: Süratli Kodçu Olmanın Püf Noktaları
 slug: suratli-kodcu-olmanin-puf-noktalari
-date: 2019-10-04T14:28:25.535Z
+date: 2019-10-04T18:22:00.000Z
 content: >-
   Yazının başlığını atarken, kodçu yerine yazılımcı ve programcı isimlerini
   kullanmayı düşündüm fakat bunlar daha genel ve benim bahsetmek istediğim
@@ -16,6 +16,7 @@ content: >-
   kategorilendirebiliriz bunlardan da bahsedeceğim. Ayrıca burada bahsedeceğim,
   bazı tavsiyelere alışmanıza biraz zaman alabileceği gibi bazılarını da hemen
   uygulamaya başlayabilirsiniz.
+
 
 
   ## 10 Parmak Klavye Kullanmak.
@@ -99,21 +100,24 @@ content: >-
     Ctrl + e : İmleci satır sonuna getirir.
     Ctrl + d : İmlecin sağındaki karakteri siler.
     Alt  + d : İmlecin sağ tarafındaki ilk kelimeyi siler.
-    Ctrl + u : Satırın tamamını siler.
+    Ctrl + u : İmlecin sol tarafını tamamen siler.
     Ctrl + l : Terminaldeki tüm çıktıları siler.
     Ctrl + r : Komut geçmişinde arama yapar.
-    Alt  + b : Bir önceki kelimeye döner
+    Alt  + b : İmleci bir önceki kelimenin baş harfine getirir.
   ```
 
     Şimdi bu kısayollar gerçekten işinizi çok kolaylaştırır özellikle terminalde dizin yolu yazarken yanlış yazabiliyoruz, yukarıdaki kısayollar ile ok tuşlarını kullanmamıza pek gerek kalmıyor.
 
-    ## Terminalde Alias Tanımlamak
+  ## Terminalde Alias Tanımlamak
+
 
   Sürekli yazdığımız uzun uzun komutlar varsa bu komutlara alias tanımlayarak 
   kısaltabiliriz, biz tanımladığımız aliasları terminale yazdığımızda arka
   tarafta  asıl uzun komut çalışır.
 
-    ## Kod Editöründe Snippet Tanımlamak
+
+  ## Kod Editöründe Snippet Tanımlamak
+
 
   Son zamanlardaki yeni kod editörleri hali hazırda bir çok snippeti
   barındırarak geliyor artık eskisi gibi uzun uzun fonksiyon tanımlamak yerine
@@ -121,9 +125,46 @@ content: >-
   editörden editöre değişeceği için kullandığınız editöre göre internette arama
   yapabilirsiniz.
 
-    ## Masaüst Kısayolları Eklemek
 
-  Windows kullanıcıları için kısayol kısayoldur, Ancak linux kullanıcıları için,
-  bir dizin veya dosya kısayolu link köprü olarak geçer, ben bunun yanında
+  ## Kısayollar Eklemek
+
+
+  Windows kullanıcıları için kısayol kısayoldur, Ancak linux  kullanıcıları
+  için, bir dizin veya dosya kısayolu link köprü olarak geçer, ben bunun yanında
   kısayol olarak programları başlatmasını sağlayan .desktop dosyalarına da
   değinmek istiyorum. Örneğin ben dizine girip klasörü editörde açmak yerine,
+  .desktop dosyasına editörde açılacak dosya dizinini bağlıyorum ve menüden
+  direk projemi açıyorum.
+
+  Örnek bir .desktop dosyası
+
+  ```
+
+  [Desktop Entry]
+
+  Type=Application
+
+  Version=1.0
+
+  Name=website
+
+  Path=/home/arch/davutkara.com
+
+  Exec=code .
+
+  Icon=jmemorize
+
+  Terminal=false
+
+  Categories=Development;
+
+  ```
+
+  Yukarıdaki örnek dosyada Path dizini içerisinde Exec komutunu çalıştırıyor. Bu
+  sayede Visual Studio Code editöründe direk olarak projemi açıyorum. Sizde
+  menüye bu tarz eklemeler yapabilirsiniz. 
+
+
+  Şimdilik tavsiyelerim bu kadar, eğer sizinde eklemek veya düzeltmek
+  istedikleriniz varsa bu yazıya github üzerinden katkıda bulunabilirsiniz, esen
+  kalın.
