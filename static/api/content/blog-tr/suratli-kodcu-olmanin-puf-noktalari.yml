@@ -1,7 +1,7 @@
 type: ABOUT_IT
 title: Süratli Kodçu Olmanın Püf Noktaları
 slug: suratli-kodcu-olmanin-puf-noktalari
-date: 2019-10-03T19:56:25.535Z
+date: 2019-10-04T14:28:25.535Z
 content: >-
   Yazının başlığını atarken, kodçu yerine yazılımcı ve programcı isimlerini
   kullanmayı düşündüm fakat bunlar daha genel ve benim bahsetmek istediğim
@@ -13,4 +13,81 @@ content: >-
   özellikle çoğu kişinin öğrenme ihtiyacı duymadığı için farkında olmadığı
   bilgiler vermeyi düşünüyorum. Daha hızlı terminal nasıl kullanabiliriz, proje
   klasörlerine daha hızlı nasıl ulaşırız, kafamızı karıştıran projeleri nasıl
-  kategorilendirebiliriz bunlardan da bahsedeceğim.
+  kategorilendirebiliriz bunlardan da bahsedeceğim. Ayrıca burada bahsedeceğim,
+  bazı tavsiyelere alışmanıza biraz zaman alabileceği gibi bazılarını da hemen
+  uygulamaya başlayabilirsiniz.
+
+
+  ## 10 Parmak Klavye Kullanmak.
+
+
+  Eğer tuşlarken klavyeye bakıyorsanız, bu gerçek anlamda bir yavaşlıktır, 10
+  parmak kullanarak tuşlamayı bilmeyen çoğu insan özellikle 5-6 parmağını
+  kullanarak tuşlar bu da genelde dakika da 80 kelimenin altındadır. Sadece 10
+  parmak tuşlamayı öğrenerek dakikada 80 kelimeden fazla yazabilirsiniz ben 10
+  parmak kullanarak dakikada 95 kelime civarı tuşluyorum. 
+
+
+  ## İngilizce Klavye Kullanmak
+
+
+  İster F klavye olsun ister Q klavye olsun, Türkçe şablona göre ayarlanmış bir
+  klavye kullanıyorsanız, kodlama da sıkça kullandığımız noktalama işaretleri
+  genelde klavyenin üst kısmında shift kombinasyonuyla erişilen alanlardadır. 10
+  Parmak bilenler için üst kısımları kullanmak biraz daha zordur, bilmeyenler
+  için ise noktalama işareti olan tuşların yerini hatırlamak daha zordur.
+  Sürekli klavyeye bakmanız gerekir. İngilizce özellikle Amerika Birleşik
+  Devletler "US" şablonlu bir klavye tercih ederseniz `, < . > / ? \ | ' " ; : ]
+  } [ {` işaretlerini direk elinizin altında bulabilirsiniz. Geriye kalan sadece
+  normal parantezlerdir onlarda üst kısımda mevcuttur. Türkçe şablonlu klavyeye
+  göre gerçekten daha pratiktir, sonuçta kullandığımız yazılım dillerini onlar
+  geliştiriyor, dolayısıyla kullandıkları klavye şablonuna da daha uygun
+  işaretler seçiyorlar.
+
+
+  ## Terminal Kısayollarını Öğrenmek
+
+
+  Terminal komutlarını çoğumuz biliriz, özellikle klasörler arasında gezmek ana
+  dizine ve kullanıcı dizinine girmeyi biliyoruzdur, ancak bunların daha fazlası
+  da var ve gerçekten çok pratik. 
+
+
+  Bildiğimiz klasik komutlar şunlardır : 
+
+
+  ```
+
+  cd  : klasöre giriş
+
+  /   : Kök dizini
+
+  `   : Kullanıcı dizini
+
+  pwd : Bulunduğunuz klasör yolu
+
+  .   : Bulunduğunuz dizin
+
+  ..  : Bulunduğunuz dizinin bir üst diziniclear : Terminaldeki çıktıları siler.
+
+  ```
+
+
+  Benim bildiklerim bunlardı ve bu komutları kullanarak hoyratça klasörler
+  arasında dolaşıyordum, bir gün uzunca derin bir klasöre girdikten sonra tekrar
+  eski bulunduğum klasöre dönmem gerekti, bunun sonucunda dedim ki
+
+
+  > Ulan bu linux cular akıllı adamlar baksana ls komutu bile list anlamında,
+  hiç bir şey boşa değil, bunlar kesin bununda kısa bir yolunu yapmıştır, şunu
+  internette bir arayım.
+
+
+  O günden sonra, gerçekten ne kadar doğru düşündüğümü farkettim ve bir önceki
+  bulunduğum dizine dönmenin `-` bildiğimiz tire işaretiyle olduğunu fark
+  ettim.  Bu da savımı kanıtlar nitelikteydi.
+
+
+  Gel gelelim devamında terminalde uzunca bir kod yazdıktan sonra kodun başına
+  dönmem gerekiyordu, bende tabi ki sol tuşa basılı tutarak sola doğru gidiyor
+  düzeltiyor devam ediyordum.
