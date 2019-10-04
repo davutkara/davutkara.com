@@ -71,8 +71,9 @@ content: >-
 
   .     : Bulunduğunuz dizin
 
-  ..    : Bulunduğunuz dizinin bir üst diziniclear : Terminaldeki çıktıları
-  siler.
+  ..    : Bulunduğunuz dizinin bir üst dizini
+
+  clear : Terminaldeki çıktıları siler
 
   ```
 
