@@ -43,6 +43,12 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-42455704-1'
+      }
+    ],
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://buefy.github.io/#/documentation
