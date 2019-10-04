@@ -21,7 +21,6 @@ content: >-
   uygulamaya başlayabilirsiniz.
 
 
-
   ## 10 Parmak Klavye Kullanmak
 
 
@@ -62,17 +61,18 @@ content: >-
 
   ```
 
-  cd  : klasöre giriş
+  cd    : klasöre giriş
 
-  /   : Kök dizini
+  /     : Kök dizini
 
-  `   : Kullanıcı dizini
+  `     : Kullanıcı dizini
 
-  pwd : Bulunduğunuz klasör yolu
+  pwd   : Bulunduğunuz klasör yolu
 
-  .   : Bulunduğunuz dizin
+  .     : Bulunduğunuz dizin
 
-  ..  : Bulunduğunuz dizinin bir üst diziniclear : Terminaldeki çıktıları siler.
+  ..    : Bulunduğunuz dizinin bir üst diziniclear : Terminaldeki çıktıları
+  siler.
 
   ```
 
@@ -132,14 +132,15 @@ content: >-
   ## Kısayollar Eklemek
 
 
-  Windows kullanıcıları için kısayol kısayoldur, Ancak linux  kullanıcıları
-  için, bir dizin veya dosya kısayolu link köprü olarak geçer, ben bunun yanında
+  Windows kullanıcıları için kısayol kısayoldur. Ancak linux kullanıcıları için,
+  bir dizin veya dosya kısayolu link köprü olarak geçer, ben bunun yanında
   kısayol olarak programları başlatmasını sağlayan .desktop dosyalarına da
-  değinmek istiyorum. Örneğin ben dizine girip klasörü editörde açmak yerine,
+  değinmek istiyorum. Örneğin ben dizine girip klasörü editörde açmak yerine
   .desktop dosyasına editörde açılacak dosya dizinini bağlıyorum ve menüden
   direk projemi açıyorum.
 
   Örnek bir .desktop dosyası
+
 
   ```
 
@@ -159,9 +160,10 @@ content: >-
 
   Terminal=false
 
-  Categories=Development;
+  Categories=Development
 
   ```
+
 
   Yukarıdaki örnek dosyada Path dizini içerisinde Exec komutunu çalıştırıyor. Bu
   sayede Visual Studio Code editöründe direk olarak projemi açıyorum. Sizde
