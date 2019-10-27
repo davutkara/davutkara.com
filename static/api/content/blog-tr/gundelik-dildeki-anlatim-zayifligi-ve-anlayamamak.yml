@@ -3,9 +3,10 @@ title: Gündelik Dildeki Anlatım Zayıflığı Ve Anlayamamak
 slug: gundelik-dildeki-anlatim-zayifligi-ve-anlayamamak
 date: 2019-10-27T15:43:26.199Z
 content: >-
-  > Bu yazıda ki amacım, anlama ve algılama olaylarını analiz etmek ve  neden
-  bize anlatılan bir şeyi anlayamayız bunun cevabını bulmak.
+  Bu yazıda ki amacım, anlama ve algılama olaylarını analiz etmek ve  neden bize
+  anlatılan bir şeyi anlayamayız bunun cevabını bulmak.
 
+  <!-- more -->
 
   Bir şeyi anlamaktan bahsediyorsak, demek ki ortada bir anlatıcı vardır. Ama
   biz bu anlatıcıyı sadece insan olarak görmeyelim, çünkü karşıda bir nesnede
@@ -48,9 +49,9 @@ content: >-
 
   > Anlatırsanız unuturum,
 
-  > Gösterirseniz hatırlarım,
+  > gösterirseniz hatırlarım,
 
-  > Yaptırırsanız anlarım.
+  > yaptırırsanız anlarım.
 
   > ~ Çin Atasözü
 
@@ -102,9 +103,9 @@ content: >-
   yaşadım.
 
 
-  > \-- Aşağı in, anahtarı al.
+  > \- Aşağı in, anahtarı al.
 
-  > ++ Neden aşağı ineyim ki zaten anahtarım var.
+  > \+ Neden aşağı ineyim ki zaten anahtarım var.
 
 
   Sonrası anlaşamamazlık, aslında demek istediği, aşağı inip anahtarı almam
