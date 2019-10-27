@@ -49,9 +49,9 @@ content: >-
 
   > Anlatırsanız unuturum,
 
-  > Gösterirseniz hatırlarım,
+  > gösterirseniz hatırlarım,
 
-  > Yaptırırsanız anlarım.
+  > yaptırırsanız anlarım.
 
   > ~ Çin Atasözü
 
@@ -103,9 +103,9 @@ content: >-
   yaşadım.
 
 
-  > \-- Aşağı in, anahtarı al.
+  > \- Aşağı in, anahtarı al.
 
-  > ++ Neden aşağı ineyim ki zaten anahtarım var.
+  > \+ Neden aşağı ineyim ki zaten anahtarım var.
 
 
   Sonrası anlaşamamazlık, aslında demek istediği, aşağı inip anahtarı almam
