@@ -1,8 +1,13 @@
 type: ABOUT_IT
-title: Facade Pattern Hakkında
-slug: facede-pattern-
+title: Facade Pattern
+slug: facede-pattern
 date: 2020-01-27T15:20:02.069Z
 content: >-
+  Bunu ortalama bir yazılımcı zaten ister istemez kullanıyordur, burada design
+  patternler yönünden bu olaya facede pattern dendiğini göreceğiz. Facede
+  pattern "Structural Design Patterns" kategorisine dahildir.
+
+
   Şimdi elimizde 3. parti bir kütüphane (library) den bir metot (method)
   kullandığımızı varsayalım. Bu metotun istediğimiz şekilde çalışması için bir
   çok parametre, argüman vs aldığını düşünelim. Bu metodu birden fazla
@@ -79,9 +84,8 @@ content: >-
 
 
   Gördüğünüz gibi gayet basit, ve neredeyse temel programlama olayı. Aslında bu
-  olay **higher-order function** olarak geçer, Matematikte de aynı olay vardır,
-  higer-order derivates yani yüksek mertebeden türevler olarak. Fonksiyon üreten
-  fonksiyon işte daha ne diyeyim ki.
+  olay **higher-order function** olayına çok benziyor, Matematikte de aynı olay
+  vardır, higer-order derivates yani yüksek mertebeden türevler olarak.
 
 
   Basit hali ve mantığı bu şekilde, daha karmaşık halinde ise, Bir fonksiyonun
