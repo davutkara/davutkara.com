@@ -7,6 +7,7 @@ content: >-
   patternler yönünden bu olaya facede pattern dendiğini göreceğiz. Facede
   pattern "Structural Design Patterns" kategorisine dahildir.
 
+  <!-- more -->
 
   Şimdi elimizde 3. parti bir kütüphane (library) den bir metot (method)
   kullandığımızı varsayalım. Bu metotun istediğimiz şekilde çalışması için bir
