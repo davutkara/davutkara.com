@@ -46,6 +46,7 @@ import {
 } from 'universal-base64'
 import striptags from 'striptags'
 import svg from '@/modules/svgGenerate'
+import hljs from '@/plugins/highlight-js/index.js'
 export default {
   head() {
     return {
@@ -158,6 +159,10 @@ export default {
         this.disableLang('en')
       }
     }
+
+    document.querySelectorAll('pre code').forEach(block => {
+      hljs.highlightBlock(block)
+    })
   },
   async asyncData({ app, $axios, route }) {
     const preview = url_parse($axios.defaults.baseURL + route.fullPath, true)

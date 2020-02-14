@@ -37,7 +37,10 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/vue-windowsize/index'],
+  plugins: [
+    '@/plugins/vue-windowsize/index',
+    '@/plugins/highlight-js/index.js'
+  ],
 
   /*
   ** Nuxt.js modules
