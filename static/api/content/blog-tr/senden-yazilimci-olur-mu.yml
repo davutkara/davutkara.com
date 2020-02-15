@@ -63,3 +63,132 @@ content: >-
   korkmasın söylediğim gibi bir çok denemeler yaparak sonuca ulaşıyoruz, ama
   soyut düşüncen ne kadar ilerlediyse hatalarıda o derece erken farkeder ve
   doğru kodu daha kısa zamanda yazarsın.
+
+
+  Zaten ilk 2 kurala yeterince sahipsen diğer bilimleride yapamaman için hiç bir
+  sebep yok. Çünkü bu 2 kural problemleri anlamak ve çözmek için iki temel
+  ihtiyaç.
+
+
+  ## 3. Kural Bilgiye Ulaşmak
+
+
+  İlk 2 kural yöntemlerden oluşuyordu, şimdi ise bu yöntemleri işletecek bilgiye
+  ulaşmamız lazım. Yazılım sektörü çok geniştir önceden mekanik şeyler için
+  yazılım yaparken şimdi, sanat gibi edebiyat gibi alanlarda bile yazılım
+  yapılıyor, makine öğrenmesi denilen şeyler çıktı, artık şiirleri, görselleri
+  analiz edip anlam çıkarmaya çalışan yazılımlar mevcut. Dolayısıyla bir yazılım
+  yapabilmek için, yazılımını yapacağın şeyin ne olduğunu iyi bilmen gerekiyor.
+  Bir şiirden anlam çıkaran bir yapay zeka yazman gerekiyorsa, önce anlamın ne
+  olduğunu sorman gerekiyor, onun ne olduğunu bulacaksın veya ona benzeyen bir
+  şey yapacaksın ki onun kodunu yazıp çalıştırabilesin. Şuan tabiki bu tür
+  yazılımlar çok yaygın değil, daha çok klasik işler yapılıyor ve sektörel
+  olarakta bunlar talep ediliyor, genelde şirketlerin ihtiyacı olan yazılımlar
+  üzerine çalışıyorsun, birileri muhsasebe tutsun, datalarını saklasın gibi
+  yönetim programları. Aslına bakarsan elektronik defter kodlamaktan ilerisi
+  olduğunu düşünmüyorum, çünkü öncesinde kağıt üzerinde yapılan şeyleri şimdide
+  elektronik ortamda yapıyoruz. Yeni bir şey keşfetmedik sadece dönüşüme uğratıp
+  hızlandırdık. Yeni bir şeyler yapmak istiyorsanda yeterince soyut olacağı için
+  biraz kafayı sıyırman gerekebilir.
+
+
+  Bu kuralı toparlamak gerekirse, her şeyi aklında tutamazsın. Bilgiye ulaşırken
+  bunun farkında olman lazım. O yüzden sürekli okuman gerekiyor, okumadan işe
+  giriştiğinde bir noktada ilerleyemiyorsun ve tekrar dönüp okuman gerekiyor.
+  Kullandığın araç gereçler, yazılım dilleri ve bunların kabiliyetlerini anlatan
+  dökümanlar, kurallar silsileleri var. Bunları okuman gerekiyor, yoksa bazen
+  Amerikayı tekrar keşfetmeye kalkıyorsun. Aslında çözülmüş bir sorunu, tekrar
+  çözmeye kalktığın zaman bu yeterince vakit kaybı oluyor.
+
+
+  Bu 3 kuralı uygulayabiliysan sen yazılımcı olursun, şimdi gelelim yazılımcı
+  olursun ama bu işten keyif alır mısın sorusuna.
+
+
+  ## Bu İşten Keyif Alır Mısın ?
+
+
+  Bu başlıkta ben ne yaşadığımı anlatayım sende tahmini olarak bir takım
+  çıkarımlar yap.
+
+
+  Özellikle yazılıma yeni başlıyorsan, uğraşman gerektiğinin farkında olman
+  lazım. Yani hoş bir şey değil belki ama saatlerce bilgisayar başında oturman,
+  denemeler yanılmalar yapman yukarı belirttiğim kuralları bilgisayar
+  başındayken veya değilken uygulaman gerekiyor. Ben ilk kodumu 2008 de yazdım.
+  şuan 2020 oldu, yani 12 sene önce, yazdığım ilk kod aslında mantıksal bir kod
+  değildi (html/css). Tamamen çıkarımlar yaparak deneme yanılma yaparak
+  öğreniyordum. Mesela width adında bir kod yazıyordu yanında ise 800px gibi
+  sinden bir rakam yazıyordu. Bu 800 değerini 400 yapıyordum ve ekrandaki şeyin
+  boyutu daralıyordu bu şekilde daha width kelimesinin anlamını bilmeden onun
+  genişlikle ilgili bir şey olduğunu kavrıyordum. O zamanlar 11-12 yaşlarında
+  olduğumu varsayarsak, benim için bu yeterliydi ve **gayette keyifliydi.** Bu
+  örnekte aslında ilk nasıl keyif aldığımı anlattım, eğer senin için ekrana
+  yazırdığın bir kodun çalışması bir anlam ifade etmiyorsa seni
+  heyecanlandırmıyorsa, Atıyorum bir butona tıkladığın o butonun çıkarıdğı uyarı
+  içeriğini belirlemek sana keyif vermeyecekse, zaten olmaz çünkü keyif bu işin
+  bana göre yaklaşık 20% si felan. Karışık kuruyemişte arada denk gelen şam
+  fıstığı gibi düşünebilrsin. Devamında farklı istekler oluştu ve o istekleri
+  nasıl yapabileceğimin derdine düştüm, giderek konular genişledi uğraştığım
+  şeyler genişledi. Paragrafın başında bilgsiayar başından kalktığındada devam
+  etmen gerekiyor dedim ya, ekmek almak için bilgisayar başından kalktığımda
+  kafamda sürekli o problemi nasıl çözeceğim olurdu, ve hatta bazen eve dönüş
+  yolunda çözümü bulur eve döner uygulardım, ve keyif alırdım.
+
+
+  Tabi bu ilk zamanlar bu şekildeydi seninde tahmin ediyorum ilk zamanların bu
+  şekilde olacaktır. Şimdi ise 12 yıl sonra ne oldu dersen. Artık yazılım işini
+  yaparken, emekli ve bilgili amcaların tüm gününü bulmaca çözerek geçirmesi
+  gibi hissediyorum. Bu iş insan düşüncesini aklını bilgisini geliştiren bir iş,
+  zaman zamanda keyif veriyor tabi.
+
+
+  Tabi bazı zamanlarda özellikle çözüm bulamadığım durumlarda bir labirentin
+  içerisinde gibi hissediyorum.
+
+
+  <blockquote class="twitter-tweet" data-theme="light"><p lang="tr"
+  dir="ltr">Yazılım sürecini tek bir cümle ile özetle deseler, kendi labirentini
+  kendin yapıp o labirentin içinden çıkmaya çalışmaktır derim.</p>&mdash; Davut
+  KARA (@bydavutkara) <a
+  href="https://twitter.com/bydavutkara/status/1228076569849143296?ref_src=twsrc%5Etfw">February
+  13, 2020</a></blockquote> <script async
+  src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+
+  Bir yazılım sürecine başladığın zaman, kullanacağın araç gereçlere diğer kod
+  kütüphanelerine ihtiyaç duyarsın ve bunların her biri tabire caizse birer
+  labirenttir, çünkü neyin nerden geçip nereye gittiğini bilmiyorsundur, bunları
+  oturup öğrenmen gerekir ancak yeterli vaktin yoktur veya uğraşmak istemezsin
+  alıp işimi göreyim derdinde olursun. İşte böyle durumlarda, etrafına bir
+  labiren dizmeye başlarsın, daha sonra kendi kodunu yazarak o labirenti
+  genişletirsin, burada labirent örneğini vermemin sebebi, sürekli karşına
+  yapmak istediğin şeyi istediğin şekilde yapamyacağın durumlar çıkmaya başlar,
+  ve sen o labirentte dorğu yolu bulmaya çalışarak çıkmaya çalışırsın, bir sürü
+  denemeler yaparsın, yaptığın hataları aklında tutup tekrar denememen gerekir,
+  ve  en sonunda, bir şekilde o labirentte çıkar yatağına dönersin tabi ertesi
+  gün yeni bir labirente tekrar merhaba demek üzere.
+
+
+  Anlayacağın bu işin can sıkıcı yanları yok değil, dolayısyıla problem çözmeyi
+  seven biri olman gerekiyor, yoksa bir gazla bu iş yapılmaz. Karışık kuruyemiş
+  örneğini hatırla, şam fıstıkları biter ve hayatına şamfıstıksız devam etmek
+  zorunda kalırsın. Proje yazılım iş bir şekilde bitmelidir.
+
+
+  ## Kazançlı Bir İş Mi ?
+
+
+  Kazançtan kastımız para ise, bu tamamen sana bağlıdır. 
+
+
+  Bilgi birikim ve hayat yönünden ise bence kazançlı bir iş. 
+
+
+  ## Peki Ya Sosyal Hayat ?
+
+
+  Başlangıçta çok çalışman daha doğrusu uğraşman gerekitğini söylemiştim, o
+  uğraşlar olmadan o bilgileri, tecrübeleri elde edemezsin. Buda senin hayat
+  tarzına bağlıdır. Bence böyledir, yazılımcı sosyal olmadır vs deniliyor olsun
+  tabi ki
