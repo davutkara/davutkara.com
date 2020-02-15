@@ -1,0 +1,65 @@
+type: ABOUT_IT
+title: Senden Yazılımcı Olur Mu ?
+slug: senden-yazilimci-olur-mu
+date: 2020-02-15T08:51:13.791Z
+content: >-
+  Dikkat çekici başlığımı attığıma göre yazımı yazmaya girişebilirim, tabiki
+  öncelilkle şunu belirtmeliyim ki senin yazılımcı olup olmayacağına ben karar
+  veremem. Bu yazıda sadece yazılımla uğraşan birisi olarak bu meslek nasıl icra
+  ediliyor, icra eden kişi ne hissediyor ne yaşıyor bunlardan bahsedeceğim. Bunu
+  yaparkende herhangi bir teknik bilgiden bahsetmeyeceğim, herkesin
+  anlayabileceği şekilde anlatmaya çalışacağım.
+
+
+  ## 1. Kural Analizci Yaklaşım ve Derin Düşünmek
+
+
+  Eğer bir yazılımcı olmak istiyorsan, analizci bir yaklaşıma sahip olman
+  gerekiyor. Mesela sahip olduğun herhangi bir şeyi, konuyu, bilgiyi, olayı
+  analiz edebilir misin ? Örneğin, evinden okuluna giderken yaptığın tüm
+  işlemleri düşünmeye çalışıp, hepsini sıralayabilir misin? Bunu tabi ki her
+  insan yapabilir, sabah kalktım, evden çıktım, okula gittim. Ancak bu analiz
+  ayrıntılı bir analiz olmamış olur. Yazılım sürecinde ne kadar ayrıntılı analiz
+  ediyorsan, oluşan problemleri çözmek ve yakalamakta o kadar kolay oluyor.
+  Dolayısyıla bir şeyi derinlemesine analiz etmeyi öğrenmen gerekiyor, beliki
+  yataktan kalktım çorabımı giydim hatta yataktan sağ yanımdan kalktım.
+  Diyebilecek kadar ayrıntılı düşünceye sahip olmak senin faydana olur.
+
+
+  Küçük bir uyarı eklemek gerekirse, tabi ki bu yetenklere en iyi şekilde sahip
+  olmazsan yazılımcı olamazsın diye bir şey yok. 3 cümle ile anlattığım ilk
+  örnekteki gibi basit bir analizlede yazılımcı olabilirsin ama yapacağın
+  işlerde basit kalacaktır. İlerleyen zamanlarda daha ayrıntılı analizler
+  yapmaya başlayacağın için, yazılım işindede daha iyi olmaya başlayabilrsin.
+
+
+  ## 2. Kural Soyut Düşünmek
+
+
+  Soyut düşünebilme yeteneği neredeyse her türlü bilime katkı sağlar. Çünkü
+  düşünme eylemi zaten soyut bir eylem, ve sen bir şeyleri fiziki olarak
+  yapmadığın sürece o şeyleri soyut olarak zaten düşünüyorsun. Bir fulbolcu
+  penaltıdan önce nasıl atacağını düşünür aklındaki düşünce soyuttur daha sonra
+  o düşünceyi eyleme döker ve somutlaştırır. Futbolcunun soyut düşüncesi somut
+  bir şeyi düşünür, ve bunu hepimiz yaparız. Çünkü somut bir şeyin ne olduğunu
+  biliyoruz, ve onu kolayca düşünebiliriz. Problem ise soyut şeyleri düşünmekte
+  başlıyor. Yazılımda anlaşılması zor konular genelde soyut kavramlardır.
+  Yazılım meselesi zaten soyut olduğu için o konuların somut örneklerini görmen
+  gerekiyor ancak bunu yapmak her zaman mümkün değil. Örneğin "center" adında
+  bir komutumuz olsun, bu komut bir nesneyi ortalasın. Sen bu komutu
+  uyguladığında o nesne ortalanıyorsa bunu gayet açık bir şekilde
+  kavrayabilrsin. Ama kavramlar soyutlaştıkça bu kavramların somut örneklerini
+  bulamıyorsan onu kavramak giderek zorlaşıyor. Mesela bir çarpışma algoritması
+  yazacaksın, fiziki olarak iki nesnenin çarpıştığını hayal edebilrsin, ancak
+  bilgisayar da gerçekten 2 adet fiziki bir şey yok belki 2 adet görüntü olacak,
+  dahası onun koduna baktığında o görüntüde olmayacak o 2 adet görüntüye
+  referans eden bir takım kodlar göreceksin, ve o kodların matematiksel bir
+  takım kordinatlarıyla işlem yapacaksın. Bu işlemleri yaparken bir yandan
+  düşüncede onların görüntüleri çakışması felan gerekiyor ki doğru kodu
+  yazabilesin, aslında zor görünüyor değil mi ? Aslında bir çok problemi zaten
+  burada yaşıyoruz. Bu yüzden o kodlar onlarca denemeler sonucunda
+  yazılabiliyor, ve bazende o kodu test edecek başka kodlar yazıyoruz ki kodu
+  değiştirdiğimiz zaman başka bir yerden patlarsa farkedelim diye. Tabi gözün
+  korkmasın söylediğim gibi bir çok denemeler yaparak sonuca ulaşıyoruz, ama
+  soyut düşüncen ne kadar ilerlediyse hatalarıda o derece erken farkeder ve
+  doğru kodu daha kısa zamanda yazarsın.
