@@ -21,7 +21,7 @@ content: >-
   insan yapabilir, sabah kalktım, evden çıktım, okula gittim. Ancak bu analiz
   ayrıntılı bir analiz olmamış olur. Yazılım sürecinde ne kadar ayrıntılı analiz
   ediyorsan, oluşan problemleri çözmek ve yakalamakta o kadar kolay oluyor.
-  Dolayısyıla bir şeyi derinlemesine analiz etmeyi öğrenmen gerekiyor, beliki
+  Dolayısyıla bir şeyi derinlemesine analiz etmeyi öğrenmen gerekiyor, belki
   yataktan kalktım çorabımı giydim hatta yataktan sağ yanımdan kalktım.
   Diyebilecek kadar ayrıntılı düşünceye sahip olmak senin faydana olur.
 
@@ -41,7 +41,7 @@ content: >-
   yapmadığın sürece o şeyleri soyut olarak zaten düşünüyorsun. Bir fulbolcu
   penaltıdan önce nasıl atacağını düşünür aklındaki düşünce soyuttur daha sonra
   o düşünceyi eyleme döker ve somutlaştırır. Futbolcunun soyut düşüncesi somut
-  bir şeyi düşünür, ve bunu hepimiz yaparız. Çünkü somut bir şeyin ne olduğunu
+  bir düşüncedir ve bunu hepimiz yaparız. Çünkü somut bir şeyin ne olduğunu
   biliyoruz, ve onu kolayca düşünebiliriz. Problem ise soyut şeyleri düşünmekte
   başlıyor. Yazılımda anlaşılması zor konular genelde soyut kavramlardır.
   Yazılım meselesi zaten soyut olduğu için o konuların somut örneklerini görmen
@@ -56,13 +56,13 @@ content: >-
   referans eden bir takım kodlar göreceksin, ve o kodların matematiksel bir
   takım kordinatlarıyla işlem yapacaksın. Bu işlemleri yaparken bir yandan
   düşüncede onların görüntüleri çakışması felan gerekiyor ki doğru kodu
-  yazabilesin, aslında zor görünüyor değil mi ? Aslında bir çok problemi zaten
-  burada yaşıyoruz. Bu yüzden o kodlar onlarca denemeler sonucunda
-  yazılabiliyor, ve bazende o kodu test edecek başka kodlar yazıyoruz ki kodu
-  değiştirdiğimiz zaman başka bir yerden patlarsa farkedelim diye. Tabi gözün
-  korkmasın söylediğim gibi bir çok denemeler yaparak sonuca ulaşıyoruz, ama
-  soyut düşüncen ne kadar ilerlediyse hatalarıda o derece erken farkeder ve
-  doğru kodu daha kısa zamanda yazarsın.
+  yazabilesin, zor görünüyor değil mi ? Aslında bir çok problemi zaten burada
+  yaşıyoruz. Bu yüzden o kodlar onlarca denemeler sonucunda yazılabiliyor, ve
+  bazende o kodu test edecek başka kodlar yazıyoruz ki kodu değiştirdiğimiz
+  zaman başka bir yerden patlarsa farkedelim diye. Tabi gözün korkmasın
+  söylediğim gibi bir çok denemeler yaparak sonuca ulaşıyoruz, ama soyut
+  düşüncen ne kadar ilerlediyse hatalarıda o derece erken farkeder ve doğru kodu
+  daha kısa zamanda yazarsın.
 
 
   Zaten ilk 2 kurala yeterince sahipsen diğer bilimleride yapamaman için hiç bir
@@ -88,8 +88,8 @@ content: >-
   yönetim programları. Aslına bakarsan elektronik defter kodlamaktan ilerisi
   olduğunu düşünmüyorum, çünkü öncesinde kağıt üzerinde yapılan şeyleri şimdide
   elektronik ortamda yapıyoruz. Yeni bir şey keşfetmedik sadece dönüşüme uğratıp
-  hızlandırdık. Yeni bir şeyler yapmak istiyorsanda yeterince soyut olacağı için
-  biraz kafayı sıyırman gerekebilir.
+  hızlandırdık. Yeni bir şeyler yapmak istiyorsan da yeterince soyut olacağı
+  için biraz kafayı sıyırman gerekebilir.
 
 
   Bu kuralı toparlamak gerekirse, her şeyi aklında tutamazsın. Bilgiye ulaşırken
@@ -101,7 +101,7 @@ content: >-
   çözmeye kalktığın zaman bu yeterince vakit kaybı oluyor.
 
 
-  Bu 3 kuralı uygulayabiliysan sen yazılımcı olursun, şimdi gelelim yazılımcı
+  Bu 3 kuralı uygulayabiliyorsan sen yazılımcı olursun, şimdi gelelim yazılımcı
   olursun ama bu işten keyif alır mısın sorusuna.
 
 
@@ -118,22 +118,23 @@ content: >-
   başındayken veya değilken uygulaman gerekiyor. Ben ilk kodumu 2008 de yazdım.
   şuan 2020 oldu, yani 12 sene önce, yazdığım ilk kod aslında mantıksal bir kod
   değildi (html/css). Tamamen çıkarımlar yaparak deneme yanılma yaparak
-  öğreniyordum. Mesela width adında bir kod yazıyordu yanında ise 800px gibi
-  sinden bir rakam yazıyordu. Bu 800 değerini 400 yapıyordum ve ekrandaki şeyin
-  boyutu daralıyordu bu şekilde daha width kelimesinin anlamını bilmeden onun
-  genişlikle ilgili bir şey olduğunu kavrıyordum. O zamanlar 11-12 yaşlarında
-  olduğumu varsayarsak, benim için bu yeterliydi ve **gayette keyifliydi.** Bu
-  örnekte aslında ilk nasıl keyif aldığımı anlattım, eğer senin için ekrana
-  yazırdığın bir kodun çalışması bir anlam ifade etmiyorsa seni
-  heyecanlandırmıyorsa, Atıyorum bir butona tıkladığın o butonun çıkarıdğı uyarı
-  içeriğini belirlemek sana keyif vermeyecekse, zaten olmaz çünkü keyif bu işin
-  bana göre yaklaşık 20% si felan. Karışık kuruyemişte arada denk gelen şam
-  fıstığı gibi düşünebilrsin. Devamında farklı istekler oluştu ve o istekleri
-  nasıl yapabileceğimin derdine düştüm, giderek konular genişledi uğraştığım
-  şeyler genişledi. Paragrafın başında bilgsiayar başından kalktığındada devam
-  etmen gerekiyor dedim ya, ekmek almak için bilgisayar başından kalktığımda
-  kafamda sürekli o problemi nasıl çözeceğim olurdu, ve hatta bazen eve dönüş
-  yolunda çözümü bulur eve döner uygulardım, ve keyif alırdım.
+  öğreniyordum. Mesela width adında bir kod yazıyordu yanında ise 800px
+  gibisinden bir rakam yazıyordu. Bu 800 değerini 400 yapıyordum ve ekrandaki
+  şeyin boyutu daralıyordu bu şekilde daha width kelimesinin anlamını bilmeden
+  onun genişlikle ilgili bir şey olduğunu kavrıyordum. O zamanlar 11-12
+  yaşlarında olduğumu varsayarsak, benim için bu yeterliydi ve **gayette
+  keyifliydi.** Bu örnekte aslında ilk nasıl keyif aldığımı anlattım, eğer senin
+  için ekrana yazırdığın bir kodun çalışması bir anlam ifade etmiyorsa seni
+  heyecanlandırmıyorsa, Atıyorum bir butona tıkladığında o butonun çıkarıdğı
+  uyarı içeriğini belirlemek sana keyif vermeyecekse, zaten yazılımcı olma çünkü
+  keyif bu işin bana göre yaklaşık 20% si felan. Karışık kuruyemişte arada denk
+  gelen şam fıstığı gibi düşünebilrsin, ven sen o 20% lik kısımdan da keyif
+  almayacaksan işin zor. Devamında farklı istekler oluştu ve o istekleri nasıl
+  yapabileceğimin derdine düştüm, giderek konular genişledi uğraştığım şeyler
+  genişledi. Paragrafın başında bilgsiayar başından kalktığındada devam etmen
+  gerekiyor dedim ya, ekmek almak için bilgisayar başından kalktığımda kafamda
+  sürekli o problemi nasıl çözeceğim olurdu, ve hatta bazen eve dönüş yolunda
+  çözümü bulur eve döner uygulardım, ve keyif alırdım.
 
 
   Tabi bu ilk zamanlar bu şekildeydi seninde tahmin ediyorum ilk zamanların bu
@@ -164,7 +165,7 @@ content: >-
   labiren dizmeye başlarsın, daha sonra kendi kodunu yazarak o labirenti
   genişletirsin, burada labirent örneğini vermemin sebebi, sürekli karşına
   yapmak istediğin şeyi istediğin şekilde yapamyacağın durumlar çıkmaya başlar,
-  ve sen o labirentte dorğu yolu bulmaya çalışarak çıkmaya çalışırsın, bir sürü
+  ve sen o labirentte doğru yolu bulmaya çalışarak çıkmaya çalışırsın, bir sürü
   denemeler yaparsın, yaptığın hataları aklında tutup tekrar denememen gerekir,
   ve  en sonunda, bir şekilde o labirentte çıkar yatağına dönersin tabi ertesi
   gün yeni bir labirente tekrar merhaba demek üzere.
@@ -173,7 +174,7 @@ content: >-
   Anlayacağın bu işin can sıkıcı yanları yok değil, dolayısyıla problem çözmeyi
   seven biri olman gerekiyor, yoksa bir gazla bu iş yapılmaz. Karışık kuruyemiş
   örneğini hatırla, şam fıstıkları biter ve hayatına şamfıstıksız devam etmek
-  zorunda kalırsın. Proje yazılım iş bir şekilde bitmelidir.
+  zorunda kalırsın. Proje, yazılım, iş bir şekilde bitmelidir.
 
 
   ## Kazançlı Bir İş Mi ?
@@ -190,5 +191,32 @@ content: >-
 
   Başlangıçta çok çalışman daha doğrusu uğraşman gerekitğini söylemiştim, o
   uğraşlar olmadan o bilgileri, tecrübeleri elde edemezsin. Buda senin hayat
-  tarzına bağlıdır. Bence böyledir, yazılımcı sosyal olmadır vs deniliyor olsun
-  tabi ki
+  tarzına bağlıdır. Kisacası dengeyi kurabilirsen neden olmasın. Diğer yandan
+  yazılımcı ekosistemi de genişlediği için toplantılar buluşmalar vs
+  ayarlanıyor. Bu tür ortamlarda hem işinden hemde sosyal ortamdan uzak kalmamış
+  oluyorsun. Lakin, sohbet muhabbetle de bu işler yürümüyor, yine en sonunda
+  oturup odaklanıp vakit ayırıp öğrenmek gerekiyor.
+
+
+  ## Diploma Meselesi
+
+
+  Bu meslekte alaylı olup kendini yetiştirende vardır, tam tersi olanda vardır.
+  Diplomasızlık Türkiye'de bir maaş düşürme sebebidir. Yurtdışında ise (hiç
+  çıkmadım ama tahmin ediyorum) statü/güven meselesidir. Eğitim olayına bakarsak
+  üniversiteden advance yazılımcı olarak çıkmazsın. ama üniversitenin kattığıda
+  bir çok şey vardır, mesela ben üniversiteye gitmemiş olsaydım kendimi
+  ingilizce olarak geliştirmezdim, bunun için bir sebebim olmazdı. Akademi
+  alanında bir bilgi sahibi olmazdım, hatta varlığından bile haberim
+  olmayabilirdi. Dolayısyıla üniversiteden advance yazılımcı olmak gibi bir şey
+  bekleme ama farkında olmadığın bir çok şeyi farketmene fayda sağlayabilir.
+
+
+  ## Kapanış
+
+
+  Bu yazıyı yazma amacım, mesleğin sadece magazinel tarafını gösterip insanları
+  yanlış yönlendirip yanlış meslek seçimlerinin önüne geçmekti, umarım derdimi
+  anlatabilmiş, ve karar vermenize yardımcı olabilmişimdir. Eğer kararınız
+  olumluysa ileride bu serüvene nasıl başlanmalı gibisinden bir yazıda
+  yazabilirim, takipte kalın.
