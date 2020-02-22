@@ -143,7 +143,7 @@ export default {
       return this.data.englishVersionUrl
     },
     turkishVersionUrl: function() {
-      return this.data.englishVersionUrl
+      return this.data.turkishVersionUrl
     },
     metaImage() {
       return `https://davutkara.com/images/uploads/generated/${this.slug}.png`
@@ -153,11 +153,19 @@ export default {
     if (this.$i18n.locale === 'en') {
       if (this.turkishVersionUrl === undefined) {
         this.disableLang('tr')
-      }
+      } else
+        this.$store.dispatch('i18n/setRouteParams', {
+          en: { slug: this.slug },
+          tr: { slug: this.turkishVersionUrl }
+        })
     } else if (this.$i18n.locale === 'tr') {
       if (this.englishVersionUrl === undefined) {
         this.disableLang('en')
-      }
+      } else
+        this.$store.dispatch('i18n/setRouteParams', {
+          tr: { slug: this.slug },
+          en: { slug: this.englishVersionUrl }
+        })
     }
 
     document.querySelectorAll('pre code').forEach(block => {
