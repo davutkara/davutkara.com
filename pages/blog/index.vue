@@ -40,7 +40,7 @@
               :description="content"
               :author="author"
               :links="links"
-              :slug="`/${$i18n.locale}/blog/${slug}/`"
+              :slug="`${slug}/`"
               :thumbnail="`https://davutkara.com/images/uploads/generated/${slug}.png`"
               :date="date"
             />
