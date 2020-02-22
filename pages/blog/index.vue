@@ -40,7 +40,7 @@
               :description="content"
               :author="author"
               :links="links"
-              :slug="`${slug}/`"
+              :slug="`${$route.path}/${slug}/`"
               :thumbnail="`https://davutkara.com/images/uploads/generated/${slug}.png`"
               :date="date"
             />
