@@ -51,6 +51,51 @@ collections:
         fields:
           - { label: Link Adı, name: name, widget: string }
           - { label: Link URL, name: url, widget: string }
+  - name: 'blog-en'
+    label: 'English Blog'
+    create: true
+    format: 'yaml'
+    folder: 'static/api/content/blog-en'
+    slug: '{{fields.slug}}'
+    preview_path: en/blog/{{slug}}/?preview=true
+    fields:
+      - label: 'Blog Type'
+        name: 'type'
+        widget: 'select'
+        options:
+          - { label: 'About IT', value: 'ABOUT_IT' }
+          - { label: 'Blog Posts', value: 'ABOUT_PERSONAL' }
+          - { label: 'Feeds', value: 'FEED' }
+          - { label: 'Quotes', value: 'QUOTE' }
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'URL Slug', name: 'slug', widget: 'string', required: true }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - label: 'Turkish Version'
+        name: 'turkishVersionUrl'
+        widget: 'relation'
+        collection: 'blog-tr'
+        searchFields: ['title', 'slug']
+        valueField: 'slug'
+        displayFields: ['title', 'slug']
+        required: false
+      - label: 'Thumbnail'
+        name: 'thumbnail'
+        widget: 'image'
+        required: false
+      - {
+          label: 'content',
+          name: 'content',
+          widget: 'markdown',
+          required: false,
+        }
+      - { label: 'author', name: 'author', widget: 'string', required: false }
+      - label: 'Links'
+        name: 'links'
+        widget: 'list'
+        required: false
+        fields:
+          - { label: Link Title, name: name, widget: string }
+          - { label: Link URL, name: url, widget: string }
   - label: 'Pages'
     name: 'pages'
     files:
