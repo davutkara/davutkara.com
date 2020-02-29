@@ -1,0 +1,231 @@
+type: ABOUT_IT
+title: Webpack'i Anlamak
+slug: webpack-i-anlamak
+date: 2020-02-29T09:11:59.816Z
+content: >-
+  "Günümüz javascript dünyasında webpack çok popüler ve sıkça karşılaştığımız
+  bir bundler (paketleyici), yaptığı görev ise bizim bir yığın olarak verdiğimiz
+  JS,HTML,PNG,SVG,CSS,SCSS gibi envai çeşit kaynağımızı alıp bizim isteğimiz
+  doğrultuda işleyip tarayıcımızın ağzının tadına layık olacak şekilde
+  paketlemesidir.
+
+
+  <!-- more -->
+
+   Bunun yanında da development(geliştirme) ortamı ve production(ürün, projenin son kullanıcı tarafından kullanacağı hali) ortamı açısından, Hot Module Replacement (HMR) (Yaptığımız değişikliklerin canlı olarak değiştirilmesi, örneğin js de değiştirdiğim bir kodun otomatik olarak browserda güncellenmesi işleri) gibi ek özellikleride yanında sağlamaktadır, yani editör geliştirme ortamı için ne kadar önemliyse, web ortamındada bu webpack bir o kadar önemlidir çünkü bizim kaliteli bir geliştirme yapabilmemiz için bir zemin hazırlamaktadır. Öyleyse bunu adam akıllı öğrenmenin vakti gelmiştir. 
+
+  Dökümanını açıp okumaya başladığımda, webpack 4.0.0 dan itibaren konfigürasyon
+  yapmaya gerek kalmadığını belirtmiş, ama tabiki illaki konfigürasyon yapmamız
+  gereken işler olacaktır.
+
+
+  Tabi öncelikle her işte olduğu gibi burada da kullanılan konseptleri anlamamız
+  gerekiyor. Başlıklar halinde konseptleri açıklayacağım.
+
+
+  ### Entry ( Girdi )
+
+
+  Adından da anlaşılacağı üzere, entry ifadesi webpack in giriş yapacağı aslında
+  başlayacağı ilk başlangıç noktasını belirtiyor.
+
+
+  ```javascript
+
+  // webpack.config.js
+
+  module.exports = {
+    entry: './path/to/my/entry/file.js'
+           // default ./src/index.js
+  };
+
+  ```
+
+
+  Webpack entry key-ine set edilen \`'./path/to/my/entry/file.js'\` dosyasından
+  başlayarak bir dependecy-graph yani bağımlılık grafiği yani bizim
+  kullandığımız js module lerini içerek bir graph oluşturarak kendi içerisinde
+  düzgün bir bundle üretmeye çalışacak. Tabi bizim bundle üretiminde bir işimiz
+  yok burada biraz detay verdim. Eğer bir değer girmez ise \`./src/index.js\`
+  dosyasını okuyarak başlıyormuş.
+
+   Bu noktada şunu farkedebilirsiniz, biz 1 adet mi giriş dosyası belirteceğiz, belki birden fazla giriş dosyamız var ve bu dosyalar birbirinden bağımsız tabi ki bunun içinde birden fazla giriş dosyası ekleyebilirsiniz.
+
+  ```javascript
+
+  module.exports = {
+    //...
+    entry: {
+      home: './home.js',
+      contact: './contact.js',
+      about: { 
+         import: './about.js', 
+         filename: 'pages/[name][ext]' // çıktı adını belirtmek için.
+     }
+    }
+  };
+
+  ```
+
+
+  Entry konusunda daha detaylı bilgi almak için sizi şuraya alalım ?
+  <https://webpack.js.org/configuration/entry-context/#entry>
+
+
+  ### Output ( Çıktı )
+
+
+  Eğer webpack ayar dosyasına output eklemezseniz, çıktı `./dist/main.js`
+  dosyasına gidecektir. Çıktıyı farklı bir klasöre ve farklı bir isimle vermek
+  istiyorsak. Aşağıdaki kodu inceleyebiliriz.
+
+
+  ```javascript
+
+  const path = require('path'); // Dosya/Klasör yolu işlerini gören module
+
+
+  module.exports = {
+    entry: './path/to/my/entry/file.js',
+    output: {
+      path: path.resolve(__dirname, 'dist'), // Çıktı klasörü
+      filename: 'my-first-webpack.bundle.js' // Çıktı dosyası
+    }
+  };
+
+  ```
+
+
+  Tabi output işi bu kadar kolay olmayabilir, birden fazla çıktı alma o
+  alacağımız çıktının özellikleri vs gibi işlerimiz olabilir bunun için
+  aşağıdaki linkten orjinal dökümanı inceleyebilirsiniz. Mesela iki farklı
+  çıktınız var her iki çıktıda ortak bir library kullanıyor, bu durumda her iki
+  çıktıda kendi içerisinde o library i barındıracağına library de ayrı olarak
+  çıktı aldırabilrsiniz. Gibi envai çeşit iş yapılabilir, açıp okumak laızm. 
+
+
+  <https://webpack.js.org/configuration/output/>
+
+
+  ## Loaders ( Yükleyiciler )
+
+
+  Webpack in kendisi js ve json fileları anlar, js ve json dışındaki file type
+  larını ise diğer loader lardan faydalanarak anlar. Örneğin, HTML,CSS,SCSS gibi
+  şeyleri bu tür loaderlar kullanarak webpackin bundle etmesini sağlayabiliiz.
+
+
+  Loader ları kullanabilmek için en azından test, ve use adlı key leri veya biz
+  onlara artık property diyelim - çünkü dökümanda o şekilde demiş - girmemiz
+  gerekiyor.
+
+
+  ```javascript
+
+  const path = require('path');
+
+
+  module.exports = {
+    output: {
+      filename: 'my-first-webpack.bundle.js'
+    },
+    module: { // Module kullanacağım
+      rules: [ // Kurallara gore aktif olacak
+        { 
+          test: /\.txt$/, // Aranan şartlar regex olarak girilmiş.
+          use: 'raw-loader' // Şartlar uyuşursa bu loader-ı kullan.
+        }
+      ]
+    }
+  };
+
+  ```
+
+
+  Yukarıdaki örnek anlayacağız üzere \`.txt\` uzantılı tüm dosyaları
+  \`raw-loader\` isimli loader ı kullanarak webpack işlemini yapacak. Eğer bunu
+  kullanmazsak, js dosyamız içerisinde bir text dosyasını okuyamayız. \
+
+  Ayrıntılı bilgiye buradan ulaşabilrsiniz,
+  <https://webpack.js.org/concepts/loaders/>
+
+
+  ### Plugins ( Eklentiler )
+
+
+  Pluginler loader lardan daha çok iş yapmaktadır, loader lar webpack in load
+  edemeyeceği dosyaları onun load edebileceği hale getirirler. Pluginler ise çok
+  daha fazlasını yapar.
+
+
+  ```javascript
+
+  const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
+
+  const webpack = require('webpack'); //to access built-in plugins
+
+
+  module.exports = {
+    module: {
+      rules: [
+        { test: /\.txt$/, use: 'raw-loader' }
+      ]
+    },
+    plugins: [
+      new HtmlWebpackPlugin({template: './src/index.html'})
+    ]
+  };
+
+  ```
+
+
+  Mesela yukarıdaki \`HtmlWebpackPlugin\` template olarak aldığı src
+  klasöründeki index.html dosyasını okur ve ilgili yerlere bundle edilmiş js
+  dosyalarını gömer ve dist klasörüne çıktısını bırakır, bu sayede bizde js
+  dosyalarını html içine gömmekle uğraşmayız. Bir çok plugin vardır buradan
+  erişebilrsiniz.[
+  https://webpack.js.org/plugins/](https://webpack.js.org/plugins/)
+
+
+  Plugins hakkında daha detaylı bilgiye ulaşmak için[
+  https://webpack.js.org/concepts/plugins/](https://webpack.js.org/concepts/plugins/)
+
+
+  ## Mode ( Mod )
+
+
+  Mod bilgisi girmek, production, development ortamları için webpack in belirli
+  optimizasyonlar yapmasını sağlar.
+
+
+  ```javascript
+
+  module.exports = {
+    mode: 'production'
+  };
+
+  ```
+
+
+  Production ve development için iki farklı config dosyası sunup, duruma göre
+  birini import etme şeklinde yapıldığınıda gördüm.
+
+
+  Daha detaylı bilgi için <https://webpack.js.org/configuration/mode/>
+
+
+  ## Browser
+  Compatibility[](https://webpack.js.org/concepts/#browser-compatibility) (
+  Tarayıcı Uyumluluğu )
+
+
+  Webpack es5 destekleyen tüm tarayıcılarda çalışır, (IE8 ve altı hariç). Eski
+  tarayıcılar için polyfil denilen yardımcı dosyalar eklemeniz gerekiyor.
+
+
+  Detaylı bilgi: <https://webpack.js.org/concepts/#browser-compatibility>
+
+
+  Bu yazıda basitçe webpack conseptine değindim, tabi ki [webpack.js.org](<
+  webpack.js.org>) dan bolca faydalandım, ve detaylı bilgiler içinde linklerini
+  verdim, ihtiyaç duydukça daha derin şeylerde yazabilrim, iyi çalışmalar.
