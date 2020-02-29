@@ -14,8 +14,8 @@ content: >-
 
    Bunun yanında da development(geliştirme) ortamı ve production(ürün, projenin son kullanıcı tarafından kullanacağı hali) ortamı açısından, Hot Module Replacement (HMR) (Yaptığımız değişikliklerin canlı olarak değiştirilmesi, örneğin js de değiştirdiğim bir kodun otomatik olarak browserda güncellenmesi işleri) gibi ek özellikleride yanında sağlamaktadır, yani editör geliştirme ortamı için ne kadar önemliyse, web ortamındada bu webpack bir o kadar önemlidir çünkü bizim kaliteli bir geliştirme yapabilmemiz için bir zemin hazırlamaktadır. Öyleyse bunu adam akıllı öğrenmenin vakti gelmiştir. 
 
-  Dökümanını açıp okumaya başladığımda, webpack 4.0.0 dan itibaren configurasyon
-  yapmaya gerek kalmadığını belirtmiş, ama tabiki illaki configurasyon yapmamız
+  Dökümanını açıp okumaya başladığımda, webpack 4.0.0 dan itibaren konfigürasyon
+  yapmaya gerek kalmadığını belirtmiş, ama tabiki illaki konfigürasyon yapmamız
   gereken işler olacaktır.
 
 
@@ -26,7 +26,7 @@ content: >-
   ### Entry ( Girdi )
 
 
-  Adındanda anlaşılacağı üzere, entry ifadesi webpack in giriş yapacağı aslında
+  Adından da anlaşılacağı üzere, entry ifadesi webpack in giriş yapacağı aslında
   başlayacağı ilk başlangıç noktasını belirtiyor.
 
 
@@ -42,7 +42,7 @@ content: >-
   ```
 
 
-  Webpack etnry key-ine set edilen \`'./path/to/my/entry/file.js'\` dosyasından
+  Webpack entry key-ine set edilen \`'./path/to/my/entry/file.js'\` dosyasından
   başlayarak bir dependecy-graph yani bağımlılık grafiği yani bizim
   kullandığımız js module lerini içerek bir graph oluşturarak kendi içerisinde
   düzgün bir bundle üretmeye çalışacak. Tabi bizim bundle üretiminde bir işimiz
