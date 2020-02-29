@@ -7,16 +7,12 @@ content: >-
   bir bundler (paketleyici), yaptığı görev ise bizim bir yığın olarak verdiğimiz
   JS,HTML,PNG,SVG,CSS,SCSS gibi envai çeşit kaynağımızı alıp bizim isteğimiz
   doğrultuda işleyip tarayıcımızın ağzının tadına layık olacak şekilde
-  paketlemesidir. Bunun yanında da development(geliştirme) ortamı ve
-  production(ürün, projenin son kullanıcı tarafından kullanacağı hali) ortamı
-  açısından, Hot Module Replacement (HMR) (Yaptığımız değişikliklerin canlı
-  olarak değiştirilmesi, örneğin js de değiştirdiğim bir kodun otomatik olarak
-  browserda güncellenmesi işleri) gibi ek özellikleride yanında sağlamaktadır,
-  yani editör geliştirme ortamı için ne kadar önemliyse, web ortamındada bu
-  webpack bir o kadar önemlidir çünkü bizim kaliteli bir geliştirme yapabilmemiz
-  için bir zemin hazırlamaktadır. Öyleyse bunu adam akıllı öğrenmenin vakti
-  gelmiştir. 
+  paketlemesidir.
 
+
+  <!-- more -->
+
+   Bunun yanında da development(geliştirme) ortamı ve production(ürün, projenin son kullanıcı tarafından kullanacağı hali) ortamı açısından, Hot Module Replacement (HMR) (Yaptığımız değişikliklerin canlı olarak değiştirilmesi, örneğin js de değiştirdiğim bir kodun otomatik olarak browserda güncellenmesi işleri) gibi ek özellikleride yanında sağlamaktadır, yani editör geliştirme ortamı için ne kadar önemliyse, web ortamındada bu webpack bir o kadar önemlidir çünkü bizim kaliteli bir geliştirme yapabilmemiz için bir zemin hazırlamaktadır. Öyleyse bunu adam akıllı öğrenmenin vakti gelmiştir. 
 
   Dökümanını açıp okumaya başladığımda, webpack 4.0.0 dan itibaren configurasyon
   yapmaya gerek kalmadığını belirtmiş, ama tabiki illaki configurasyon yapmamız
@@ -124,8 +120,6 @@ content: >-
   gerekiyor.
 
 
-
-
   ```javascript
 
   const path = require('path');
@@ -162,8 +156,6 @@ content: >-
   Pluginler loader lardan daha çok iş yapmaktadır, loader lar webpack in load
   edemeyeceği dosyaları onun load edebileceği hale getirirler. Pluginler ise çok
   daha fazlasını yapar.
-
-
 
 
   ```javascript
