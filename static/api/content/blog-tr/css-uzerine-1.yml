@@ -1,0 +1,59 @@
+type: ABOUT_IT
+title: Css Üzerine 1
+slug: css-uzerine-1
+date: 2020-04-17T17:13:47.323Z
+content: >-
+  Web sayfalarının arayüzlerini geliştirmek için kullandığımız bir markup
+  language. Sizde benim gibi css in erken safhalarnda tanışık olduysanız,
+  tarayıcı uyumsuzluğu sebebiyle css den soğumuş olabilirsiniz. 2008 de ilk css
+  tasarımlarımı yapmaya başlarken, bir nesneyi ortalamaya yarayan `margin: 0
+  auto;` kodunun İnternet Explorer denen saçmalıkta çalışmadığını buna karşılık
+  siteyi ortalamak adına `text-align:center;` kullandığımı bu seferde sitedeki
+  her şeyi ortalandığını çok iyi hatırlarım. O günlerden bu günlere css e karşı
+  pek ısınamamıştım, ancak devir değişti, artık css de evrim geçirdi, eskisi
+  gibi tarayıcı uyumsuzluğu sık yaşanmıyor, bu yüzden bu yazımda benim gibi
+  old-school ların yeni css e kolayca adapte olması adına css notlarımı
+  paylaşacağım.
+
+
+  ## Flexbox vs Grid
+
+
+  Flexbox yatay veya dikey sıralanan, tek yönlü bir yapı.
+
+
+  Grid hem yatay hem dikey de sıralanan, çift yönlü bir yapıdır.
+
+
+  # Flexbox
+
+
+  Flexbox tek yönlü çalışan bir yapı olduğunu söylemiştik, yani bir şeyleri soldan sağa veya yukarıdan aşağı doğru sıralamak isteyorsak, flexbox kullanabiliriz.
+
+   Bir nesnenin flexbox olduğunu belirtmek için.
+
+  *display: flex;*
+
+
+  *kodunu kullanmamız yetiyor.*
+
+
+  *Daha sonra flexboxımızın yönünü belirtmek için,* 
+
+
+  *flex-direction: row; /\* Soldan sağa \*/*\
+
+  *flex-direction: row-reverse; /\* Sağdan sola \*/*\
+
+  *flex-direction: column; /\* Yukarıdan aşağıya \*/*\
+
+  *flex-direction: column-reverse; /\* Aşağıdan yukarıya \*/*
+
+
+  Flexbox altındaki bir elamanın sırasını belirlemek için.
+
+
+  order: 0; /\*Bulunduğu konum, - ve + değerler verilebilir.\*/
+
+
+  Diyelimki dinamik yüklenen bazı html elamanlarıımız var istediğimiz bir elemanın sürekli en başta görünmesini istiyorsak bunu kullanabiliriz.
