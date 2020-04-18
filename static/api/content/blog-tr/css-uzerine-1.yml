@@ -2,7 +2,7 @@ type: ABOUT_IT
 title: Css Üzerine 1
 slug: css-uzerine-1
 date: 2020-04-17T17:13:47.323Z
-content: >
+content: >-
   Web sayfalarının arayüzlerini geliştirmek için kullandığımız bir markup
   language. Sizde benim gibi css in erken safhalarnda tanışık olduysanız,
   tarayıcı uyumsuzluğu sebebiyle css den soğumuş olabilirsiniz. 2008 de ilk css
@@ -112,7 +112,6 @@ content: >
    justify-content in tersidir, dolayısyıla flex-direciton ın tersidir. Eğer flex-direction yatay ise, align-items dikey hizalama yapacaktır. Elemanların tamamını hizalar.
   */
 
-  ```
 
   align-self: auto;
 
@@ -171,3 +170,5 @@ content: >
     0-100%; Kalan boşluğun yüzde kaçını kullanacağı.
     content; İçeriğin boyutunu alır.
   */
+
+  ```
