@@ -172,3 +172,11 @@ content: >-
   */
 
   ```
+
+
+  Buraya kadar öğrendiklerimizi nerde nasıl kullanacağımız asıl meseledir, dolayısıyla bir çok örnek incelemek lazım. 
+
+  Mesela menü yapımında flexbox tercih edebiliriz. Özellikle dikey yapılarda flexbox işi çok kolaylaştıracaktır.
+
+
+  Yazıları yatayda ve dikeyde ortalamak için bence kullanması vazgeçilmezdir.
