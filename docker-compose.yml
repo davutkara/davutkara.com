@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./node_modules:/usr/app/node_modules
+      - ./public:/usr/app/public
+      - ./src:/usr/app/src
+      - ./test:/usr/app/test
+      - ./.env:/usr/app/.env
+      - ./babel.config.js:/usr/app/babel.config.js
+      - ./vue.config.js:/usr/app/vue.config.js
+      - ./package.json:/usr/app/package.json
+      - ./package-lock.json:/usr/app/package-lock.json
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+    # uncomment command below to run development version
+    # command: "npm run serve"
+    command: >
+      npm run serve
