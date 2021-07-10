@@ -1,4 +1,7 @@
-import { ref, computed } from "vue";
+import { ref, watch, computed } from "vue";
+
+import { RouteHistorySetup } from "@/composables/RouteHistory";
+
 /**
  * Making an async template that handle loading,error and content fetched.
  *
@@ -8,17 +11,31 @@ import { ref, computed } from "vue";
  * @async
  * @function {Promise<any>} startFetchingByPath : The fetch function by given path.
  */
-export default function() {
+export default function () {
   const isContentLoading = ref(false),
     content = ref(null);
+  // always loading false when router changed.
+  const {
+    route
+  } = RouteHistorySetup();
+  watch(
+    route,
+    () => {
+      isContentLoading.value = false;
+    },
+    { immediate: true }
+  );
 
   // COMPUTED
   const isContentLoadingError = computed(() => {
     return isContentLoading.value instanceof Error;
   });
 
+
   // METHODS
   const startFetchingByPath = async (path) => {
+    // fix to trigger watch.
+    content.value = null;
     isContentLoading.value = true;
 
     await new Promise((resolve) =>
@@ -27,9 +44,11 @@ export default function() {
       }, 100)
     );
 
+    const filePath = route.meta.language + (path.includes("/" + route.meta.language + "/") ? path.replace("/" + route.meta.language, "") : path);
+
     return import(
       /* webpackChunkName: "[request]" */
-      "../assets/docs/blog" + path + ".yaml"
+      "../assets/docs/blog/" + filePath + ".yaml"
     )
       .then((file) => {
         content.value = file.default;

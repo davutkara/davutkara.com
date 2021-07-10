@@ -9,12 +9,13 @@
       </p>
     </header>
     <nav>
-      <h2>Table Of Contents</h2>
+      <h2>İçindekiler</h2>
       <ul>
         <li v-for="([title, id], tI) in tableOfContents" :key="tI">
           <a @click.prevent="scrollToId" :href="'#' + id" v-text="title"></a>
         </li>
       </ul>
+      <!-- 
       <button
         style="display: block; margin-top: 1em"
         class="float-left"
@@ -31,10 +32,9 @@
       <br />
       <button style="display: block; margin-top: 2.5em" class="w-100">
         Buy me a coffee
-      </button>
+      </button> -->
     </nav>
     <div v-html="article" />
-    <button @click="$router.push('/test3')">push</button>
   </article>
   <router-view />
 </template>

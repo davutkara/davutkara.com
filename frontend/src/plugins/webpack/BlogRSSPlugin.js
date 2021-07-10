@@ -13,11 +13,11 @@ class BlogListJson {
       const rssItemList = { en: [], tr: [] };
 
       // find the paths
-      const filePaths = await readDir(__dirname + "/../../assets/docs/blog");
+      const filePaths = await readDir(__dirname + "/../../assets/docs/blog/en");
       // create the content list
       const fileContents = filePaths.map((filePath) =>
         readFile(
-          __dirname + "/../../assets/docs/blog/" + filePath,
+          __dirname + "/../../assets/docs/blog/en/" + filePath,
           "utf8"
         ).then((fileContent) => {
           const {

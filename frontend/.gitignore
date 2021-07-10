@@ -1,7 +1,7 @@
 .DS_Stores
 .env.local
 .env.*.local
-eski
+node_modules
 # Editor directories and files
 .idea
 .vscode
