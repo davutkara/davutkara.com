@@ -1,16 +1,25 @@
 import { reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { MapSplice } from "@/utils/Map-splice.js";
+
+export const ROUTE_HISTORY_OVERRIDE_HASH = "#override";
 
 export const RouteHistory = reactive(new Map());
 
-export const RouteHistorySetup = function() {
+export const RouteHistorySetup = function () {
   // Get route and router instances from vue-router.
   const route = useRoute();
   const router = useRouter();
 
 
   // init new route.
-  const routeHistoryAddCurrentRoute = async (to = route) => {
+  const routeHistoryAddCurrentRoute = async (to = route, from) => {
+    
+    if (to.hash.includes(ROUTE_HISTORY_OVERRIDE_HASH) && from) {
+      MapSplice(RouteHistory, from.path, null, [[to.path, {}]])
+      return true;
+    }
+
     if (!RouteHistory.has(to.path)) {
       RouteHistory.set(to.path, {});
     }
