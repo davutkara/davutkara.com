@@ -6,7 +6,9 @@
         class="sidebar"
         :class="{ disabled: !isSidebarShown }"
       >
-        ☰<transition><template v-if="!isSidebarShown"> Davut KARA</template></transition>
+        ☰<transition
+          ><template v-if="!isSidebarShown"> Davut KARA</template></transition
+        >
       </li>
       <router-link
         v-for="({ path, title }, pI) in tabList"
@@ -20,6 +22,9 @@
           :class="{
             active: path === $route.path,
           }"
+          @drop.prevent="moveTabDrop(path, $event)"
+          @dragstart="moveTabDrag(path, $event)"
+          @dragover.prevent
           @click="$router.push(path)"
           @contextmenu.stop.prevent="() => routeHistoryRemoveRouteByPath(path)"
         >
@@ -39,6 +44,7 @@
 <script>
 import { RouteHistorySetup } from "@/composables/RouteHistory.js";
 import { LayoutBlogSetup } from "@/composables/LayoutBlog.js";
+import { MapSplice, getIndexOfMapKey } from "@/utils/Map-splice.js";
 export default {
   setup() {
     const { isSidebarShown, toggleSidebarShown } = LayoutBlogSetup();
@@ -52,8 +58,8 @@ export default {
     // for first time.
     routeHistoryAddCurrentRoute();
 
-    router.beforeEach(async (to) => {
-      await routeHistoryAddCurrentRoute(to);
+    router.beforeEach(async (to, from) => {
+      await routeHistoryAddCurrentRoute(to, from);
       return true;
     });
 
@@ -81,6 +87,26 @@ export default {
         path,
         ...this.routeHistory.get(path),
       }));
+    },
+  },
+  methods: {
+    moveTabDrop(basePath, e) {
+      var path = e.dataTransfer.getData("path");
+
+      var pathIndex = getIndexOfMapKey(this.routeHistory, path);
+      var baseOb = this.routeHistory.get(basePath);
+
+      MapSplice(this.routeHistory, basePath, 1, [
+        [path, this.routeHistory.get(path)],
+      ]);
+
+      // this.routeHistory.delete(path);
+
+      MapSplice(this.routeHistory, pathIndex, 0, [[basePath, baseOb]]);
+    },
+    moveTabDrag(path, e) {
+      this.$router.push(path);
+      e.dataTransfer.setData("path", path);
     },
   },
 };
