@@ -4,7 +4,15 @@ import TheBlogHomePage from "@/views/blog/TheHomePage.vue";
 import TheBlogListPage from "@/views/blog/TheBlogListPage.vue";
 import TheBlogContentPage from "@/views/blog/TheContentPage.vue";
 
+
 const defaultLang = 'en'
+
+const generateAlternate = function (langPaths) {
+  return Object.keys(langPaths).reduce((acc, lang) => {
+    acc[lang] = "/" + (lang === defaultLang ? langPaths[lang] : lang + "/" + langPaths[lang]);
+    return acc;
+  }, {})
+}
 
 const i18nPaths = [
   {
@@ -13,6 +21,9 @@ const i18nPaths = [
       tr: "anasayfa"
     },
     component: TheBlogHomePage,
+    meta: {
+      ContentFetch: true,
+    },
   },
   {
     langPaths: {
@@ -50,12 +61,13 @@ const routes = [
 
           Object.keys(langPaths).map(
             (lang) => {
-              
+
               other = {
                 ...other,
                 meta: {
                   ...(other.meta ? other.meta : {}),
-                  language: lang
+                  language: lang,
+                  alternate: generateAlternate(langPaths)
                 }
               }
 
