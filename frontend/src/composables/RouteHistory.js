@@ -16,7 +16,7 @@ export const RouteHistorySetup = function () {
   const routeHistoryAddCurrentRoute = async (to = route, from) => {
     
     if (to.hash.includes(ROUTE_HISTORY_OVERRIDE_HASH) && from) {
-      MapSplice(RouteHistory, from.path, null, [[to.path, {}]])
+      MapSplice(RouteHistory, from.path, 1, [[to.path, {}]])
       return true;
     }
 
