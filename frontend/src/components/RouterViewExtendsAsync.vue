@@ -1,13 +1,23 @@
 <template>
   <content-error v-if="isContentLoadingError" />
   <content-loading v-else-if="isContentLoading" />
-  <router-view v-else v-bind="isContentFetch ? { content } : {}" />
+  <template v-else>
+    <teleport to="#language-change">
+      <languages-available
+        v-clear-children-of-id="'language-change'"
+        v-if="$route.meta.alternate"
+        :key="$route.path"
+      />
+    </teleport>
+    <router-view v-bind="isContentFetch ? { content } : {}" />
+  </template>
 </template>
 
 <script>
 import AsyncBlogContentImport from "../composables/AsyncBlogContentImport.js";
 import ContentError from "@/components/ContentError.vue";
 import ContentLoading from "@/components/ContentLoading.vue";
+import LanguagesAvailable from "@/components/LanguagesAvailable.vue";
 
 import UpdateDocumentHeader from "@/helpers/UpdateDocumentHeader.js";
 import { RouteHistorySetup } from "@/composables/RouteHistory";
@@ -23,12 +33,8 @@ export default {
       isContentLoadingError,
     } = AsyncBlogContentImport();
 
-    const {
-      route,
-      router,
-      routeHistory,
-      routeHistoryUpdateCurrentRouteMeta,
-    } = RouteHistorySetup();
+    const { route, router, routeHistory, routeHistoryUpdateCurrentRouteMeta } =
+      RouteHistorySetup();
 
     const isContentFetch = computed(() => {
       return route.meta && route.meta.ContentFetch === true;
@@ -86,7 +92,7 @@ export default {
       [content, isContentLoading],
       ([valueContent, valueIsContentLoading]) => {
         if (valueContent && valueIsContentLoading === false) {
-          const scrollTo = routeHistory.get(route.path).scrollTo;
+          const scrollTo = routeHistory.get(route.path)?.scrollTo;
           const [top, left] = scrollTo ? scrollTo : [0, 0];
           nextTick(() => {
             document
@@ -99,6 +105,6 @@ export default {
 
     return { content, isContentFetch, isContentLoading, isContentLoadingError };
   },
-  components: { ContentError, ContentLoading },
+  components: { ContentError, ContentLoading, LanguagesAvailable },
 };
 </script>

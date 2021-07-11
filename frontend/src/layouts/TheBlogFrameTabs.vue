@@ -37,6 +37,7 @@
         </li>
       </router-link>
     </ul>
+    <p id="language-change"></p>
     <p v-if="activePageTags">{{ activePageTags }}</p>
   </div>
 </template>
@@ -193,6 +194,7 @@ export default {
   }
 
   p {
+    float:left;
     margin: 0.6em 1.5em;
     padding: 1px;
     font-size: 12px;
