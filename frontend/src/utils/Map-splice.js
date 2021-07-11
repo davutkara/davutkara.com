@@ -13,13 +13,13 @@ export const getIndexOfMapKey = function (mapObject, key) {
 /**
  * Array.splice functionality for Map 
  * @param {Map} mapObject 
- * @param {Number} index1 
- * @param {Number} index2 
+ * @param {String|Number} headKey 
+ * @param {String|Number} lastKey 
  * @param {Array<Array,Array>} mapSetArgumentsArray 
  */
 export const MapSplice = function (mapObject, headKey, lastKey, mapSetArgumentsArray) {
-    const index1 = getIndexOfMapKey(mapObject, headKey);
-    const count = Math.abs(getIndexOfMapKey(mapObject, lastKey) - index1);
+    const index1 = Number.isInteger(headKey) ? headKey : getIndexOfMapKey(mapObject, headKey);
+    const deleteCount = Number.isInteger(lastKey) ? lastKey : Math.abs(getIndexOfMapKey(mapObject, lastKey) - index1);
 
     const list = Array.from(mapObject.keys()).map((path) => [
         path,
@@ -28,7 +28,8 @@ export const MapSplice = function (mapObject, headKey, lastKey, mapSetArgumentsA
 
     mapObject.clear();
 
-    list.splice(index1, count, ...mapSetArgumentsArray);
+    list.splice(index1, deleteCount, ...mapSetArgumentsArray);
+
     list.forEach(([key, value]) => {
         mapObject.set(key, value)
     })
