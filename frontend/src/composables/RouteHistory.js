@@ -11,11 +11,19 @@ export const RouteHistorySetup = function () {
   const route = useRoute();
   const router = useRouter();
 
+  router.beforeResolve((to, from, next) => {
+    if (from.hash.includes(ROUTE_HISTORY_OVERRIDE_HASH) && from && to.path === from.path) {
+      next(false)
+    } else {
+      next();
+    }
+  })
 
   // init new route.
   const routeHistoryAddCurrentRoute = async (to = route, from) => {
-    
+
     if (to.hash.includes(ROUTE_HISTORY_OVERRIDE_HASH) && from) {
+      if (to.path === from.path) return;
       MapSplice(RouteHistory, from.path, 1, [[to.path, {}]])
       return true;
     }
