@@ -4,6 +4,7 @@ import Router from "./router";
 import ScrollAnchor from "@/directives/scroll-anchor.js";
 import TextTypeWriter from "@/directives/text-typewriter.js";
 import ListState from "@/directives/list-state.js";
+import ClearChildrenOfId from "@/directives/clear-children-of-id.js";
 import { createI18n
   //, useI18n 
 } from "vue-i18n"
@@ -22,7 +23,8 @@ const messages = {
 }
 
 const i18n = createI18n({
-  locale: 'ja', // set locale
+  legacy:false,
+  locale: 'en', // set locale
   fallbackLocale: 'en', // set fallback locale
   messages, // set locale messages
   // If you need to specify other options, you can set other options
@@ -33,6 +35,7 @@ createApp(App)
   .directive(...ScrollAnchor)
   .directive(...TextTypeWriter)
   .directive(...ListState)
+  .directive(...ClearChildrenOfId)
   .use(Router)
   .use(i18n)
   .mount("#app");
