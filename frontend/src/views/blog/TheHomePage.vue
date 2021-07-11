@@ -2,18 +2,6 @@
   <article>
     <header>
       <h1 id="About" v-text-typewriter:100>Davut Kara</h1>
-      <div class="locale-changer">
-        <select v-model="$i18n.locale">
-          <option
-            v-for="locale in $i18n.availableLocales"
-            :key="`locale-${locale}`"
-            :value="locale"
-          >
-            {{ locale }}
-          </option>
-        </select>
-      </div>
-      {{ $t("message.hello") }}
     </header>
     <nav>
       <ul>
@@ -78,14 +66,6 @@
     Mail yolu ile talep edebilirsiniz.
   </article>
 </template>
-
-<script>
-export default {
-  mounted(){
-    console.log(this.$route)
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 article {
