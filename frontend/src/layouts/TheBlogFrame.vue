@@ -27,7 +27,7 @@ section#text-bar {
   overflow-x: hidden;
   scrollbar-color: #79797c7c var(--color-bg-middle);
 
-  /** To escape scoped /deep/ ::v-deep or >>> */  
+  /** To escape scoped /deep/ ::v-deep or >>> */
   &:deep() article {
     margin: 1em;
     border-left: 1px solid #ffffff20;
