@@ -7,18 +7,66 @@ import TheBlogContentPage from "@/views/blog/TheContentPage.vue";
 
 const defaultLang = 'en'
 
-const generateAlternate = function (langPaths) {
-  return Object.keys(langPaths).reduce((acc, lang) => {
-    acc[lang] = "/" + (lang === defaultLang ? langPaths[lang] : lang + "/" + langPaths[lang]);
-    return acc;
-  }, {})
+
+/**
+ *   
+ * langPaths: {
+      en: "home",
+      tr: "anasayfa"
+    },
+    : creates 3 paths
+
+    /home ==> default
+    /en/home ==> redirection to /home
+    /tr/anasayfa ==> other lang page.
+
+        meta: {
+          ...meta,
+          language: "en",
+          alternate: {
+            en: "home",
+            tr: "/tr/anasayfa"
+          }
+        }
+ */
+const RoutesGenerateForI18n = function (mainPath, i18nPaths) {
+  return i18nPaths.reduce((routes, i18nRoute) => {
+
+    // iterate language paths;
+    [null, ...Object.keys(i18nRoute.langPaths)].forEach((language) => {
+
+      let path = language === null ? (language + "/" + i18nRoute.langPaths[defaultLang])
+        : i18nRoute.langPaths[language];
+      path = path.replace(window.location.origin + mainPath, "");
+      routes.push({
+        path,
+        ...(defaultLang === null ? {
+          redirect: i18nRoute.langPaths[defaultLang]
+        } : {}
+        ),
+        ...i18nRoute,
+        meta: {
+          ...(i18nRoute.meta ? i18nRoute.meta : {}),
+          language: language === null ? defaultLang : language,
+          alternate: Object.entries(i18nRoute.langPaths).reduce((acc, [lang, path]) => {
+            path = path.replace(window.location.origin + mainPath, "");
+            acc[lang] = mainPath + path;
+            return acc;
+          }, {})
+        }
+      })
+    })
+
+    return routes;
+  }, [])
 }
 
-const i18nPaths = [
+
+const i18nRoutes = [
   {
     langPaths: {
       en: "home",
-      tr: "anasayfa"
+      tr: "tr/anasayfa"
     },
     component: TheBlogHomePage,
     meta: {
@@ -28,14 +76,14 @@ const i18nPaths = [
   {
     langPaths: {
       en: "blog",
-      tr: "blog"
+      tr: "tr/blog"
     },
     component: TheBlogListPage,
   },
   {
     langPaths: {
       en: ":slug?",
-      tr: ":slug"
+      tr: "tr/:slug"
     },
     //name: "Blog Content Page",
     component: TheBlogContentPage,
@@ -55,65 +103,31 @@ const routes = [
     redirect: "/home",
     name: "Blog",
     component: TheBlogLayout,
-    children: [
-      ...i18nPaths.reduce(
-        (acc, { langPaths, ...other }) => {
-
-          Object.keys(langPaths).map(
-            (lang) => {
-
-              other = {
-                ...other,
-                meta: {
-                  ...(other.meta ? other.meta : {}),
-                  language: lang,
-                  alternate: generateAlternate(langPaths)
-                }
-              }
-
-              const found = acc.find(route => route.path === lang)
-
-              if (found) {
-                found.children.push({
-                  path: langPaths[lang],
-                  ...(lang === defaultLang ? {
-                    beforeEnter(to, from, next) {
-                      const newPath = to.path.replace('/' + defaultLang + "/", "/");
-                      next(newPath)
-                    }
-                  } : other)
-                })
-
-                if (lang === defaultLang) {
-                  acc.push({
-                    path: langPaths[lang][0] === ":" ? langPaths[lang] : langPaths[lang],
-                    ...other,
-                  });
-                }
-              } else {
-                acc.push({
-                  path: lang + "/" + langPaths[lang],
-                  ...other,
-                });
-              }
-            }
-
-          )
-          return acc;
-        }
-        , [
-          { path: 'en', children: [] }
-        ]).sort((a) => {
-          if (a.path[0] === ":") return 1
-          else return 0;
-        })
-    ],
+    children: RoutesGenerateForI18n("/", i18nRoutes)
   },
 ];
-console.log(routes)
+
 const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+export const routerContentPageAdd = ({ language, link, alternate }, mainPath = "") => {
+  const route = {
+    langPaths: {
+      [language]: link,
+      ...alternate,
+    },
+    component: TheBlogContentPage,
+    meta: {
+      ContentFetch: true,
+    },
+  }
+
+  RoutesGenerateForI18n(mainPath, [route]).forEach((route) => {
+    router.addRoute("Blog", route);
+  })
+
+}
 
 export default router;
