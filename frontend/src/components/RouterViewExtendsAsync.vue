@@ -2,13 +2,6 @@
   <content-error v-if="isContentLoadingError" />
   <content-loading v-else-if="isContentLoading" />
   <template v-else>
-    <teleport to="#language-change">
-      <languages-available
-        v-clear-children-of-id="'language-change'"
-        v-if="$route.meta.alternate"
-        :key="$route.path"
-      />
-    </teleport>
     <router-view v-bind="isContentFetch ? { content } : {}" />
   </template>
 </template>
@@ -17,7 +10,6 @@
 import AsyncBlogContentImport from "../composables/AsyncBlogContentImport.js";
 import ContentError from "@/components/ContentError.vue";
 import ContentLoading from "@/components/ContentLoading.vue";
-import LanguagesAvailable from "@/components/LanguagesAvailable.vue";
 
 import UpdateDocumentHeader from "@/helpers/UpdateDocumentHeader.js";
 import { RouteHistorySetup } from "@/composables/RouteHistory";
@@ -105,6 +97,6 @@ export default {
 
     return { content, isContentFetch, isContentLoading, isContentLoadingError };
   },
-  components: { ContentError, ContentLoading, LanguagesAvailable },
+  components: { ContentError, ContentLoading },
 };
 </script>

@@ -37,8 +37,10 @@
         </li>
       </router-link>
     </ul>
-    <p id="language-change"></p>
-    <p v-if="activePageTags">{{ activePageTags }}</p>
+    <p id="language-change">
+      <languages-available v-if="$route.meta.alternate" :key="$route.path" />
+    </p>
+    <p style="float: right" v-if="activePageTags">{{ activePageTags }}</p>
   </div>
 </template>
 
@@ -46,7 +48,9 @@
 import { RouteHistorySetup } from "@/composables/RouteHistory.js";
 import { LayoutBlogSetup } from "@/composables/LayoutBlog.js";
 import { MapSplice, getIndexOfMapKey } from "@/utils/Map-splice.js";
+import LanguagesAvailable from "@/components/LanguagesAvailable.vue";
 export default {
+  components: { LanguagesAvailable },
   setup() {
     const { isSidebarShown, toggleSidebarShown } = LayoutBlogSetup();
     const {
@@ -193,8 +197,24 @@ export default {
     }
   }
 
+  p#language-change {
+    color: var(--color-bg-text);
+    &:deep() a {
+      text-decoration: none;
+      color: inherit;
+      margin-left: 0.5em;
+      padding: 5px;
+      //border-radius: 5px;
+      // border-bottom:1px solid  var(--color-bg-textp50);
+      &.router-link-exact-active,
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+
   p {
-    float:left;
+    float: left;
     margin: 0.6em 1.5em;
     padding: 1px;
     font-size: 12px;
