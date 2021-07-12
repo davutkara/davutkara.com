@@ -5,7 +5,7 @@ import TheBlogListPage from "@/views/blog/TheBlogListPage.vue";
 import TheBlogContentPage from "@/views/blog/TheContentPage.vue";
 
 
-const defaultLang = 'en'
+const DEFAULT_LANG = process.env.VUE_APP_DEFAULT_LANG_FOR_URL
 
 
 /**
@@ -35,19 +35,19 @@ const RoutesGenerateForI18n = function (mainPath, i18nPaths) {
     // iterate language paths;
     [null, ...Object.keys(i18nRoute.langPaths)].forEach((language) => {
 
-      let path = language === null ? (language + "/" + i18nRoute.langPaths[defaultLang])
+      let path = language === null ? (language + "/" + i18nRoute.langPaths[DEFAULT_LANG])
         : i18nRoute.langPaths[language];
       path = path.replace(window.location.origin + mainPath, "");
       routes.push({
         path,
-        ...(defaultLang === null ? {
-          redirect: i18nRoute.langPaths[defaultLang]
+        ...(DEFAULT_LANG === null ? {
+          redirect: i18nRoute.langPaths[DEFAULT_LANG]
         } : {}
         ),
         ...i18nRoute,
         meta: {
           ...(i18nRoute.meta ? i18nRoute.meta : {}),
-          language: language === null ? defaultLang : language,
+          language: language === null ? DEFAULT_LANG : language,
           alternate: Object.entries(i18nRoute.langPaths).reduce((acc, [lang, path]) => {
             path = path.replace(window.location.origin + mainPath, "");
             acc[lang] = mainPath + path;
