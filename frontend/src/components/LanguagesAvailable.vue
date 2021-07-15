@@ -2,7 +2,7 @@
   <div>
     <span>{{ t("availableLang") }}</span>
     <router-link
-      :to="overrideTab(path)"
+      :to="path"
       v-for="(path, lang) in $route.meta.alternate"
       :key="path"
       >{{ getLanguageTitle(lang) }}
