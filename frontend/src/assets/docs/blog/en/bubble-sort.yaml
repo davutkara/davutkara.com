@@ -1,4 +1,7 @@
-language: tr
+language: en
+alternate:
+  en: /bubble-sort
+  tr: /tr/bubble-sort
 title: Bubble Sort
 description: Listedeki elemanlari buyukten kucuge veya kucukten buyuge olacak sekilde siralayabilecegimiz bir algoritmadir. 
 tags: programming,algorithms,bubble,sort
