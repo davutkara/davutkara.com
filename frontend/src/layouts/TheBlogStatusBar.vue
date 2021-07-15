@@ -2,7 +2,7 @@
   <div id="status-bar">
     Copyright Davut KARA 2021
 
-    <button @click="invert">C</button>
+     <button @click="invert">C</button>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
 <style lang="scss" scoped>
 #status-bar {
   position: absolute;
-  text-align: left;
+  text-align: center;
   bottom: 0;
   width: calc(100vw - 255px);
   height: 1em;
