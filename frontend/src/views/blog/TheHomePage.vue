@@ -1,31 +1,28 @@
 <template>
   <article>
     <header>
-      <h1 id="About" v-text-typewriter:100>Davut Kara</h1>
+      <h1 id="About" v-text-typewriter:100>{{ title }}</h1>
     </header>
     <nav>
       <ul>
         <li v-list-state.active="true">
-          <a v-scroll-anchor href="#About"> About </a>
+          <a v-scroll-anchor href="#About"> {{ t("about") }} </a>
         </li>
         <li v-list-state.active>
-          <a v-scroll-anchor href="#tecrubeler"> Tecrubeler </a>
+          <a v-scroll-anchor href="#tecrubeler"> {{ t("experiences") }} </a>
         </li>
         <li v-list-state.active>
-          <a v-scroll-anchor href="#Projects">Projects</a>
+          <a v-scroll-anchor href="#Projects"> {{ t("projects") }}</a>
         </li>
         <li v-list-state.active>
-          <a v-scroll-anchor href="#cv-ozgecmis">Cv & Ozgecmis</a>
+          <a v-scroll-anchor href="#cv-ozgecmis"> {{ t("resume") }}</a>
         </li>
       </ul>
     </nav>
-    <h2 v-text-typewriter:750>Information Systems Engineer.</h2>
-    <p>
-      Merhaba burasi benim kisisel web sayfam. Burada Bilisim Teknolojilerine ve
-      kisisel yazilarima yer vermekteyim.
-    </p>
+    <h2 v-text-typewriter:750>{{ subTitle }}</h2>
+    <p v-text="description"></p>
     <br />
-    <h2 id="tecrubeler">Tecrubeler</h2>
+    <h2 id="tecrubeler">{{ t("experiences") }}</h2>
 
     <div class="box-group">
       <div class="box-list square-200">
@@ -58,14 +55,51 @@
       </div>
     </div>
 
-    <h2 id="Projects">Projects</h2>
+    <h2 id="Projects">{{ t("projects") }}</h2>
     Yapim asamasinda
     <br />
     <br />
-    <h2 id="cv-ozgecmis">CV & Ozgecmis</h2>
+    <h2 id="cv-ozgecmis">{{ t("resume") }}</h2>
     Mail yolu ile talep edebilirsiniz.
   </article>
 </template>
+
+<script>
+import { useI18n } from "vue-i18n";
+export default {
+  props: {
+    content: {
+      required: true,
+    },
+  },
+  setup(props) {
+    const { t } = useI18n({
+      useScope: "global",
+      messages: {
+        en: {
+          about: "About",
+          experiences: "Experiences",
+          projects: "Projects",
+          resume: "CV & Resume",
+        },
+        tr: {
+          about: "Hakkimda",
+          experiences: "Tecrubeler",
+          projects: "Projeler",
+          resume: "CV & Ozgecmis",
+        },
+      },
+    });
+
+    return {
+      t,
+      title: props.content.title,
+      subTitle: props.content.subTitle,
+      description: props.content.description,
+    };
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 article {
