@@ -37,8 +37,18 @@ class BlogListJson {
             slug,
             date,
             author,
+            alternate,
           } = YAML.parse(fileContent);
-          return { language, title, description, tags, slug, date, author };
+          return {
+            language,
+            alternate,
+            title,
+            description,
+            tags,
+            slug,
+            date,
+            author,
+          };
         })
       );
 
@@ -87,8 +97,14 @@ class BlogListJson {
           source += `<entry>
           <title>${item.title}</title>
           <link href="http://localhost:8080/${item.slug}" />
-          <link rel="alternate" type="text/html" href="http://localhost:8080/tr/${item.slug}" hreflang="tr"/>
-          <updated>${item.date}</updated>
+          `;
+          
+          if (item.alternate)
+            for (const alternate of Object.keys(item.alternate)) {
+              if (alternate === language) continue;
+              source += `<link rel="alternate" type="text/html" href="http://localhost:8080${item.alternate[alternate]}" hreflang="${alternate}"/>`;
+            }
+          source += `<updated>${item.date}</updated>
           <summary>${item.description}</summary>
         </entry>
         `;

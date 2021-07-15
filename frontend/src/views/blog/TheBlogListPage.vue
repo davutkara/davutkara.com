@@ -81,12 +81,11 @@ export default {
               const alternates = Array.from(
                 entry.querySelectorAll("link[rel]")
               );
-
               const route = {
                 title: entry.querySelector("title").textContent,
                 summary: entry.querySelector("summary").textContent,
                 updated: entry.querySelector("updated").textContent,
-                link: link.getAttribute("href"),
+                link: link.getAttribute("href").replace(window.location.origin,""),
               };
 
               feeds.push(route);
