@@ -1,7 +1,7 @@
 const path = require("path");
 const PrerenderSPAPlugin = require("prerender-spa-plugin");
 const Renderer = require("@prerenderer/renderer-jsdom");
-const BlogRSSPlugin = require("./src/plugins/webpack/BlogRSSPlugin.js");
+const BlogAtomFeedPlugin = require("./src/plugins/webpack/BlogAtomFeedPlugin.js");
 
 /* 
     sass pre-configured 
@@ -45,7 +45,7 @@ module.exports = {
       .loader("yaml-loader")
       .end();
 
-    config.plugin("BlogRSSPlugin").use(BlogRSSPlugin, []);
+    config.plugin("BlogAtomFeedPlugin").use(BlogAtomFeedPlugin, []);
 
     if (process.env.NODE_ENV !== "production") return;
 

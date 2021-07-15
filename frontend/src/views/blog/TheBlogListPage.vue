@@ -1,57 +1,122 @@
 <template>
+  <content-error v-if="isContentLoadingError" />
+  <content-loading v-else-if="isContentLoading" />
   <!--- 
-  <header v-if="rssJson">
+  <header v-if="atomFeed">
     <h1>
-      {{ rssJson.rss.channel.title }}
+      {{ atomFeed.rss.channel.title }}
     </h1>
-    <h2>{{ rssJson.rss.channel.description }}</h2>
+    <h2>{{ atomFeed.rss.channel.description }}</h2>
     <h2>Son Yazilanlar</h2>
   </header> -->
-  <main v-if="rssJson">
+  <main v-if="atomFeed">
     <article
-      v-for="({ title, link, description, date }, index) in rssJson.rss.channel
-        .item"
+      v-for="({ title, link, summary, updated }, index) in atomFeed"
       :key="index"
     >
       <router-link :to="link"
         ><h2>{{ title }}</h2></router-link
       >
-      <p>posted on {{ datePretty(date) }}</p>
-      <p>{{ description }}</p>
+      <p>posted on {{ datePretty(updated) }}</p>
+      <p>{{ summary }}</p>
     </article>
   </main>
 </template>
 
 <script>
+import ContentError from "@/components/ContentError.vue";
+import ContentLoading from "@/components/ContentLoading.vue";
 import { RouteHistorySetup } from "@/composables/RouteHistory.js";
 import UpdateDocumentHeader from "@/helpers/UpdateDocumentHeader.js";
 import ModelContentMeta from "@/models/contentMeta.js";
-import domToJsonSimpleRecursion from "@/helpers/DOMToJsonSimpleRecursion.js";
+//import { RouteHistorySetup } from "@/composables/RouteHistory.js";
+//import domToJsonSimpleRecursion from "@/helpers/DOMToJsonSimpleRecursion.js";
 import XMLToDOM from "@/helpers/XMLToDOM.js";
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useI18n } from "vue-i18n";
+import { routerContentPageAdd } from "@/router/index.js";
 export default {
+  components: { ContentError, ContentLoading },
   setup() {
+    const { locale } = useI18n({
+      useScope: "global",
+    });
+
+    // const { router } = RouteHistorySetup();
+
     const { routeHistoryUpdateCurrentRouteMeta } = RouteHistorySetup();
 
     const contentMeta = ModelContentMeta({
       title: "Blog List",
     });
 
-    const rssJson = ref(null);
+    const atomFeed = ref(null);
+    const isContentLoading = ref(null);
+    // COMPUTED
+    const isContentLoadingError = computed(() => {
+      return isContentLoading.value instanceof Error;
+    });
 
+    isContentLoading.value = true;
     // fetch rss feed.
-    fetch("/" + process.env.VUE_APP_BLOG_RSS_PATH_TR)
+    fetch(
+      "/" +
+        (locale.value === "tr"
+          ? process.env.VUE_APP_BLOG_RSS_PATH_TR
+          : process.env.VUE_APP_BLOG_RSS_PATH_EN)
+    )
       .then((res) => res.text())
       .then(XMLToDOM) // xml to dom
-      .then((dom) => {
-        // dom to json
-        rssJson.value = domToJsonSimpleRecursion(dom);
+      .then(
+        /**
+         *  @param {Document} dom
+         */
+        (dom) => {
+          // dom to json
+          const entries = dom.querySelectorAll("entry");
+          const feeds = [];
+          if (entries) {
+            for (const entry of entries) {
+              const link = entry.querySelector("link:not([rel])");
+              const alternates = Array.from(
+                entry.querySelectorAll("link[rel]")
+              );
+
+              const route = {
+                title: entry.querySelector("title").textContent,
+                summary: entry.querySelector("summary").textContent,
+                updated: entry.querySelector("updated").textContent,
+                link: link.getAttribute("href"),
+              };
+
+              feeds.push(route);
+              routerContentPageAdd({
+                ...route,
+                language: dom.querySelector("language").textContent,
+                alternate: alternates.reduce((acc, link) => {
+                  acc[link.getAttribute("hreflang")] = link.getAttribute(
+                    "href"
+                  );
+                  return acc;
+                }, {}),
+              });
+            }
+          }
+          atomFeed.value = feeds;
+        }
+      )
+      .catch((msg) => {
+        isContentLoading.value = new Error(msg);
+      })
+      .finally(() => {
+        isContentLoading.value = false;
       });
 
+    // dynamic route adding.
     routeHistoryUpdateCurrentRouteMeta(contentMeta);
     UpdateDocumentHeader(contentMeta);
 
-    return { rssJson };
+    return { atomFeed, isContentLoading, isContentLoadingError };
   },
   methods: {
     datePretty(e) {

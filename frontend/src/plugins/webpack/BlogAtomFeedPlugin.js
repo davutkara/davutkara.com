@@ -13,11 +13,13 @@ class BlogListJson {
       const rssItemList = { en: [], tr: [] };
 
       // find the paths
-      const filePaths = await readDir(__dirname + "/../../assets/docs/blog/en");
+      const filePathsEn = await readDir(__dirname + "/../../assets/docs/blog/en");
+      const filePathsTr = await readDir(__dirname + "/../../assets/docs/blog/tr");
+      const filePaths = [...filePathsEn.map(p => "en/" + p), ...filePathsTr.map(p => "tr/" + p)]
       // create the content list
       const fileContents = filePaths.map((filePath) =>
         readFile(
-          __dirname + "/../../assets/docs/blog/en/" + filePath,
+          __dirname + "/../../assets/docs/blog/" + filePath,
           "utf8"
         ).then((fileContent) => {
           const {
@@ -66,29 +68,40 @@ class BlogListJson {
         ].channel;
 
         let source = `<?xml version="1.0" encoding="UTF-8" ?>
-        <rss version="2.0">  
-        <channel>
-          <title>${title}</title>
-          <link>${link}</link>
-          <description>${description}</description>
-          <language>${language}</language>
+    <feed xmlns="http://www.w3.org/2005/Atom"> 
+      <title>${title}</title>
+      <subtitle>${description}</subtitle>
+      <link>${link}</link>
+      <language>${language}</language>
+      <updated>${new Date().toISOString()}</updated>
         `;
         for (const item of items) {
-          source += `<item>
+          source += `<entry>
           <title>${item.title}</title>
-          <link>${item.slug}</link>
-          <date>${item.date}</date>
-          <description>${item.description}</description>
-        </item>
+          <link href="http://localhost:8080/${item.slug}" />
+          <link rel="alternate" type="text/html" href="http://localhost:8080/tr/${item.slug}" hreflang="tr"/>
+          <updated>${item.date}</updated>
+          <summary>${item.description}</summary>
+        </entry>
         `;
         }
-
-        source += `</channel>  
-        </rss>`;
+        /**
+         * <content type="xhtml">
+              <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>This is the entry content.</p>
+              </div>
+            </content>
+            <author>
+              <name>John Doe</name>
+              <email>email</email>
+            </author>
+         */
+        source += `
+        </feed>`;
 
         compilation.assets[xmlFile] = {
           source: () => source,
-          size: function() {
+          size: function () {
             return source.length;
           },
         };
