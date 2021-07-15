@@ -53,12 +53,6 @@ export default function () {
       .then((file) => {
         content.value = file.default;
         isContentLoading.value = false;
-
-        if (content.value.alternate) {
-          route.meta.alternate = content.value.alternate
-        } else {
-          route.meta.alternate = null;
-        }
         return file.default;
       })
       .catch((err) => {
