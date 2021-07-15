@@ -13,9 +13,16 @@ class BlogListJson {
       const rssItemList = { en: [], tr: [] };
 
       // find the paths
-      const filePathsEn = await readDir(__dirname + "/../../assets/docs/blog/en");
-      const filePathsTr = await readDir(__dirname + "/../../assets/docs/blog/tr");
-      const filePaths = [...filePathsEn.map(p => "en/" + p), ...filePathsTr.map(p => "tr/" + p)]
+      const filePathsEn = await readDir(
+        __dirname + "/../../assets/docs/blog/en"
+      );
+      const filePathsTr = await readDir(
+        __dirname + "/../../assets/docs/blog/tr"
+      );
+      const filePaths = [
+        ...filePathsEn.map((p) => "en/" + p),
+        ...filePathsTr.map((p) => "tr/" + p),
+      ];
       // create the content list
       const fileContents = filePaths.map((filePath) =>
         readFile(
@@ -76,6 +83,7 @@ class BlogListJson {
       <updated>${new Date().toISOString()}</updated>
         `;
         for (const item of items) {
+          if (!item.tags?.includes("blog")) continue;
           source += `<entry>
           <title>${item.title}</title>
           <link href="http://localhost:8080/${item.slug}" />
@@ -101,7 +109,7 @@ class BlogListJson {
 
         compilation.assets[xmlFile] = {
           source: () => source,
-          size: function () {
+          size: function() {
             return source.length;
           },
         };

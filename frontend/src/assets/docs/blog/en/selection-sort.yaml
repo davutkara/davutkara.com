@@ -4,7 +4,7 @@ alternate:
   tr: /tr/selection-sort
 title: Selection Sort
 description: Listedeki elemanlari buyukten kucuge veya kucukten buyuge olacak sekilde siralayabilecegimiz bir algoritmadir. 
-tags: programming,algorithms,bubble,sort
+tags: blog,programming,algorithms,bubble,sort
 slug: selection-sort
 date: 2020-02-28T08:57:09.279Z
 author: Davut KARA Test1
