@@ -3,7 +3,7 @@
     <span>{{ t("availableLang") }}</span>
     <router-link
       :to="path"
-      v-for="(path, lang) in $route.meta.alternate"
+      v-for="(path, lang) in alternates"
       :key="path"
       >{{ getLanguageTitle(lang) }}
     </router-link>
@@ -14,7 +14,7 @@
 import { ROUTE_HISTORY_OVERRIDE_HASH } from "@/composables/RouteHistory.js";
 import { RouteHistorySetup } from "@/composables/RouteHistory";
 
-import { watch } from "vue";
+import { computed, watchEffect } from "vue";
 import { useI18n } from "vue-i18n";
 
 export default {
@@ -33,17 +33,22 @@ export default {
       },
     });
 
-    watch(
-      route,
-      (to) => {
-        locale.value = to.meta.language;
-      },
-      {
-        immediate: true,
-      }
-    );
+    watchEffect(() => {
+      locale.value = route.meta.language;
+    });
 
-    return { t };
+    const alternates = computed(() => {
+      const alternates = route.meta.alternate;
+   
+      return Object.keys(alternates)
+        .sort()
+        .reduce((acc, lang) => {
+          acc[lang] = alternates[lang];
+          return acc;
+        }, {});
+    });
+
+    return { t, alternates };
   },
   methods: {
     getLanguageTitle(lang) {
@@ -51,7 +56,7 @@ export default {
         case "en":
           return "English";
         case "tr":
-          return "Turkish";
+          return "Türkçe";
         default:
           return null;
       }
