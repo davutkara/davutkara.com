@@ -2,7 +2,7 @@
   <content-error v-if="isContentLoadingError" />
   <content-loading v-else-if="isContentLoading" />
   <template v-else>
-    <router-view v-bind="isContentFetch ? { content } : {}" />
+    <router-view :key="locale" v-bind="isContentFetch ? { content } : {}" />
   </template>
 </template>
 
@@ -16,8 +16,14 @@ import { RouteHistorySetup } from "@/composables/RouteHistory";
 import ModelContentMeta from "@/models/contentMeta.js";
 
 import { watch, computed, nextTick } from "vue";
+
+import { useI18n } from "vue-i18n";
 export default {
   setup() {
+    const { locale } = useI18n({
+      useScope: "global",
+    });
+
     const {
       content,
       isContentLoading,
@@ -25,8 +31,12 @@ export default {
       isContentLoadingError,
     } = AsyncBlogContentImport();
 
-    const { route, router, routeHistory, routeHistoryUpdateCurrentRouteMeta } =
-      RouteHistorySetup();
+    const {
+      route,
+      router,
+      routeHistory,
+      routeHistoryUpdateCurrentRouteMeta,
+    } = RouteHistorySetup();
 
     const isContentFetch = computed(() => {
       return route.meta && route.meta.ContentFetch === true;
@@ -95,7 +105,13 @@ export default {
       }
     );
 
-    return { content, isContentFetch, isContentLoading, isContentLoadingError };
+    return {
+      locale,
+      content,
+      isContentFetch,
+      isContentLoading,
+      isContentLoadingError,
+    };
   },
   components: { ContentError, ContentLoading },
 };
