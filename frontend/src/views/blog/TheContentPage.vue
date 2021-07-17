@@ -4,8 +4,9 @@
       <h1>{{ title }}</h1>
       <p>
         Posted on
-        <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time>
-        by <a href="#">{{ author }}</a> - <a href="#comments">6 comments</a>
+        <time :datetime="date">{{ toDateString(date) }}</time>
+        by {{ author }}
+        <!-- - <a href="#comments">6 comments</a> -->
       </p>
     </header>
     <nav>
@@ -62,6 +63,10 @@ export default {
       if (this.content) return this.content.title;
       else return "";
     },
+    date() {
+      if (this.content) return this.content.date;
+      else return "";
+    },
     article() {
       if (this.content && this.content.content)
         return marked(this.content.content);
@@ -77,6 +82,9 @@ export default {
     },
   },
   methods: {
+    toDateString(date) {
+      return new Date(date).toDateString();
+    },
     scrollToId(el) {
       const id = el.target.getAttribute("href");
       const titleEl = document.querySelector(id);
@@ -128,6 +136,9 @@ article pre {
 </style>
 
 <style lang="scss" scoped>
+header a {
+  color: var(--color-bg-text);
+}
 article:deep() {
   div > p {
     a {
