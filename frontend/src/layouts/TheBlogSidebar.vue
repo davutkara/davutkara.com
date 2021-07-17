@@ -137,7 +137,7 @@ aside#file-bar {
             }
 
             ul li {
-              margin: 0.35em 0;
+              padding: 0.35em 0;
             }
 
             /* :nth-child(1) */
