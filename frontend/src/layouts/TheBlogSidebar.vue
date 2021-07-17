@@ -9,11 +9,15 @@
     </div>
     <nav>
       <ul>
-        <li v-for="({ path, title }, menuIndex) in menu" :key="menuIndex">
-          <router-link :to="path" custom v-slot="{ navigate }">
-            <li @click="navigate">{{ title }}</li>
-          </router-link>
-        </li>
+        <router-link
+          :to="path"
+          custom
+          v-slot="{ navigate }"
+          v-for="({ path, title }, menuIndex) in menu"
+          :key="menuIndex"
+        >
+          <li @click="navigate">{{ title }}</li>
+        </router-link>
       </ul>
     </nav>
   </aside>
