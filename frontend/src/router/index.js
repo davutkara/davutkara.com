@@ -3,6 +3,7 @@ import TheBlogLayout from "@/layouts/TheBlog.vue";
 import TheBlogHomePage from "@/views/blog/TheHomePage.vue";
 import TheBlogListPage from "@/views/blog/TheBlogListPage.vue";
 import TheBlogContentPage from "@/views/blog/TheContentPage.vue";
+import TheContactPage from "@/views/blog/TheContactPage.vue"
 
 
 const DEFAULT_LANG = process.env.VUE_APP_DEFAULT_LANG_FOR_URL
@@ -79,6 +80,13 @@ const i18nRoutes = [
       tr: "tr/blog"
     },
     component: TheBlogListPage,
+  },
+  {
+    langPaths: {
+      en: "contact",
+      tr: "tr/iletisim"
+    },
+    component: TheContactPage,
   },
   {
     langPaths: {
