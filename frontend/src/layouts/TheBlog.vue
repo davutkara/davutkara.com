@@ -15,13 +15,12 @@ export default {
 <style lang="scss">
 @import "~@/assets/css/reset.css";
 
-
 body {
   overflow: hidden;
   font-family: "Raleway";
   font-size: 18px;
 
-  #app{
+  #app {
     display: flex;
   }
 }
@@ -54,13 +53,26 @@ aside#icon-bar ul li svg:hover {
 }
 */
 
+@media only screen and (max-width: 800px) {
+  #tabs li:not(.active):not(.sidebar) {
+    display: none !important;
+  }
+}
 
-
+@media only screen and (max-width: 420px) {
+  #tabs li > .title {
+    display: none !important;
+  }
+  #file-bar:not(.disabled) {
+    position: fixed;
+    top: 2em;
+    left: 0;
+    z-index: 9999;
+    width: 100% !important;
+  }
+}
 
 @media only screen and (max-width: 768px) {
-  aside#file-bar {
-    display: none;
-  }
   section#text-bar {
     width: 100vw;
   }
@@ -70,10 +82,6 @@ aside#icon-bar ul li svg:hover {
 }
 
 @media only screen and (max-width: 760px) {
-  aside#file-bar,
-  #tabs {
-    display: none;
-  }
   section#text-bar {
     width: 100vw;
   }
@@ -81,5 +89,4 @@ aside#icon-bar ul li svg:hover {
     margin-top: 0;
   }
 }
-
 </style>

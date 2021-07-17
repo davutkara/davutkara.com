@@ -7,7 +7,7 @@
         :class="{ disabled: !isSidebarShown }"
       >
         ☰<transition
-          ><template v-if="!isSidebarShown"> Davut KARA</template></transition
+          ><span v-if="!isSidebarShown" class="title"> Davut KARA</span></transition
         >
       </li>
       <router-link
