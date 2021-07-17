@@ -59,7 +59,7 @@ aside#icon-bar ul li svg:hover {
   }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 600px) {
   #tabs li > .title {
     display: none !important;
   }
@@ -69,6 +69,9 @@ aside#icon-bar ul li svg:hover {
     left: 0;
     z-index: 9999;
     width: 100% !important;
+  }
+  #tabs p.tags {
+    display: none !important;
   }
 }
 

@@ -40,7 +40,7 @@
     <p id="language-change">
       <languages-available v-if="$route.meta.alternate" :key="$route.path" />
     </p>
-    <p style="float: right" v-if="activePageTags">{{ activePageTags }}</p>
+    <p class="tags" style="float: right" v-if="activePageTags">{{ activePageTags }}</p>
   </div>
 </template>
 

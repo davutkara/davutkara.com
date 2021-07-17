@@ -36,7 +36,10 @@ section#text-bar {
     color: var(--color-bg-text);
 
     p {
-      width: 600px;
+      max-width: 600px;
+      @media only screen and (max-width: 1000px) {
+        max-width: 100%;
+      }
       line-height: 1.25em;
     }
 

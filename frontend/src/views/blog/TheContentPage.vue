@@ -107,7 +107,7 @@ export default {
 }
 
 article pre {
-  width: calc(600px);
+  max-width: calc(600px);
   margin: 1em 0 1em -1em;
 
   code {
@@ -150,16 +150,28 @@ article:deep() {
     }
   }
   nav {
-    background: var(--color-bg-deep);
-    float: right;
-    border: 1px solid var(--color-bg-deep-changed-50);
-    /* display: inline-block; */
-    padding: 1em 1.5em;
-    margin: 1em 0;
     position: -webkit-sticky;
     position: sticky;
     top: 5em;
     width: 250px;
+    @media only screen and (max-width: 1000px) {
+      max-width: 250px;
+    }
+
+    min-width: max-content;
+    float: right;
+    padding: 1em 1.5em;
+    margin: 1em 0;
+
+    @media only screen and (max-width: 1000px) {
+      position: unset !important;
+      top: unset;
+      float: unset;
+    }
+
+    background: var(--color-bg-deep);
+    border: 1px solid var(--color-bg-deep-changed-50);
+    /* display: inline-block; */
     h2 {
       font-weight: 600;
       font-size: 1em;
