@@ -35,6 +35,10 @@ section#text-bar {
     text-align: justify;
     color: var(--color-bg-text);
 
+    &:last-child, &:only-of-type{
+      padding-bottom: 4em;
+    }
+
     p {
       max-width: 600px;
       @media only screen and (max-width: 1000px) {

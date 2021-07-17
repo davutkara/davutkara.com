@@ -104,7 +104,14 @@ export default {
 <style lang="scss" scoped>
 article {
   margin-left: 200px !important;
+  @media only screen and (max-width: 600px) {
+    margin-left: 0 !important;
+  }
   nav {
+    @media only screen and (max-width: 600px) {
+      display: none !important;
+    }
+
     margin-left: -165px;
     margin-top: 20px;
     top: 100px;
@@ -139,11 +146,17 @@ article {
 .box-group {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 1em;
 }
 
 .square-200 {
   width: 200px;
   height: 200px;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    height: max-content;
+    margin: 0.5em 0 !important;
+  }
 }
 
 .b-500 {

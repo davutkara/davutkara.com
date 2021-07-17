@@ -1,7 +1,7 @@
 <template>
   <aside id="file-bar" :class="{ disabled: !isSidebarShown }">
     <div id="profile">
-      <img :src="require('../assets/profile.png')" width="64" height="64" />
+      <img src="https://avatars.githubusercontent.com/u/10008440?v=4" width="64" height="64" />
       <div>
         <em>Davut KARA</em>
         <em>Information Systems Engineer</em>
