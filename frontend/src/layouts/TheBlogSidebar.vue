@@ -25,10 +25,12 @@
 <script>
 import { LayoutBlogSetup } from "@/composables/LayoutBlog.js";
 import { LanguageAlternateSetup } from "@/composables/LanguageAlternate.js";
+import { RouteHistorySetup } from "@/composables/RouteHistory";
 import { useI18n } from "vue-i18n";
-import { computed } from "vue";
+import { computed, watchEffect } from "vue";
 export default {
   setup() {
+    const { route } = RouteHistorySetup();
     const { getAlternatesOfUrl } = LanguageAlternateSetup();
     const { t, locale } = useI18n({
       useScope: "global",
@@ -48,6 +50,11 @@ export default {
     });
 
     const { isSidebarShown, toggleSidebarShown } = LayoutBlogSetup();
+
+    watchEffect(() => {
+      if (route.path && window.innerWidth > 800) return;
+      isSidebarShown.value = false;
+    });
 
     const menu = computed(() => {
       return [
