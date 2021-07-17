@@ -9,38 +9,53 @@
     </div>
     <nav>
       <ul>
-        <li>
-          <router-link to="/" custom v-slot="{ navigate }">
-            <li @click="navigate">Home</li>
+        <li v-for="({ path, title }, menuIndex) in menu" :key="menuIndex">
+          <router-link :to="path" custom v-slot="{ navigate }">
+            <li @click="navigate">{{ title }}</li>
           </router-link>
         </li>
-        <router-link to="/blog" custom v-slot="{ navigate }"
-          ><li @click="navigate">Blog</li></router-link
-        >
-        <!--
-          <ul>
-            <router-link
-              v-for="i in 10"
-              custom
-              :key="i"
-              :to="'test' + i"
-              v-slot="{ navigate }"
-            >
-              <li @click="navigate">{{ i }} My 2020 Goals</li>
-            </router-link>
-          </ul>
-          -->
-        <li>Iletisim</li>
       </ul>
     </nav>
   </aside>
 </template>
 <script>
 import { LayoutBlogSetup } from "@/composables/LayoutBlog.js";
+import { LanguageAlternateSetup } from "@/composables/LanguageAlternate.js";
+import { useI18n } from "vue-i18n";
+import { computed } from "vue";
 export default {
   setup() {
+    const { getAlternatesOfUrl } = LanguageAlternateSetup();
+    const { t, locale } = useI18n({
+      useScope: "global",
+      locale: "en",
+      messages: {
+        en: {
+          home: "Home",
+          blog: "Blog",
+          contact: "Contact",
+        },
+        tr: {
+          home: "Ansayfa",
+          blog: "Blog",
+          contact: "Iletisim",
+        },
+      },
+    });
+
     const { isSidebarShown, toggleSidebarShown } = LayoutBlogSetup();
-    return { isSidebarShown, toggleSidebarShown };
+
+    const menu = computed(() => {
+      return [
+        ["home", "/home"],
+        ["blog", "/blog"],
+        ["contact", "/contact"],
+      ].map(([langKey, path]) => ({
+        path: getAlternatesOfUrl(path)[locale.value],
+        title: t(langKey),
+      }));
+    });
+    return { isSidebarShown, toggleSidebarShown, menu };
   },
 };
 </script>
