@@ -26,7 +26,7 @@
           @dragstart="moveTabDrag(path, $event)"
           @dragover.prevent
           @click="$router.push(path)"
-          @contextmenu.stop.prevent="() => routeHistoryRemoveRouteByPath(path)"
+          @contextmenu.stop.prevent="() => null"
         >
           {{ title }}
           <div
