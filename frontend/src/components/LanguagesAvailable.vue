@@ -1,10 +1,7 @@
 <template>
   <div>
     <span>{{ t("availableLang") }}</span>
-    <router-link
-      :to="path"
-      v-for="(path, lang) in alternates"
-      :key="path"
+    <router-link :to="path" v-for="(path, lang) in alternates" :key="path"
       >{{ getLanguageTitle(lang) }}
     </router-link>
   </div>
@@ -13,12 +10,14 @@
 <script>
 import { ROUTE_HISTORY_OVERRIDE_HASH } from "@/composables/RouteHistory.js";
 import { RouteHistorySetup } from "@/composables/RouteHistory";
+import { LanguageAlternateSetup } from "@/composables/LanguageAlternate.js";
 
-import { computed, watchEffect } from "vue";
+import { watchEffect } from "vue";
 import { useI18n } from "vue-i18n";
 
 export default {
   setup() {
+    const { alternates } = LanguageAlternateSetup();
     const { route } = RouteHistorySetup();
     const { t, locale } = useI18n({
       useScope: "global",
@@ -35,17 +34,6 @@ export default {
 
     watchEffect(() => {
       locale.value = route.meta.language;
-    });
-
-    const alternates = computed(() => {
-      const alternates = route.meta.alternate;
-   
-      return Object.keys(alternates)
-        .sort()
-        .reduce((acc, lang) => {
-          acc[lang] = alternates[lang];
-          return acc;
-        }, {});
     });
 
     return { t, alternates };
