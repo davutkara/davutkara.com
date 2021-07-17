@@ -84,7 +84,19 @@ export default {
       if (val === true) UpdateDocumentHeader({ title: "Loading" });
     });
     watch(isContentLoadingError, (val) => {
+      const contentMeta = ModelContentMeta({ title: "Error" });
+      routeHistoryUpdateCurrentRouteMeta(contentMeta);
       if (val === true) UpdateDocumentHeader({ title: isContentLoading.value });
+    });
+
+    /**
+     * Remove the tab if the content is not fetched. When the page is changed
+     */
+    router.beforeEach(async (to, from) => {
+      if (isContentLoadingError.value === true) {
+        routeHistory.delete(from.path);
+      }
+      return true;
     });
 
     /* Watch content and isContentLoading
