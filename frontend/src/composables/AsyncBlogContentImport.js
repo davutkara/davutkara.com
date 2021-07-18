@@ -39,7 +39,7 @@ export default function() {
 
     return import(
       /* webpackChunkName: "[request]" */
-      "../assets/docs/blog/" + filePath + ".yaml"
+      "../assets/docs/blog/" + filePath + ".yml"
     )
       .then((file) => {
         content.value = file.default;
