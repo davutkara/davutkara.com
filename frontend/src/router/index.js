@@ -7,6 +7,14 @@ import TheContactPage from "@/views/blog/TheContactPage.vue";
 
 const DEFAULT_LANG = process.env.VUE_APP_DEFAULT_LANG_FOR_URL;
 
+export const getPathName = (url) => {
+  try {
+    return new URL(url).pathname;
+  } catch (err) {
+    return url;
+  }
+};
+
 /**
  *   
  * langPaths: {
@@ -34,9 +42,9 @@ const RoutesGenerateForI18n = function(mainPath, i18nPaths) {
     [null, ...Object.keys(i18nRoute.langPaths)].forEach((language) => {
       let path =
         language === null
-          ? language + "/" + i18nRoute.langPaths[DEFAULT_LANG]
+          ? i18nRoute.langPaths[DEFAULT_LANG]
           : i18nRoute.langPaths[language];
-      path = path.replace(window.location.origin + mainPath, "");
+      path =  getPathName(path);
       routes.push({
         path,
         name: path,
@@ -51,7 +59,7 @@ const RoutesGenerateForI18n = function(mainPath, i18nPaths) {
           language: language === null ? DEFAULT_LANG : language,
           alternate: Object.entries(i18nRoute.langPaths).reduce(
             (acc, [lang, path]) => {
-              path = path.replace(window.location.origin + mainPath, "");
+              path = getPathName(path);
               acc[lang] = mainPath + path;
               return acc;
             },
@@ -97,7 +105,7 @@ const i18nRoutes = [
     },
     //name: "Blog Content Page",
     component: TheBlogContentPage,
-    beforeEnter(to, from) {},
+    // beforeEnter(to, from) {},
     meta: {
       ContentFetch: true,
     },

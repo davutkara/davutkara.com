@@ -34,7 +34,7 @@ import ModelContentMeta from "@/models/contentMeta.js";
 import XMLToDOM from "@/helpers/XMLToDOM.js";
 import { ref, computed } from "vue";
 import { useI18n } from "vue-i18n";
-import { routerContentPageAdd } from "@/router/index.js";
+import { routerContentPageAdd, getPathName } from "@/router/index.js";
 export default {
   components: { ContentError, ContentLoading },
   setup() {
@@ -85,7 +85,7 @@ export default {
                 title: entry.querySelector("title").textContent,
                 summary: entry.querySelector("summary").textContent,
                 updated: entry.querySelector("updated").textContent,
-                link: link.getAttribute("href").replace(window.location.origin,""),
+                link: getPathName(link.getAttribute("href")),
               };
 
               feeds.push(route);
