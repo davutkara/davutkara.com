@@ -6,35 +6,42 @@ export const ROUTE_HISTORY_OVERRIDE_HASH = "#override";
 
 export const RouteHistory = reactive(new Map());
 
-export const RouteHistorySetup = function () {
+export const RouteHistorySetup = function() {
   // Get route and router instances from vue-router.
   const route = useRoute();
   const router = useRouter();
 
   router.beforeResolve((to, from, next) => {
-    if (from.hash.includes(ROUTE_HISTORY_OVERRIDE_HASH) && from && to.path === from.path) {
-      next(false)
+    if (
+      from.hash.includes(ROUTE_HISTORY_OVERRIDE_HASH) &&
+      from &&
+      to.path === from.path
+    ) {
+      next(false);
     } else {
       next();
     }
-  })
+  });
 
   // init new route.
   const routeHistoryAddCurrentRoute = async (to = route, from) => {
-
-    const theOtherLangPage = Object.values(to.meta.alternate)
-      .find((path) => {
-        const res = RouteHistory.has(path)
-        return res;
-      });
+    const theOtherLangPage = to.meta.alternate
+      ? Object.values(to.meta.alternate).find((path) => {
+          const res = RouteHistory.has(path);
+          return res;
+        })
+      : null;
 
     // override for language changing
-    if ((to.hash.includes(ROUTE_HISTORY_OVERRIDE_HASH) || theOtherLangPage) && from) {
+    if (
+      (to.hash.includes(ROUTE_HISTORY_OVERRIDE_HASH) || theOtherLangPage) &&
+      from
+    ) {
       if (to.path === from.path) return;
 
-      const fromPath = theOtherLangPage ? theOtherLangPage : from.path
+      const fromPath = theOtherLangPage ? theOtherLangPage : from.path;
 
-      MapSplice(RouteHistory, fromPath, 1, [[to.path, {}]])
+      MapSplice(RouteHistory, fromPath, 1, [[to.path, {}]]);
       return true;
     }
 
