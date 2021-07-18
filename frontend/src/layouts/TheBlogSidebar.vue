@@ -16,7 +16,16 @@
           v-for="({ path, title }, menuIndex) in menu"
           :key="menuIndex"
         >
-          <li @click="navigate">{{ title }}</li>
+          <li
+            @click="
+              () => {
+                navigate();
+                closeSidebarIfNotDesktop();
+              }
+            "
+          >
+            {{ title }}
+          </li>
         </router-link>
       </ul>
     </nav>
@@ -51,9 +60,14 @@ export default {
 
     const { isSidebarShown, toggleSidebarShown } = LayoutBlogSetup();
 
-    watchEffect(() => {
-      if (route.path && window.innerWidth > 800) return;
+    const closeSidebarIfNotDesktop = function() {
+      if (window.innerWidth > 800) return;
       isSidebarShown.value = false;
+    };
+
+    watchEffect(() => {
+      if (!route.path) return;
+      closeSidebarIfNotDesktop();
     });
 
     const menu = computed(() => {
@@ -66,7 +80,12 @@ export default {
         title: t(langKey),
       }));
     });
-    return { isSidebarShown, toggleSidebarShown, menu };
+    return {
+      isSidebarShown,
+      toggleSidebarShown,
+      menu,
+      closeSidebarIfNotDesktop,
+    };
   },
 };
 </script>
