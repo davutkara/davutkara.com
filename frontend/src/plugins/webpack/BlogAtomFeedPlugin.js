@@ -96,13 +96,13 @@ class BlogListJson {
           if (!item.tags?.includes("blog")) continue;
           source += `<entry>
           <title>${item.title}</title>
-          <link href="http://localhost:8080/${item.slug}" />
+          <link href="https://davutkara.com/${item.slug}" />
           `;
-          
+
           if (item.alternate)
             for (const alternate of Object.keys(item.alternate)) {
               if (alternate === language) continue;
-              source += `<link rel="alternate" type="text/html" href="http://localhost:8080${item.alternate[alternate]}" hreflang="${alternate}"/>`;
+              source += `<link rel="alternate" type="text/html" href="https://davutkara.com${item.alternate[alternate]}" hreflang="${alternate}"/>`;
             }
           source += `<updated>${item.date}</updated>
           <summary>${item.description}</summary>
