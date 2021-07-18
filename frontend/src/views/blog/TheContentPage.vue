@@ -75,10 +75,18 @@ export default {
     tableOfContents() {
       const hTagsRegex = /<(h[0-9]) (id=('|")(.+)('|"))?>(.+)<\/\1>/g;
 
-      return Array.from(this.article.matchAll(hTagsRegex)).map((
-        // [full, htag, idFull, end, id, end2, title]
-        [, , , , id, , title]
-      ) => [title, id]);
+      return Array.from(this.article.matchAll(hTagsRegex)).map(
+        (
+          // [full, htag, idFull, end, id, end2, title]
+          [, , , , id, , title]
+        ) => {
+          var html = title;
+          var div = document.createElement("div");
+          div.innerHTML = html;
+          var text = div.textContent || div.innerText || "";
+          return [text, id];
+        }
+      );
     },
   },
   methods: {
