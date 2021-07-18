@@ -4,6 +4,7 @@ import TheBlogHomePage from "@/views/blog/TheHomePage.vue";
 import TheBlogListPage from "@/views/blog/TheBlogListPage.vue";
 import TheBlogContentPage from "@/views/blog/TheContentPage.vue";
 import TheContactPage from "@/views/blog/TheContactPage.vue";
+import XMLToDOM from "@/helpers/XMLToDOM.js";
 
 const DEFAULT_LANG = process.env.VUE_APP_DEFAULT_LANG_FOR_URL;
 
@@ -40,11 +41,18 @@ const RoutesGenerateForI18n = function(mainPath, i18nPaths) {
   return i18nPaths.reduce((routes, i18nRoute) => {
     // iterate language paths;
     [null, ...Object.keys(i18nRoute.langPaths)].forEach((language) => {
+      if (
+        language === null &&
+        i18nRoute.langPaths[DEFAULT_LANG] === undefined
+      ) {
+        return;
+      }
+
       let path =
         language === null
           ? i18nRoute.langPaths[DEFAULT_LANG]
           : i18nRoute.langPaths[language];
-      path =  getPathName(path);
+      path = getPathName(path);
       routes.push({
         path,
         name: path,
@@ -105,7 +113,55 @@ const i18nRoutes = [
     },
     //name: "Blog Content Page",
     component: TheBlogContentPage,
-    // beforeEnter(to, from) {},
+    beforeEnter(to, from, next) {
+      if (router.resolve(to.path).name === to.path) return;
+
+      fetch(
+        "/" +
+          (to.meta.language === "tr"
+            ? process.env.VUE_APP_BLOG_RSS_PATH_TR
+            : process.env.VUE_APP_BLOG_RSS_PATH_EN)
+      )
+        .then((res) => res.text())
+        .then(XMLToDOM) // xml to dom
+        .then(
+          /**
+           *  @param {Document} dom
+           */
+          (dom) => {
+            // dom to json
+            const entries = dom.querySelectorAll("entry");
+            if (entries) {
+              for (const entry of entries) {
+                const link = entry.querySelector("link:not([rel])");
+                const alternates = Array.from(
+                  entry.querySelectorAll("link[rel]")
+                );
+
+                routerContentPageAdd({
+                  link: getPathName(link.getAttribute("href")),
+                  language: dom.querySelector("language").textContent,
+                  alternate: alternates.reduce((acc, link) => {
+                    acc[link.getAttribute("hreflang")] = link.getAttribute(
+                      "href"
+                    );
+                    return acc;
+                  }, {}),
+                });
+              }
+            }
+          }
+        )
+        .then(() => {
+          next(to.path);
+        })
+        .catch(()=>{
+          next(false)
+        })
+        .finally(() => {
+          console.log(router.resolve(to.path));
+        });
+    },
     meta: {
       ContentFetch: true,
     },
