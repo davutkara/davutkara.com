@@ -15,7 +15,7 @@ import UpdateDocumentHeader from "@/helpers/UpdateDocumentHeader.js";
 import { RouteHistorySetup } from "@/composables/RouteHistory";
 import ModelContentMeta from "@/models/contentMeta.js";
 
-import { watch, computed, nextTick } from "vue";
+import { watch, watchEffect, computed, nextTick } from "vue";
 
 import { useI18n } from "vue-i18n";
 export default {
@@ -59,14 +59,12 @@ export default {
      * If the page meta has ContentFetch. Update  import the yaml file.
      * @todo refactor
      */
-    watch(
-      route,
-      ($route) => {
-        if ($route.meta && $route.meta.ContentFetch) {
-          startFetchingByPath($route.path === "/" ? "/home" : $route.path);
+    watchEffect(
+      () => {
+        if (route.meta && route.meta.ContentFetch) {
+          startFetchingByPath(route.path === "/" ? "/home" : route.path);
         }
-      },
-      { immediate: true }
+      }
     );
 
     /**
