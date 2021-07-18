@@ -9,7 +9,7 @@
         <!-- - <a href="#comments">6 comments</a> -->
       </p>
     </header>
-    <nav>
+    <nav v-if="tableOfContents && tableOfContents.length">
       <h2>İçindekiler</h2>
       <ul>
         <li v-for="([title, id], tI) in tableOfContents" :key="tI">
@@ -177,7 +177,7 @@ article:deep() {
       max-width: 250px;
     }
 
-    min-width: max-content;
+    max-width: max-content;
     float: right;
     padding: 1em 1.5em;
     margin: 1em 0;
@@ -201,9 +201,11 @@ article:deep() {
       margin-top: 1em;
       margin-left: 1.5em;
       text-align: left;
+      width:100%;
     }
     li {
       margin-top: 0.25em;
+      max-width: 100%;
       a {
         color: var(--color-bg-text);
         text-decoration: none;
