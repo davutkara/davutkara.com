@@ -3,6 +3,15 @@ const fs = require("fs");
 const YAML = require("yaml");
 const pluginName = "BlogListJson";
 
+const DEFAULT_LANG = process.env.VUE_APP_DEFAULT_LANG_FOR_URL;
+const getDefaultLinkForPath = (domain, locale, slug) => {
+  let path = "";
+  if (locale === DEFAULT_LANG || slug.includes("/" + locale + "/"))
+    path = domain + "/" + slug;
+  else path = domain + "/" + locale + "/" + slug;
+  return path.replace("//", "/");
+};
+
 const readDir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
 
@@ -100,13 +109,21 @@ class BlogListJson {
           if (!item.tags?.includes("blog")) continue;
           source += `<entry>
           <title>${item.title}</title>
-          <link href="https://davutkara.com/${item.slug}" />
+          <link href="https://${getDefaultLinkForPath(
+            "davutkara.com",
+            language,
+            item.slug
+          )}" />
           `;
 
           if (item.alternate)
             for (const alternate of Object.keys(item.alternate)) {
               if (alternate === language) continue;
-              source += `<link rel="alternate" type="text/html" href="https://davutkara.com${item.alternate[alternate]}" hreflang="${alternate}"/>`;
+              source += `<link rel="alternate" type="text/html" href="https://${getDefaultLinkForPath(
+                "davutkara.com",
+                alternate,
+                item.alternate[alternate]
+              )}" hreflang="${alternate}"/>`;
             }
           source += `<updated>${item.date}</updated>
           <summary>${item.description}</summary>

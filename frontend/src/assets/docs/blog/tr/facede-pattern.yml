@@ -1,7 +1,7 @@
 language: tr
 tags: blog
 title: Facade Pattern
-slug: tr/facede-pattern
+slug: facede-pattern
 date: 2020-01-27T15:20:02.069Z
 content: >-
   Bunu ortalama bir yazılımcı zaten ister istemez kullanıyordur, burada design
