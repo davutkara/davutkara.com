@@ -7,7 +7,9 @@
         :class="{ disabled: !isSidebarShown }"
       >
         ☰<transition
-          ><span v-if="!isSidebarShown" class="title"> Davut KARA</span></transition
+          ><span v-if="!isSidebarShown" class="title">
+            Davut KARA</span
+          ></transition
         >
       </li>
       <router-link
@@ -40,7 +42,9 @@
     <p id="language-change">
       <languages-available v-if="$route.meta.alternate" :key="$route.path" />
     </p>
-    <p class="tags" style="float: right" v-if="activePageTags">{{ activePageTags }}</p>
+    <p class="tags" style="float: right" v-if="activePageTags">
+      {{ activePageTags }}
+    </p>
   </div>
 </template>
 
@@ -49,6 +53,7 @@ import { RouteHistorySetup } from "@/composables/RouteHistory.js";
 import { LayoutBlogSetup } from "@/composables/LayoutBlog.js";
 import { MapSplice, getIndexOfMapKey } from "@/utils/Map-splice.js";
 import LanguagesAvailable from "@/components/LanguagesAvailable.vue";
+import { computed, watchEffect, nextTick } from "vue";
 export default {
   components: { LanguagesAvailable },
   setup() {
@@ -68,7 +73,40 @@ export default {
       return true;
     });
 
+    const tabList = computed(() => {
+      return Array.from(routeHistory.keys()).map((path) => ({
+        path,
+        ...routeHistory.get(path),
+      }));
+    });
+
+    watchEffect(() => {
+      if (tabList.value) {
+        nextTick(() => {
+          const ul = document.querySelector("#tabs ul");
+          const titleEl = document.querySelector("#tabs ul li.active");
+          const hamburger = document.querySelector("#tabs ul li:first-child");
+
+          console.log(
+            titleEl.getBoundingClientRect(),
+            titleEl.getBoundingClientRect().left +
+              titleEl.getBoundingClientRect().width
+          );
+          //const tabsHight = document.querySelector("#tabs").clientWidth;
+          if (ul.scrollWidth > ul.clientWidth) {
+            ul.scrollTo({
+              top: 0,
+              left:
+                titleEl.offsetLeft - titleEl.scrollLeft - hamburger.clientWidth,
+              behavior: "smooth",
+            });
+          }
+        });
+      }
+    });
+
     return {
+      tabList,
       routeHistory,
       routeHistoryRemoveRouteByPath,
       isSidebarShown,
@@ -86,12 +124,6 @@ export default {
     },
     activePageMeta() {
       return this.routeHistory.get(this.$route.path);
-    },
-    tabList() {
-      return Array.from(this.routeHistory.keys()).map((path) => ({
-        path,
-        ...this.routeHistory.get(path),
-      }));
     },
   },
   methods: {
@@ -129,7 +161,17 @@ export default {
 
   ul {
     background-color: var(--color-bg-deep-changed-3o5);
-
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    li:first-child {
+      height: inherit;
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
     li {
       margin: 0;
       padding: 0.5em 1em;
