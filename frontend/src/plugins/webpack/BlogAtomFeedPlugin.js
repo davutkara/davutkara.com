@@ -92,6 +92,10 @@ class BlogListJson {
       <language>${language}</language>
       <updated>${new Date().toISOString()}</updated>
         `;
+        items.sort((a, b) => {
+          if (!a.date || !b.date) return -1;
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        });
         for (const item of items) {
           if (!item.tags?.includes("blog")) continue;
           source += `<entry>
