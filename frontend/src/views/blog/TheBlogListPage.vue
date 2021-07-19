@@ -17,8 +17,8 @@
       <router-link :to="link"
         ><h2>{{ title }}</h2></router-link
       >
-      <p>posted on {{ datePretty(updated) }}</p>
-      <p>{{ summary }}</p>
+      <p>{{ t("postedOn", { date: datePretty(updated) }) }}</p>
+      <p>{{ summary !== "undefined" ? summary : t("noSummary") }}</p>
     </article>
   </main>
 </template>
@@ -38,7 +38,7 @@ import { routerContentPageAdd, getPathName } from "@/router/index.js";
 export default {
   components: { ContentError, ContentLoading },
   setup() {
-    const { locale } = useI18n({
+    const { t, locale } = useI18n({
       useScope: "global",
     });
 
@@ -115,13 +115,12 @@ export default {
     routeHistoryUpdateCurrentRouteMeta(contentMeta);
     UpdateDocumentHeader(contentMeta);
 
-    return { atomFeed, isContentLoading, isContentLoadingError };
-  },
-  methods: {
-    datePretty(e) {
+    const datePretty = (e) => {
       const event = new Date(e);
-      return event.toDateString();
-    },
+      return event.toLocaleDateString(locale.value);
+    };
+
+    return { atomFeed, isContentLoading, isContentLoadingError, datePretty, t };
   },
 };
 </script>

@@ -9,16 +9,16 @@ import { createI18n
   //, useI18n 
 } from "vue-i18n"
 
-const messages = {
+const  messages = {
   en: {
-    message: {
-      hello: 'hello world'
-    }
+    postedOn: "posted on {date}.",
+    postDetails: "posted on {date} by {author}.",
+    noSummary: "No summary",
   },
   tr: {
-    message: {
-      hello: 'Merhaba'
-    }
+    postedOn: "{date} tarihinde gonderildi.",
+    postDetails: "{author} tarafindan {date} tarihinde gonderildi.",
+    noSummary: "Ozet yok",
   }
 }
 
@@ -31,7 +31,7 @@ const i18n = createI18n({
   // ...
 })
 
-createApp(App)
+const app = createApp(App)
   .directive(...ScrollAnchor)
   .directive(...TextTypeWriter)
   .directive(...ListState)
@@ -39,3 +39,5 @@ createApp(App)
   .use(Router)
   .use(i18n)
   .mount("#app");
+
+window.$appd = app

@@ -3,9 +3,7 @@
     <header>
       <h1>{{ title }}</h1>
       <p>
-        Posted on
-        <time :datetime="date">{{ toDateString(date) }}</time>
-        by {{ author }}
+        {{ t("postDetails", { date: datePretty(date), author }) }}
         <!-- - <a href="#comments">6 comments</a> -->
       </p>
     </header>
@@ -41,6 +39,7 @@
 </template>
 
 <script>
+import { useI18n } from "vue-i18n";
 const marked = require("marked");
 import CodeHighlighter from "@/helpers/CodeHighlighter";
 export default {
@@ -48,6 +47,18 @@ export default {
     content: {
       required: true,
     },
+  },
+  setup() {
+    const { t, locale } = useI18n({
+      useScope: "global",
+    });
+
+    const datePretty = (e) => {
+      const event = new Date(e);
+      return event.toLocaleDateString(locale.value);
+    };
+    
+    return { t, datePretty };
   },
   mounted() {
     document.querySelectorAll("pre code").forEach((block) => {
@@ -90,9 +101,6 @@ export default {
     },
   },
   methods: {
-    toDateString(date) {
-      return new Date(date).toDateString();
-    },
     scrollToId(el) {
       const id = el.target.getAttribute("href");
       const titleEl = document.querySelector(id);
@@ -201,7 +209,7 @@ article:deep() {
       margin-top: 1em;
       margin-left: 1.5em;
       text-align: left;
-      width:100%;
+      width: 100%;
     }
     li {
       margin-top: 0.25em;
