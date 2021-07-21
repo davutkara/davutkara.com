@@ -1,0 +1,27 @@
+language: tr
+tags: blog
+title: Debian Notlarim
+slug: debian-notlarim
+date: 2020-02-29T09:11:59.816Z
+author: Davut KARA
+content: >-
+  
+  ### apt-mark
+
+  Paketleri ayarlamak icin kullanilir.
+  
+  #### Paket upgrade edilmesini engellemek
+
+  Bu islemi yaptiktan sonra upgrade edilirken o paketi isleme dahil etmez.
+
+  ``` 
+  
+  apt-mark hold PAKET_ADI
+
+  apt-mark unhold PAKET_ADI
+
+  apt-mark showhold
+  
+   ```
+
+
