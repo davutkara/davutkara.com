@@ -155,11 +155,11 @@ const i18nRoutes = [
         .then(() => {
           next(to.path);
         })
-        .catch(()=>{
-          next(false)
+        .catch(() => {
+          next(false);
         })
         .finally(() => {
-          console.log(router.resolve(to.path));
+          // no
         });
     },
     meta: {

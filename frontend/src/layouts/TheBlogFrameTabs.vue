@@ -87,11 +87,6 @@ export default {
           const titleEl = document.querySelector("#tabs ul li.active");
           const hamburger = document.querySelector("#tabs ul li:first-child");
 
-          console.log(
-            titleEl.getBoundingClientRect(),
-            titleEl.getBoundingClientRect().left +
-              titleEl.getBoundingClientRect().width
-          );
           //const tabsHight = document.querySelector("#tabs").clientWidth;
           if (ul.scrollWidth > ul.clientWidth) {
             ul.scrollTo({
