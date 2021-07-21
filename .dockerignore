@@ -1,0 +1,6 @@
+bin
+.gitignore
+.todos
+docker-compose.yml
+Dockerfile
+README.md

@@ -1,0 +1,40 @@
+$white: #fff;
+$black: #000;
+$ColorDarkBgDeep: #1e1e1e;
+$ColorDarkBgDeepChanged15: scale-color($ColorDarkBgDeep, $lightness: +6.5%);
+$ColorDarkBgDeepChanged3o5: scale-color($ColorDarkBgDeep, $lightness: +3.5%);
+$ColorDarkBgDeepChanged50: scale-color($white, $lightness: -50%);
+$ColorDarkBgMiddle: #252526;
+$ColorDarkText: #bebebe;
+$ColorDarkTextp50: scale-color($ColorDarkText, $lightness: -50%);
+
+$ColorLightBgDeep: #ffffff;
+$ColorLightBgDeepChanged15: scale-color($ColorLightBgDeep, $lightness: -6.5%);
+$ColorLightBgDeepChanged3o5: scale-color($ColorLightBgDeep, $lightness: -3.5%);
+$ColorLightBgDeepChanged50: scale-color($black, $lightness: 50%);
+//$ColorLightBgMiddle: #f8f8f8;
+$ColorLightBgMiddle: #1d283c;
+$ColorLightText: #013366;
+$ColorLightTextp50: scale-color($ColorLightBgDeep, $lightness: -50%);
+
+:root[data-theme="light"] {
+  --color-bg-deep: #{$ColorLightBgDeep};
+  --color-bg-deep-changed-15: #{$ColorLightBgDeepChanged15};
+  --color-bg-deep-changed-3o5: #{$ColorLightBgDeepChanged3o5};
+  --color-bg-deep-changed-50: #{$ColorLightBgDeepChanged50};
+  --color-bg-middle: #{$ColorLightBgMiddle};
+  --color-bg-text: #{$ColorLightText};
+  --color-bg-textp50: #{$ColorLightTextp50};
+}
+
+
+:root,
+:root[data-theme="dark"] {
+  --color-bg-deep: #{$ColorDarkBgDeep};
+  --color-bg-deep-changed-15: #{$ColorDarkBgDeepChanged15};
+  --color-bg-deep-changed-3o5: #{$ColorDarkBgDeepChanged3o5};
+  --color-bg-deep-changed-50: #{$ColorDarkBgDeepChanged50};
+  --color-bg-middle: #{$ColorDarkBgMiddle};
+  --color-bg-text: #{$ColorDarkText};
+  --color-bg-textp50: #{$ColorDarkTextp50};
+}

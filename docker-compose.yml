@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/usr/app/
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+    # uncomment command below to run development version
+    # command: "npm run serve"
+    command: >
+     npm run serve
+# su node -c "npm install vue-i18n@next"
+     

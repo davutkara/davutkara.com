@@ -1,0 +1,96 @@
+language: tr
+tags: blog
+title: Facade Pattern
+slug: facede-pattern
+date: 2020-01-27T15:20:02.069Z
+content: >-
+  Bunu ortalama bir yazılımcı zaten ister istemez kullanıyordur, burada design
+  patternler yönünden bu olaya facede pattern dendiğini göreceğiz. Facede
+  pattern "Structural Design Patterns" kategorisine dahildir.
+
+  <!-- more -->
+
+  Şimdi elimizde 3. parti bir kütüphane (library) den bir metot (method)
+  kullandığımızı varsayalım. Bu metotun istediğimiz şekilde çalışması için bir
+  çok parametre, argüman vs aldığını düşünelim. Bu metodu birden fazla
+  kullanmaya kalktığımızda, fonkisyonu tüm argümanlarıyla kopyalayıp tekrar
+  çağırmamız gerekecek. Onun yerine fonksiyonu başka bir fonksiyon ile
+  kapsıyoruz, ve ihtiyacımız olan yani farklılık gösteren bir kısımları
+  argümandan gelecek şekilde değişken yapıyoruz. Bu sayede complex
+  fonksiyonumuzu daha basit şekilde kullanıyoruz.
+
+
+  Uzun lafın kısası.
+
+
+  ```js
+
+  // Karmaşık olan fonksiyonum.
+
+  const aSitesiFetch = fetch('A_SITESI_LINKI', {
+      method: 'POST', 
+      mode: 'cors',
+      cache: 'no-cache', 
+      credentials: 'same-origin', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow', 
+      referrerPolicy: 'no-referrer', 
+      body: JSON.stringify(data) 
+    });
+
+  // Ben yukarıda ki fonkisyonu b sitesi için tekrar call etmek istersem,
+  tamamen argumanlarıyla birlikte kopyalamam gerekir. Aynen böyle
+
+
+  const bSitesiFetch = fetch('B_SITESI_LINKI', {
+      method: 'POST', 
+      mode: 'cors',
+      cache: 'no-cache', 
+      credentials: 'same-origin', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow', 
+      referrerPolicy: 'no-referrer', 
+      body: JSON.stringify(data) 
+    });
+
+  // Bunun yerine bu fonksiyonu başka bir fonksiyon ile kapsayıp, argümana göre
+  değişen fonksiyon haline getirebilirim.
+
+
+  const yeniFetch = (link) => fetch(link, {
+      method: 'POST', 
+      mode: 'cors',
+      cache: 'no-cache', 
+      credentials: 'same-origin', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow', 
+      referrerPolicy: 'no-referrer', 
+      body: JSON.stringify(data) 
+    });
+
+  // Bu sayede artık sadece linki yollamam yeterli, yeniFetch fonksiyonu eski
+  fetch fonksiyonunun ayarlarını koruduğu için, herhangi bir sorun çıkmayak.
+
+
+  const aSitesiFetch = yeniFetch('A_SITESI_LINKI')
+
+  const bSitesiFetch = yeniFetch('B_SITESI_LINKI')
+
+  ```
+
+
+  Gördüğünüz gibi gayet basit, ve neredeyse temel programlama olayı. Aslında bu
+  olay **higher-order function** olayına çok benziyor, Matematikte de aynı olay
+  vardır, higer-order derivates yani yüksek mertebeden türevler olarak.
+
+
+  Basit hali ve mantığı bu şekilde, daha karmaşık halinde ise, Bir fonksiyonun
+  3-5 tane farklı şeyi(method, class, artık her ne varsa) argümanlar yardımıyla
+  yönettiğini, yönlendirdiğini düşünün. Yine belirli argümanları alacak,
+  devamında ise if-else vb kontroller ile farklı işlemlere yönlendirecek.
