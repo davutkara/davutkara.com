@@ -1,6 +1,5 @@
 const path = require("path");
 const PrerenderSPAPlugin = require("prerender-spa-plugin");
-const Renderer = require("@prerenderer/renderer-jsdom");
 const BlogAtomFeedPlugin = require("./src/plugins/webpack/BlogAtomFeedPlugin.js");
 
 /* 
@@ -24,7 +23,7 @@ module.exports = {
     hot: true,
   },
   */
-  chainWebpack: (config) => {
+  chainWebpack: async (config) => {
     // support md files.
     config.module
       .rule("markdown")
@@ -48,15 +47,6 @@ module.exports = {
     config.plugin("BlogAtomFeedPlugin").use(BlogAtomFeedPlugin, []);
 
     if (process.env.NODE_ENV !== "production") return;
-
-    config.plugin("PrerenderSPAPlugin").use(PrerenderSPAPlugin, [
-      {
-        // Required - The path to the webpack-outputted app to prerender.
-        staticDir: path.join(__dirname, "dist"),
-        // Required - Routes to render.
-        routes: ["/", "/test1", "/test2/comments"],
-        renderer: new Renderer({ renderAfterTime: 10000 }),
-      },
-    ]);
+    // production scripts etc.
   },
 };

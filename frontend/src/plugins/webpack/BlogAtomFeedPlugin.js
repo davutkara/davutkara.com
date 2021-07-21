@@ -1,6 +1,7 @@
 const util = require("util");
 const fs = require("fs");
 const YAML = require("yaml");
+const blogList = require("../blogList.util.js");
 const pluginName = "BlogListJson";
 
 const DEFAULT_LANG = process.env.VUE_APP_DEFAULT_LANG_FOR_URL;
@@ -12,26 +13,13 @@ const getDefaultLinkForPath = (domain, locale, slug) => {
   return path.replace("//", "/");
 };
 
-const readDir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
 
 class BlogListJson {
   apply(compiler) {
     compiler.hooks.emit.tapAsync(pluginName, async (compilation, callback) => {
-      // categorized list.
+      const filePaths = await blogList();
       const rssItemList = { en: [], tr: [] };
-
-      // find the paths
-      const filePathsEn = await readDir(
-        __dirname + "/../../assets/docs/blog/en"
-      );
-      const filePathsTr = await readDir(
-        __dirname + "/../../assets/docs/blog/tr"
-      );
-      const filePaths = [
-        ...filePathsEn.map((p) => "en/" + p),
-        ...filePathsTr.map((p) => "tr/" + p),
-      ];
       // create the content list
       const fileContents = filePaths.map((filePath) =>
         readFile(
