@@ -2,6 +2,7 @@ language: tr
 tags: blog
 title: Facade Pattern
 slug: facede-pattern
+author: Davut KARA
 date: 2020-01-27T15:20:02.069Z
 content: >-
   Bunu ortalama bir yazılımcı zaten ister istemez kullanıyordur, burada design
