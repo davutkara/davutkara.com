@@ -33,6 +33,9 @@ section#text-bar {
     border-left: 1px solid #ffffff20;
     padding: 0.5em 1em;
     text-align: justify;
+    @media only screen and (max-width: 800px) {
+      text-align: left;
+    }
     color: var(--color-bg-text);
 
     &:last-child, &:only-of-type{
