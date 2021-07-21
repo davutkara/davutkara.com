@@ -31,11 +31,15 @@ export default function() {
     content.value = null;
     isContentLoading.value = true;
 
-    const filePath =
+    let filePath =
       route.meta.language +
       (path.includes("/" + route.meta.language + "/")
         ? path.replace("/" + route.meta.language, "")
         : path);
+
+    if (filePath.slice(-1) === "/") {
+      filePath = filePath.slice(0, -1);
+    }
 
     return import(
       /* webpackChunkName: "[request]" */
@@ -49,7 +53,7 @@ export default function() {
       .catch((err) => {
         let msg;
         if (err.code === "MODULE_NOT_FOUND") {
-          msg = "404 Page not found !";
+          msg = "404 Page not found ! :" + filePath;
         } else if (err && err.name === "ChunkLoadError") {
           msg = "500 Network error !";
         } else {
