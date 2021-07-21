@@ -1,7 +1,13 @@
 <template>
   <div id="status-bar">
-    Copyright Davut KARA 2021
-
+    <a
+      target="_blank"
+      href="https://github.com/davutkara/davutkara.com"
+      title="Source Code"
+    >
+    Blog v4-beta
+    </a>
+    - Copyright Davut KARA 2021
     <!-- <button @click="invert">C</button> -->
   </div>
 </template>
@@ -29,7 +35,7 @@ export default {
     position: fixed;
     width: 100vw;
     text-align: center;
-   // padding: 1em 0;
+    // padding: 1em 0;
   }
   height: 1em;
   background: var(--color-bg-deep);
@@ -37,5 +43,13 @@ export default {
   color: rgb(255, 255, 255);
   padding: 8px;
   font-size: 12px;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    &::before {
+      content: ">";
+    }
+  }
 }
 </style>
