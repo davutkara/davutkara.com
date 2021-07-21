@@ -11,7 +11,7 @@
         <em>Information Systems Engineer</em>
       </div>
     </div>
-    <nav>
+    <nav @click="navClicked">
       <ul>
         <router-link
           :to="path"
@@ -21,7 +21,7 @@
           :key="menuIndex"
         >
           <li
-            @click="
+            @click.stop.prevent="
               () => {
                 navigate();
                 closeSidebarIfNotDesktop();
@@ -84,9 +84,15 @@ export default {
         title: t(langKey),
       }));
     });
+
+    const navClicked = () => {
+      closeSidebarIfNotDesktop();
+    };
+    
     return {
       isSidebarShown,
       toggleSidebarShown,
+      navClicked,
       menu,
       closeSidebarIfNotDesktop,
     };
@@ -166,6 +172,7 @@ aside#file-bar {
         flex-direction: column;
         align-items: stretch;
         li {
+          user-select: none;
           ul {
             padding: 1em 2em 0 1em;
             overflow: scroll;
