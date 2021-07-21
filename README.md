@@ -1,4 +1,4 @@
-# davutkara.com
+# test
 
 > Personal web page
 
@@ -37,5 +37,4 @@ npm run lint
 ```
 
 ### Customize configuration
-
 See [Configuration Reference](https://cli.vuejs.org/config/).
