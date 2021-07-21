@@ -9,20 +9,21 @@
           <a v-scroll-anchor href="#About"> {{ t("about") }} </a>
         </li>
         <li v-list-state.active>
-          <a v-scroll-anchor href="#tecrubeler"> {{ t("experiences") }} </a>
+          <a v-scroll-anchor href="#tecrubeler"> {{ t("skills") }} </a>
         </li>
+        <!-- 
         <li v-list-state.active>
           <a v-scroll-anchor href="#Projects"> {{ t("projects") }}</a>
         </li>
         <li v-list-state.active>
           <a v-scroll-anchor href="#cv-ozgecmis"> {{ t("resume") }}</a>
-        </li>
+        </li> -->
       </ul>
     </nav>
     <h2 v-text-typewriter:750>{{ subTitle }}</h2>
     <p v-text="description"></p>
     <br />
-    <h2 id="tecrubeler">{{ t("experiences") }}</h2>
+    <h2 id="tecrubeler">{{ t("skills") }}</h2>
 
     <div class="box-group">
       <div class="box-list square-200">
@@ -54,13 +55,14 @@
         </ul>
       </div>
     </div>
-
+<!-- 
     <h2 id="Projects">{{ t("projects") }}</h2>
     Yapim asamasinda
     <br />
     <br />
     <h2 id="cv-ozgecmis">{{ t("resume") }}</h2>
     Mail yolu ile talep edebilirsiniz.
+    -->
   </article>
 </template>
 
@@ -78,13 +80,13 @@ export default {
       messages: {
         en: {
           about: "About",
-          experiences: "Experiences",
+          skills: "Skills",
           projects: "Projects",
           resume: "CV & Resume",
         },
         tr: {
           about: "Hakkimda",
-          experiences: "Tecrubeler",
+          skills: "Yetenekler",
           projects: "Projeler",
           resume: "CV & Ozgecmis",
         },
