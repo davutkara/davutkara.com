@@ -1,8 +1,6 @@
 language: en
-alternate: 
-  en: /home
+alternate:
   tr: /tr/anasayfa
 title: Davut KARA
 subTitle: Information Systems Engineer & Full Stack Developer
-description: 
-  Hello, This is my personal webpage. There are some posts about Information Technologies, programming and personal things.
+description: Hello, This is my personal webpage. There are some posts about Information Technologies, programming and personal things.

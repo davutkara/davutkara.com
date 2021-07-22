@@ -1,8 +1,7 @@
 language: en
 tags: blog
-alternate: 
-  en: /my-2020-goals
-  tr: /tr/2020-hedeflerim
+alternate:
+  tr: 2020-hedeflerim
 title: My 2020 Goals
 slug: my-2020-goals
 author: Davut KARA
