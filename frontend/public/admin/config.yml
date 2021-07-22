@@ -3,18 +3,86 @@ backend:
   repo: davutkara/davutkara.com
   branch: master # Branch to update (optional; defaults to master)
 publish_mode: editorial_workflow
-media_folder: 'frontend/public/img' # Media files will be stored in the repo under images/uploads
-public_folder: '/img'
+media_folder: "frontend/public/img" # Media files will be stored in the repo under images/uploads
+public_folder: "/img/"
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "_posts/blog" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image"}
-      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
-      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "blog-tr"
+    label: "Türkçe Blog"
+    create: true
+    format: "yaml"
+    folder: "frontend/src/assets/docs/blog/tr"
+    slug: "{{fields.slug}}"
+    preview_path: tr/{{fields.slug}}
+    fields:
+      - { label: "Language", name: "language", widget: "hidden", default: "tr" }
+      - { label: "Başlık", name: "title", widget: "string", required: true }
+      - { label: "Tags", name: "tags", widget: "string", required: true }
+      - { label: "URL Slug", name: "slug", widget: "string", required: true }
+      - { label: "Yayınlama Tarihi", name: "date", widget: "datetime" }
+      - {
+          label: "Aciklama",
+          name: "description",
+          widget: "string",
+          required: true,
+        }
+      - {
+          label: "content",
+          name: "content",
+          widget: "markdown",
+          required: false,
+        }
+      - {
+          label: "author",
+          name: "author",
+          widget: "string",
+          default: "Davut KARA",
+          required: false,
+        }
+      - label: "Alternate"
+        name: "alternate"
+        widget: "object"
+        fields:
+          - {
+              label: "Turkish",
+              name: "tr",
+              widget: "string",
+              default: "tr/{{fields.slug}}",
+            }
+          - { label: "English", name: "en", widget: "string", default: true }
+  - name: "blog-en"
+    label: "English Blog"
+    create: true
+    format: "yaml"
+    folder: "frontend/src/assets/docs/blog/en"
+    slug: "{{fields.slug}}"
+    preview_path: /{{slug}}
+    fields:
+      - { label: "Language", name: "language", widget: "hidden", default: "en" }
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "URL Slug", name: "slug", widget: "string", required: true }
+      - { label: "Tags", name: "tags", widget: "string", required: true }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {
+          label: "content",
+          name: "content",
+          widget: "markdown",
+          required: false,
+        }
+      - {
+          label: "author",
+          name: "author",
+          widget: "string",
+          default: "Davut KARA",
+          required: false,
+        }
+      - label: "Alternate"
+        name: "alternate"
+        widget: "object"
+        fields:
+          - {
+              label: "English",
+              name: "en",
+              widget: "string",
+              default: "{{fields.slug}}",
+            }
+          - { label: "Turkish", name: "tr", widget: "string" }
