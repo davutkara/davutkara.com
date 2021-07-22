@@ -84,6 +84,16 @@ const RoutesGenerateForI18n = function(mainPath, i18nPaths) {
 const i18nRoutes = [
   {
     langPaths: {
+      en: "404",
+      tr: "tr/404",
+    },
+    component: TheBlogListPage,
+    meta: {
+      ContentFetch: true,
+    },
+  },
+  {
+    langPaths: {
       en: "home",
       tr: "tr/anasayfa",
     },
@@ -192,11 +202,10 @@ const routes = [
   // https://next.router.vuejs.org/guide/migration/#removed-star-or-catch-all-routes
   {
     path: "/:pathMatch(.*)*",
-    name: "404",
-    redirect: "/404",
-    component: TheBlogContentPage,
-    meta: {
-      ContentFetch: true,
+    name: "r-404",
+    beforeEnter(to, from, next) {
+      if (to.path.includes("/tr/")) next("/tr/404");
+      else next("/404");
     },
   },
 ];
