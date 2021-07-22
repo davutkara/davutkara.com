@@ -8,7 +8,7 @@ content: >-
   # Flexbox
 
 
-  Flexbox tek yönlü çalışan bir yapı olduğunu söylemiştik, yani bir şeyleri soldan sağa veya yukarıdan aşağı doğru sıralamak isteyorsak, flexbox kullanabiliriz.
+  Flexbox tek yönlü çalışan bir yapıdir, yani bir şeyleri soldan sağa veya yukarıdan aşağı doğru sıralamak istiyorsak, flexbox kullanabiliriz.
 
 
   ```css
