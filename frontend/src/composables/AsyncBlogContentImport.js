@@ -17,7 +17,7 @@ export default function() {
   // always loading false when router changed.
   const { route } = RouteHistorySetup();
   watchEffect(() => {
-    if (route) isContentLoading.value = false;
+    if (route.path) isContentLoading.value = false;
   });
 
   // COMPUTED
