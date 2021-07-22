@@ -153,6 +153,15 @@ const i18nRoutes = [
           }
         )
         .then(() => {
+          if (router.resolve(to.path).name === to.path) return;
+
+          // if not in the atom feed.
+          routerContentPageAdd({
+            link: to.path,
+            language: to.path.includes("/tr/") ? "tr" : "en",
+          });
+        })
+        .then(() => {
           next(to.path);
         })
         .catch(() => {
