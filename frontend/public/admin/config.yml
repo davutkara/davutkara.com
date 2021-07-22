@@ -11,8 +11,8 @@ collections:
     create: true
     format: "yaml"
     folder: "frontend/src/assets/docs/blog/tr"
-    slug: "{{fields.slug}}"
-    preview_path: tr/{{fields.slug}}
+    slug: "{{slug}}"
+    preview_path: tr/{{slug}}
     fields:
       - { label: "Language", name: "language", widget: "hidden", default: "tr" }
       - { label: "Başlık", name: "title", widget: "string", required: true }
@@ -46,15 +46,15 @@ collections:
               label: "Turkish",
               name: "tr",
               widget: "string",
-              default: "tr/{{fields.slug}}",
+              default: "tr/{{slug}}",
             }
-          - { label: "English", name: "en", widget: "string", default: true }
+          - { label: "English", name: "en", widget: "string" }
   - name: "blog-en"
     label: "English Blog"
     create: true
     format: "yaml"
     folder: "frontend/src/assets/docs/blog/en"
-    slug: "{{fields.slug}}"
+    slug: "{{slug}}"
     preview_path: /{{slug}}
     fields:
       - { label: "Language", name: "language", widget: "hidden", default: "en" }
@@ -83,6 +83,6 @@ collections:
               label: "English",
               name: "en",
               widget: "string",
-              default: "{{fields.slug}}",
+              default: "{{slug}}",
             }
           - { label: "Turkish", name: "tr", widget: "string" }
