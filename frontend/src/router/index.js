@@ -153,6 +153,15 @@ const i18nRoutes = [
           }
         )
         .then(() => {
+          if (router.resolve(to.path).name === to.path) return;
+
+          // if not in the atom feed.
+          routerContentPageAdd({
+            link: to.path,
+            language: to.path.includes("/tr/") ? "tr" : "en",
+          });
+        })
+        .then(() => {
           next(to.path);
         })
         .catch(() => {
@@ -179,6 +188,16 @@ const routes = [
     name: "Blog",
     component: TheBlogLayout,
     children: RoutesGenerateForI18n("/", i18nRoutes),
+  },
+  // https://next.router.vuejs.org/guide/migration/#removed-star-or-catch-all-routes
+  {
+    path: "/:pathMatch(.*)*",
+    name: "404",
+    redirect: "/404",
+    component: TheBlogContentPage,
+    meta: {
+      ContentFetch: true,
+    },
   },
 ];
 

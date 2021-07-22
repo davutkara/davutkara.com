@@ -61,7 +61,7 @@ export default {
      */
     watchEffect(
       () => {
-        if (route.meta && route.meta.ContentFetch) {
+        if (route.path && route.meta && route.meta.ContentFetch) {
           startFetchingByPath(route.path === "/" ? "/home" : route.path);
         }
       }
