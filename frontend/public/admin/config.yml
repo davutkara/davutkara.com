@@ -46,7 +46,7 @@ collections:
               label: "Turkish",
               name: "tr",
               widget: "hidden",
-              default: "/tr/{{slug}}",
+              default: "/tr/{{fields.slug}}",
             }
           - {
               required: false,u
@@ -98,7 +98,7 @@ collections:
               label: "English",
               name: "en",
               widget: "hidden",
-              default: "/{{slug}}",
+              default: "/{{fields.slug}}",
               required: true,
             }
           - {
