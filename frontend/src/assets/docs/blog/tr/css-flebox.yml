@@ -1,0 +1,158 @@
+language: tr
+title: Css Flebox
+tags: blog
+slug: css-flexbox
+date: 2021-07-22T14:57:39.500Z
+description: Css Flexbox notlarim
+content: >-
+  
+  # Flexbox
+
+
+  Flexbox tek yönlü çalışan bir yapı olduğunu söylemiştik, yani bir şeyleri soldan sağa veya yukarıdan aşağı doğru sıralamak isteyorsak, flexbox kullanabiliriz.
+
+
+  ```css
+
+  display:flex;
+
+  /*
+   Parent a yazılır. Nesneye flexbox özelliği kazandırır.
+  */
+
+
+  flex-direction: row; 
+
+  /*
+   Parent a yazılır.
+   Nesne içerisindeki elemanları dizilimini düzenler.
+   row; soldan-sağa.
+   row-reverse; sağdan-sola.
+   column; yukarıdan aşağıya.
+   column-reverse; aşağıdan yukarıya.
+  */
+
+
+  flex-wrap:nowrap;
+
+  /*
+   Parent a yazılır.
+   Özetle nesne içerisindeki elemanların satır atlatarak listelenmesini ve tek satırda listelenmesini sağlar. Dikey veya yatay durumuna göre yeni satırdan devam eder.
+   nowrap; tek satırda
+   wrap; çoklu satır
+   wrap-reverse; çoklu satır tersden sıralanmış şekilde.
+  */
+
+
+  flex-flow: row nowrap;
+
+  /*
+   Parent a yazılır.
+   Yeni bir şey değildir, flex-direction ile flex-wrap in birleşiminden oluşur.
+    row nowrap; row kısmı flex-dırectıon nowrap kısmı flex-wrap dan geliyor.
+    Burada hepsini tek tek yazmayacağım. flex-direction için 4 value, flex-wrap için 3 value olduğuna göre. flex-flow da 12 kombinasyon yapabilirsiniz.
+  */
+
+
+  order: 1;
+
+  /*
+   Child a yazılır.
+   Flexbox nesnesi içindeki bir elemana yazılır. Yani child elemana hangi flexbox içerisinde hangi sırada olması gerektiğini belirtebilirisniz. Herhangi bir tam sayı girebilrsiniz.
+  */
+
+
+  justify-content: flex-start;
+
+  /*
+
+  Parent a yazılır.
+
+  flexbox özellikli nesneye yazılır (yani parent içerisine), flex-direction değerine göre, içerisindeki elemanları hizalar. Eğer flex-direction değeri row ise yatay hizalamaları yapar. Column ise dikey hizalamaları yapar.
+   flex-start; default değerdir.
+   flex-end; sona yaslanmış şekilde hizalar.
+   center; merkeze hizalar
+   space-between; aralarında eşit boşluklar olacak şekilde başa ve sona yaslayarak hizalar.
+   space-around; aralarında eşit boşluklar olacak şekilde başa ve sona yaslamadan hizalar.
+   space-evenly; baştan sondan ve aralarından eşit boşluklar olacak şekilde hizalar.  
+  */
+
+
+  align-items: flex-start;
+
+  /*
+
+  Parent a yazılır.
+   flexbox özellikli nesneye yazılır (yani parent içerisine),
+   justify-content in tersidir, dolayısyıla flex-direciton ın tersidir. Eğer flex-direction yatay ise, align-items dikey hizalama yapacaktır. Elemanların tamamını hizalar.
+  */
+
+
+  align-self: auto;
+
+  /*
+   Child a yazılır.
+   Flexbox içerisindeki bir elmanın kendini hizalaması, dolayısıyla child a yazılır.
+    flex-start; başa hizalar
+    flex-end;  sona hizalar
+    center; ortaya hizalar
+    baseline; flex-start a benzer ancak biraz daha farklı, güncellenecek.
+    stretch; bulunduğu parent a göre kendini uzatır, esnetir.
+  */
+
+
+  align-content: flex-start;
+
+  /*
+
+  Parent a yazılır.
+
+  Çoklu satır elemanlarını hizalamak için kullanılır. Tek satır elemanlarda justify-content den farkı yoktur.
+
+    flex-start; başlangıç alanına göre hizalar
+    flex-end; son alana göre hizalar.
+    center; ortaya hizalar.
+    space-between; satırlar arasında eşit boşluk olacak şekilde başa ve sona yaslayarak hizalar.
+    space-around; satırlar arasında eşit boşluk olacak şekilde başa ve sona yaslamadan hizalar.
+    space-evenly; baş, son ve satırlar arası eşit boşluk olacak şekilde hizalar.
+    stretch; her bir elemanı parent ın sınırlarına kadar esnetir.
+
+  */
+
+
+  flex-grow: 0;
+
+  /*
+    Child elemana yazılır, 
+     0 ila 1 değerleri arasında ondalıklı sayılar dahil olmak üzere, child elemanın parent içerisinde kalan boşlukları tamamlamasını sağlar. 1 olduğunda kalan tüm boşluğu kendisi alır.
+  */
+
+
+
+  flex-shrink: 1;
+
+  /*
+   Child elemana yazılır.  
+   0 ila 1 değerinde ondalıklı sayılar dahil alabilir, flex-grow a göre ters çalışır. Parent ın genişliğini aşan durumlarda. 1 set ederek, parent ın kapasitesini aşması engellenebilir. 0.5 ile yarısını aşması sağlanabilir.
+  */
+
+
+  flex-basis: 50%;
+
+  /*
+    Child elemana yazılır. 
+    Parent içerisindeki kalan boşluğu değerlendirmek için kullanılır. % li değer alır,
+    0-100%; Kalan boşluğun yüzde kaçını kullanacağı.
+    content; İçeriğin boyutunu alır.
+  */
+
+  ```
+
+
+  Buraya kadar öğrendiklerimizi nerde nasıl kullanacağımız asıl meseledir, dolayısıyla bir çok örnek incelemek lazım. 
+
+  Mesela menü yapımında flexbox tercih edebiliriz. Özellikle dikey yapılarda flexbox işi çok kolaylaştıracaktır.
+
+
+  Yazıları yatayda ve dikeyde ortalamak için bence kullanması vazgeçilmezdir.
+author: Davut KARA
