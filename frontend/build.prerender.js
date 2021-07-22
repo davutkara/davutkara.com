@@ -13,6 +13,8 @@ module.exports = (api, options) => {
       return acc;
     }, []);
 
+    console.log("prerender: ",filePaths)
+
     api.chainWebpack((config) => {
       config.plugin("PrerenderSPAPlugin").use(PrerenderSPAPlugin, [
         {
