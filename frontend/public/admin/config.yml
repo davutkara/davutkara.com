@@ -23,7 +23,6 @@ collections:
           label: "Aciklama",
           name: "description",
           widget: "string",
-          required: true,
         }
       - {
           label: "content",
@@ -61,7 +60,12 @@ collections:
       - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "URL Slug", name: "slug", widget: "string", required: true }
       - { label: "Tags", name: "tags", widget: "string", required: true }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }      
+      - {
+          label: "Description",
+          name: "description",
+          widget: "string",
+        }
       - {
           label: "content",
           name: "content",
