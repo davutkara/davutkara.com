@@ -45,11 +45,19 @@ collections:
           - {
               label: "Turkish",
               name: "tr",
-              widget: "string",
+              widget: "hidden",
               default: "tr/{{slug}}",
-              required: true,
             }
-          - { label: "English", name: "en", widget: "string", required: false }
+          - {
+              required: false,u
+              label: "English",
+              name: "en",
+              widget: "relation",
+              collection: "blog-en",
+              search_fields: ["title", "slug"],
+              value_field: "{{slug}}",
+              display_fields: ["language", "slug"],
+            }
   - name: "blog-en"
     label: "English Blog"
     create: true
@@ -89,8 +97,17 @@ collections:
           - {
               label: "English",
               name: "en",
-              widget: "string",
+              widget: "hidden",
               default: "{{slug}}",
               required: true,
             }
-          - { label: "Turkish", name: "tr", widget: "string", required: false }
+          - {
+              required: false,
+              label: "Turkish",
+              name: "tr",
+              widget: "relation",
+              collection: "blog-tr",
+              search_fields: ["title", "slug"],
+              value_field: "/tr/{{slug}}",
+              display_fields: ["language", "slug"],
+            }
