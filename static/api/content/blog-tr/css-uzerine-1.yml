@@ -1,5 +1,6 @@
 type: ABOUT_IT
 title: Css Üzerine 1
+tags: blog
 slug: css-uzerine-1
 date: 2020-04-17T17:13:47.323Z
 content: >-
@@ -180,3 +181,6 @@ content: >-
 
 
   Yazıları yatayda ve dikeyde ortalamak için bence kullanması vazgeçilmezdir.
+author: Davut KARA
+alternate:
+  tr: /tr/css-uzerine-1
