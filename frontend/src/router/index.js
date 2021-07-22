@@ -189,6 +189,16 @@ const routes = [
     component: TheBlogLayout,
     children: RoutesGenerateForI18n("/", i18nRoutes),
   },
+  // https://next.router.vuejs.org/guide/migration/#removed-star-or-catch-all-routes
+  {
+    path: "/:pathMatch(.*)*",
+    name: "404",
+    redirect: "/404",
+    component: TheBlogContentPage,
+    meta: {
+      ContentFetch: true,
+    },
+  },
 ];
 
 const router = createRouter({
