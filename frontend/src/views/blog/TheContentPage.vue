@@ -118,6 +118,7 @@ export default {
 <style lang="scss">
 // hybrid
 // stackoverflow-dark.
+@import "~highlight.js/scss/default.scss";
 
 :root,
 :root[data-theme="dark"] {
