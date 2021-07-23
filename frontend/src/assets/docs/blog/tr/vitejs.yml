@@ -1,0 +1,60 @@
+language: tr
+title: ViteJs
+tags: blog
+slug: vite-js
+date: 2021-07-23T08:28:14.220Z
+description: Webpack alternatifi yeni bir bundler.
+content: >-
+  Daha onceden blogumda Webpack i Anlamak adinda bir webpack giris yazisi
+  yayinlamistim. Bu yazida ise yeni bir alternatif olarak ViteJs i
+  irdeleyecegim. Yaziya detaylica baslamadan once basliklar halinde kavramlari
+  aciklayacagim.
+
+
+  # Bundler nedir, ne yapar ?
+
+
+  Gelistirme acisindan bizim elimizde bir cok paket, dosya, kodlar, asset ler vs artik akliniza ne geliyorsa malzeme vadir. Iste bu malzemeleri bazen birlestirmek islemden gecirmek isteriz. Iste bundler lar bize bu islemi saglamaktadir. Yani bizim projemizi bir nevi derlemektedir. Bildiginiz gibi Javascript gibi diller script dilidir, bir compile islemine normalde ihtiyac duymazlar. Ancak gelisen teknoloji sayesinde artik onlarida optimize etmek icin veya ozel olarak kullanidgimiz tool larin duzgun calisabilmesi bundler a ihitiyac duyariz.
+
+
+  ## ViteJs
+
+
+  Vite bize daha hizli bir gelistirme ortami sunar. Dev server da native-ESM ve HMR kullanir. Bu sayede buyuk projelerde bile bekleme suresi azalir. Build ortaminda ise Rollup kullanir. 
+
+
+  ## Neden ViteJs ?
+
+
+  Bu kismi bizzati ViteJs in Why Vite sayfasindan okuyup ozetleyerek yazacagim.
+
+
+  ES Modulleri browser a cikmadan once. ES modulleri kullanilarak yazilan kodlarin browser tarafinda calisir hale getirilmesi gerekiyordu. Iste Webpack, Rollup ve Parcel gibi bundlerlar  bu islemi yapiyorlardi. Yani tarayicinin kabul ettigi sekle ceviriyorlardi. 
+
+
+  Projelerin gelismesiyle ve buyumesiyle beraber bu bundler islemi cok fazla yavaslik vermeye basladi.
+
+
+  Developer server i calistirdigimizda butun kodlarin islemden gecmesi gerekiyordu, ve bu bir bekleme suresi yaratiyordu. Vite bunun onun gecmek icin modulleri ikiye boldu; dependency ve source code. 
+
+
+  Dependecy: Projeye disardan dahil olan ve pek degismeyen kodlardir, vite bunlara esbuild kullanarak pre-bundling islemi uyguluyor yani onden hazirliyor.
+
+
+  Soruce Code: Projenin bizzati icseridinde bulunan jsx,css gibi js olmayan dosyalarinda dahil oldugu kodlar. Vite bunlar icinde native-ESM kullaniyor yani browser isin icine giriyor. Vite sadece browser request attiginda kodlari transform edip iletiyor. Ayrica dynamic importlar sadece gerektiginde isleme giriyor. 
+
+
+  Aslinda bazi bundlarlar su sekilde cozumler gelistirdi: Hot Module Replacement (HMR) : sayfanin butununu etkilemeden sadece ilgili modulu degistirme yontemi. Fakat proje boyutu buyudukce bu yontemlerde yavaslik veriyordu.
+
+
+  Vite HMR yontemini native-ESM uzerinde yapiyor. Ayrica bazi HTTP headerlarini kullanarak cache gibi ozelliklerden faydalaniyor. 
+
+
+  Ancak yinede productionda native-ESM kullanmak bazi sorunlar cikarabiliyor bu yuzden production da kodlari bundle etmek gerekiyor.
+
+
+  ## Tarayici Destegi
+
+
+  Tarayicinin native-esm desteklemesi gerekiyor. Eski tarayicilar ise bir kac module mevcut. https://vitejs.dev/guide/#browser-support
+author: Davut KARA
