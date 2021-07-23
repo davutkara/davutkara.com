@@ -23,7 +23,7 @@ class BlogListJson {
       // create the content list
       const fileContents = filePaths.map((filePath) =>
         readFile(
-          __dirname + "/../../assets/docs/blog/" + filePath,
+          __dirname + "/../../../public/docs/blog/" + filePath,
           "utf8"
         ).then((fileContent) => {
           const {
