@@ -6,4 +6,4 @@ hljs.registerLanguage("javascript", javascript);
 hljs.registerLanguage("css", css);
 hljs.registerLanguage("bash", bash);
 
-export default (block) => hljs.highlightBlock(block);
+export default (block) => hljs.highlightElement(block);

@@ -2,6 +2,8 @@ import { ref, watchEffect, computed } from "vue";
 
 import { RouteHistorySetup } from "@/composables/RouteHistory";
 
+const YAML = require("yaml");
+
 /**
  * Making an async template that handle loading,error and content fetched.
  *
@@ -41,15 +43,21 @@ export default function() {
       filePath = filePath.slice(0, -1);
     }
 
-    return import(
-      /* webpackChunkName: "[request]" */
-      "../assets/docs/blog/" + filePath + ".yml"
-    )
-      .then((file) => {
-        content.value = file.default;
-        isContentLoading.value = false;
-        return file.default;
-      })
+    return fetch("/docs/blog/" + filePath + ".yml")
+      .then(
+        /**
+         *
+         * @param {Response} file
+         * @returns
+         */
+        async (file) => {
+          const str = await file.text();
+          const parsed = YAML.parse(str);
+          content.value = parsed;
+          isContentLoading.value = false;
+          return parsed;
+        }
+      )
       .catch((err) => {
         let msg;
         if (err.code === "MODULE_NOT_FOUND") {

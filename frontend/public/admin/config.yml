@@ -10,7 +10,7 @@ collections:
     label: "Türkçe Blog"
     create: true
     format: "yaml"
-    folder: "frontend/src/assets/docs/blog/tr"
+    folder: "frontend/public/docs/blog/tr"
     slug: "{{slug}}"
     preview_path: tr/{{slug}}
     fields:
@@ -56,7 +56,7 @@ collections:
     label: "English Blog"
     create: true
     format: "yaml"
-    folder: "frontend/src/assets/docs/blog/en"
+    folder: "frontend/pulic/docs/blog/en"
     slug: "{{slug}}"
     preview_path: /{{slug}}
     fields:
