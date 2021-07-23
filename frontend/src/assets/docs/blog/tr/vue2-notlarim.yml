@@ -1,16 +1,18 @@
 language: tr
-tags: notes
 title: Vue2 Notlarim
+tags: notes
 slug: vue2-notlarim
 date: 2020-02-29T09:11:59.816Z
-author: Davut KARA
 content: >-
-  Vue nun yaptigi is reactive templating isidir. Progressive Web Application lar icin kullanilir.
+  Vue nun yaptigi is reactive templating isidir. Progressive Web Application lar
+  icin kullanilir.
+
 
   ### Extend
 
-  Extend kullanarak componentlerde inheritince kullanilabilir.
-  https://vuejs.org/v2/api/#extends
+
+  Extend kullanarak componentlerde inheritince kullanilabilir. https://vuejs.org/v2/api/#extends
+
 
   ```js
 
@@ -26,9 +28,12 @@ content: >-
 
   ```
 
+
   ### nextTick
 
+
   Bazen bir islemi dom yenilendikten sonra yapmak gerekir bunun icin nextTick kullanilir.
+
 
   ```js
 
@@ -45,11 +50,12 @@ content: >-
 
   ```
 
+
   ### Observable / set / delete
 
-  Vue nun reactive elemanlarini set ederken veya delete ederken kullanilir.
-  Reactivity detection icin onemlidir. Vue da bazen degisimler algilanmaz.
-  Bu fonksiyonlari direk olarak kullanmak sorunu cozebilir.
+
+  Vue nun reactive elemanlarini set ederken veya delete ederken kullanilir. Reactivity detection icin onemlidir. Vue da bazen degisimler algilanmaz. Bu fonksiyonlari direk olarak kullanmak sorunu cozebilir.
+
 
   ```js
     const REACTIVE_ELEMAN = Vue.observable({foo:'bar'})
@@ -57,10 +63,12 @@ content: >-
     Vue.delete( REACTIVE_ELEMAN, KEY )
   ```
 
+
   ### Directive
 
-  Vue nun en onemli parcalarindan biridir, directive kullanarak html elemanina reactivity kazandirilabilir veya
-  directive attributelari eklenerek html elemanlarina ek feature lar kazandirilabilir.
+
+  Vue nun en onemli parcalarindan biridir, directive kullanarak html elemanina reactivity kazandirilabilir veya directive attributelari eklenerek html elemanlarina ek feature lar kazandirilabilir.
+
 
   ```js
     // global register
@@ -88,10 +96,12 @@ content: >-
     }
   ```
 
+
   ### Filter
 
-  Linux bash deki pipe mantigina benzer sekilde calisir. Bir onceki elamanin cikitisi pipe sonrasi
-  yazilan filtreye yonlendirilir. __Vue3 de kaldirildi!__
+
+  Linux bash deki pipe mantigina benzer sekilde calisir. Bir onceki elamanin cikitisi pipe sonrasi yazilan filtreye yonlendirilir. **Vue3 de kaldirildi!**
+
 
   ```js
     <template>
@@ -105,13 +115,15 @@ content: >-
     }
   ```
 
+
   ### Render function, createElement, Recursive component
 
-  .vue dosyalarindan otomatik olarak olusan structurelari. createElement kullanarak da yapilabilir.
-  Genelde recursive componentlerde veya json bazli islemlerde componentleri olusturmak icin kullanilir.
+
+  .vue dosyalarindan otomatik olarak olusan structurelari. createElement kullanarak da yapilabilir. Genelde recursive componentlerde veya json bazli islemlerde componentleri olusturmak icin kullanilir.
 
   https://vuejs.org/v2/guide/render-function.html#The-Data-Object-In-Depth
-  
+
+
   ```js
 
   createElement('h1', "text" || {
@@ -121,3 +133,60 @@ content: >-
   )
 
   ```
+
+
+  ### Options / Data
+
+
+  ```js
+
+  // Vuenun componentinin build edilmemis ham hali.
+
+  this.$options
+
+
+  // Reactive degiskenlerin tanimlandigi alan. (Observable)
+
+  data;
+
+
+  // Componentden tanimindan alinacak olan attribute=value lar
+
+  props;
+
+
+  /* Componenti kullanirken verilen prop valuelari.
+   (Nadir kullanilir. component new ile tanimlanir
+  */
+
+  propsData;
+
+
+  /*
+    normal fonksiyon veya. Get, set tanimli fonksiyon verilebilir.
+    Genel olarak Observable olan degiskenler burada reduce edilir.
+    not: Burada data degistirmek side-effect olusturur dolayisyila izin verilmez
+  */
+
+  observable;
+
+
+  /*
+    Observable tipindeki degiskenlerin degisimleri burada takip edilebilir.
+    Degisken adini veya a.b.c seklinde obje icindeki path i verilebilir.
+    immediate gibi ek ozelligi vardir 
+    component created oldugunda degisim aranmadan
+    call edilebilir.
+  */
+
+  watch;
+
+
+  /*
+    Component ve templete icinde kullanilacak fonksiyonlar tanimlanir.
+  */
+
+  methods;
+
+  ```
+author: Davut KARA
