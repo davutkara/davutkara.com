@@ -50,8 +50,9 @@ export default function() {
          * @param {Response} file
          * @returns
          */
-        async (file) => {
-          const str = await file.text();
+        async (res) => {
+          if (res.status !== 200) throw new Error(res);
+          const str = await res.text();
           const parsed = YAML.parse(str);
           content.value = parsed;
           isContentLoading.value = false;
@@ -60,9 +61,9 @@ export default function() {
       )
       .catch((err) => {
         let msg;
-        if (err.code === "MODULE_NOT_FOUND") {
+        if (err.status === 404) {
           msg = "404 Page not found ! :" + filePath;
-        } else if (err && err.name === "ChunkLoadError") {
+        } else if (err.status === 500) {
           msg = "500 Network error !";
         } else {
           msg = "Unknown Error";
