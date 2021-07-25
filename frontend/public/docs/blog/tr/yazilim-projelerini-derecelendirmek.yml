@@ -1,0 +1,98 @@
+language: tr
+title: Yazilim Projelerini Derecelendirmek
+tags: notes
+slug: yazilim-projelerini-derecelendirmek
+date: 2021-07-25T10:16:16.464Z
+description: Frontend projelerine baslamadan once projenin buyuklugunu ve kapsam
+  alanlarini belirlemek ve projenin baslangic asamasini buna gore belirlemek
+  amacli aldigim notlar.
+content: >-
+  Yazilim projelerini amaclarina gore ayirmak. 
+
+
+  * Tek amacli tek proje.
+
+  * Cok amacli tek proje.
+
+  * Coklu bolunmus projeler.
+
+
+  ## Tek amacli tek proje
+
+
+  Bu gruba ornek olarak todo uygulamalarini verebiliriz enterprise derecesinde Trello, Google Meet vb. buna bir ornektir. 
+
+
+  Bu proje tipini one-to-one gibi dusunebiliriz.
+
+
+  ### Tek amacli projenin arti eksileri
+
+
+  Artilari
+
+
+  * Clean code ve performans.
+
+  * Maliyet azligi (Cogu zaman)
+
+  * Hizli gelistirme (Cogu zaman, projenin amaci net ve acik oldugu icin.)
+
+
+  Eksileri
+
+
+  * Elinizde birden fazla tek amacli proje varsa her birinin kendine gore bakimi gerecektir. (Burda sorun projenin kendisinde degildir.)
+
+
+  ## Cok amacli tek proje
+
+
+  Tek bir proje altinda genelde yonetim paneli, web siteleri, ERP ve CRM projeleri buna bir ornektir. 
+
+
+  Bu projeyi one-to-n gibi dusunebiliriz.
+
+
+  ### Cok amacli projenin arti eksileri
+
+
+  Artilar
+
+
+  * Projenin ortak bir kaynagi kullanmasi, kod paylasimini saglar.
+
+
+  Eksileri
+
+
+  * Clean code ve performans (Proje karmasiklastigi icin.)
+
+  * Yan etki ihtimali (Ortak kaynagi kullandigi icin kod, veritabani vb. yan etki ihtimali goz onunde bulundurulmalidir.)
+
+
+  ## Coklu bolunmus projeler
+
+
+  Birden fazla projesi olan her biri ayri gelistirilen projelerdir. Genelde buyuk olcekli firmalar basvurur ve her projenin kendi ekibi vs olur. Bolunmus ekipler bu tarz projelerin on kosuludur.
+
+
+  Bu projeyi ise n-to-n gibi dusunebiliriz.
+
+
+  ### Coklu bolunmus projelerin arti eksileri
+
+
+  Artilar
+
+
+  * Ticari gelir ihtimali fazladir, cunku cok fazla urun elinde bulundurur.
+
+  * Her projenin kendi ekibi oldugunda performansli ve iyi urunler ortaya cikar.
+
+
+  Eksiler
+
+
+  * Yavas gelistirme hizi
+author: Davut KARA
