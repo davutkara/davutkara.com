@@ -94,7 +94,7 @@ class BlogListJson {
           return new Date(b.date).getTime() - new Date(a.date).getTime();
         });
         for (const item of items) {
-          if (!item.tags?.includes("blog")) continue;
+          if (!item.tags || !item.tags.includes("blog")) continue;
           source += `<entry>
           <title>${item.title}</title>
           <link href="https://${getDefaultLinkForPath(
