@@ -26,7 +26,7 @@ content: >-
 
   * **isProxy** : reactive veya readonly oldugunu kontrol eder.
 
-  * **isReactive** : reactive konotrolu
+  * **isReactive** : reactive kontrolu
 
   * **isReadonly** : readonly kontrolu
 
