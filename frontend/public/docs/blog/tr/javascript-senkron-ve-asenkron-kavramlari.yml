@@ -12,13 +12,13 @@ content: >-
   Oncelikle senkronu ve asenkronu paralellik ile karistirmayiniz. Bu yanlis dusunmeseye sebebiyet veriyor herbiri farkli kavramlardir.
 
 
-  ## Senkron (Synchrone) Nedir ?
+  ## Senkron (Synchronous) Nedir ?
 
 
   Turkce olarak eszamanli demektir. Sira icerisinde calisirlar. Ornegin yurume eylemi senkron bir eylemdir. Sol ayak ve sag ayak hareketleri birbiri ardina gelir.
 
 
-  ## Asenkron (Asynchrone) Nedir ?
+  ## Asenkron (Asynchronous) Nedir ?
 
 
   Turkce olarak eszamansiz demektir. Sira icerisinde bulunmazlar. Ornegin herkesin saat 9 da ise geldigini dusunelim. Kapidan ilk kimin gececeginin tam olarak bir garantisi yoktur. Kimisi biraz gec gelebilir. Bir nevi zamanlama ve siralama bakimindan duzensizlik mevcuttur.
@@ -39,7 +39,7 @@ content: >-
   ## Event Loop
 
 
-  **Callstack** ve **Queue** lari kontrol eder. Calisma sekil ve sirasi su sekildedir.
+  **Callstack** ve **Queue** lari kontrol eder. Calisma sekli ve sirasi su sekildedir.
 
 
   1. **Callstack** de bulunan siradaki fonskyionu calistir.
