@@ -1,0 +1,65 @@
+language: tr
+title: Javascript de Senkron ve Asenkron kavramlari
+tags: blog
+slug: javascript-senkron-ve-asenkron-kavramlari
+date: 2021-07-26T20:25:06.319Z
+description: Javascript de birbirine karisan bu iki kavramin detayli incelemesi.
+content: >-
+  Bu yazida Javascript de birbirine karisan bu iki kavramin detayli incelemesini
+  bulacaksiniz.
+
+
+  Oncelikle senkronu ve asenkronu paralellik ile karistirmayiniz. Bu yanlis dusunmeseye sebebiyet veriyor herbiri farkli kavramlardir.
+
+
+  ## Kelime etimolojisi
+
+
+  Sun Grekçede birlikte, Kronos ise zaman demek yani ayni zamana ait olma anlamina geliyor. Ayni zaman dilimini kullanma gibi de dusunebiliriz. https://www.etymonline.com/word/synchronous
+
+
+  ## Senkron (Synchronous) Nedir ?
+
+
+  Turkce olarak eszamanli demektir. Sira icerisinde calisirlar. Ornegin yurume eylemi senkron bir eylemdir. Sol ayak ve sag ayak hareketleri birbiri ardina gelir.
+
+
+  ## Asenkron (Asynchronous) Nedir ?
+
+
+  Turkce olarak eszamansiz demektir. Sira icerisinde bulunmazlar. Ornegin herkesin saat 9 da ise geldigini dusunelim. Kapidan ilk kimin gececeginin tam olarak bir garantisi yoktur. Kimisi biraz gec gelebilir. Bir nevi zamanlama ve siralama bakimindan duzensizlik mevcuttur.
+
+
+  ## Temel bigiler
+
+
+  * **Callstack:** Calistirilacak fonksyionlar listesi.
+
+  * **Microtask queue:** Promise.callback queueMicrotask process.nextTick.
+
+  * **Macrotask queue:** setTimeout, setInterval, setImmediate, diger Web API fonksiyonlari.
+
+  * **Web API:** Tarayicinin bize sagladigi servisler.
+
+
+  ## Event Loop
+
+
+  **Callstack** ve **Queue** lari kontrol eder. Calisma sekli ve sirasi su sekildedir.
+
+
+  1. **Callstack** de bulunan siradaki fonskyionu calistir.
+
+  2. Callstack bitti ise **Microtask Queue** ya gec ve siradaki fonksiyonu callstack e tasi.
+
+  3. Microtask Queue bitti ise **Macrotask Qeueue** yu kontrol et siradaki fonksiyonu Callstack e tasi.
+
+
+  Bu yuzden eger callstack de bekleyen bir fonksiyon varsa Queue daki fonksiyonlar bekleyecektir.
+
+
+  ## Web API ile JS Runtime
+
+
+  Bizim yazdigimiz disardan service kullanmayan fonksiyonlar. Direk JS Runtime ile callstack e atilir. Fakat setTimeout gibi fetch, request gibi fonksiyonlar Web API uzerinde sunulur dolayisyila Web API uzerinden kullanidigimiz fonskiyonlari callback ile kullaniriz. Cunku bu fonksiyonlar asenkrondur ve belirttigimiz islem gerceklestiginde turune gore Microtask veya Macrotask Queue ya duserler. Daha sonrada callstack tamamlandiginda Queue da bekleyen fonksiyonlar Callstack e alinip execute edilirler.
+author: Davut KARA
