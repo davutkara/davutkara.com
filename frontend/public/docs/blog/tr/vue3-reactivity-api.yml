@@ -5,16 +5,16 @@ slug: vue3-reactivity-api
 date: 2021-07-25T12:26:22.909Z
 description: Vue3 reactivty api uzerine aldigim notlar
 content: >-
-  ## Reactivity Nedir
+  ## Reactivity nedir ?
 
 
   Cok kisa olarak degisimin yansiltilmasi seklinde soyleyebiliriz. Ornegin elinizde bir degisken var bu degiskeni reactive degisken olarak tanimlarsaniz degiskeni kulandiginiz alanlar bu degiskenin degisimlerini yakalayarak guncel degerine erisebilirler. Tabi bunun yapilabilmesi icin degiskenin kullanildigi yerlerin degiskeni observe (gozlemlemesi) etmesi gerekiyor. Iste bunun icinde ReactJs, VueJs gibi kutuphaneler kullaniyoruz.
 
 
-  ## Vue2 de reactivty
+  ## Vue2 de reactivty nasildi ?
 
 
-  Vue2 de reactive bir degiskeni componentin data alaninda tanimlayabiliyorduk. Eger component disinda bunu yapmak istersekte `Vue.observable` kullaniyorduk. Ancak reactivty acisindan elimizde bulunan tek sey bu idi. Vue3 de reacitvty olaylari daha detayli hale getirildi.
+  Vue2 de reactive bir degiskeni componentin data alaninda tanimlayabiliyorduk. Eger component disinda bunu yapmak istersek `Vue.observable` kullaniyorduk. Ancak reactivty acisindan elimizde bulunan tek sey bu idi. Vue3 de reacitvty olaylari daha detayli hale getirildi.
 
 
   ## Vue3 de reactivity cesitleri
