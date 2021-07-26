@@ -31,7 +31,7 @@ module.exports = (api, options) => {
             ...filePaths,
           ],
           renderer: new Renderer({
-            executablePath: "google-chrome-stable",
+            //executablePath: "google-chrome-stable",
             renderAfterDocumentEvent: "custom-render-trigger",
             //renderAfterElementExists: "section article",
           }),
