@@ -4,6 +4,20 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7c3f3ac7-4832-4a94-a63f-f944f89cef6b/deploy-status)](https://www.davutkara.com)
 
+## Features
+- Made with Vue3
+- Multilanguage using `vue-i18n`
+- JAMStack using `netlify-cms`
+- Prerender using `puppeteer` and `prerender-spa-plugin`
+- Responsive using sass
+- Generating Atom Rss feed for the blog list using `webpack` custom plugin.
+
+## Todos
+ - Light/Dark theme
+ - Auto generating thumbnail image for each post according to the post's title.
+ - Comments area for the blog posts.
+ - Document version details for the blog posts.
+
 ## Variables
 
 ```
