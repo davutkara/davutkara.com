@@ -44,7 +44,8 @@ section#text-bar {
     }
 
     p,
-    ul {
+    ul,
+    ol {
       max-width: 600px;
       @media only screen and (max-width: 1000px) {
         max-width: 100%;
@@ -53,7 +54,8 @@ section#text-bar {
     }
 
     .content {
-      ul {
+      ul,
+      ol {
         margin-left: -0.5em;
         margin-bottom: 1em;
 
