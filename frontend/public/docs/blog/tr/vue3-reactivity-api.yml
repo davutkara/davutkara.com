@@ -38,21 +38,21 @@ content: >-
 
   * **shallowReadonly** : nested elemanlari readonly yapmaz. 
 
-  * **ref** : Atomic value alabilir (int) gibi, eger obje alirsa otomatik reactive hale getirir. Degerine ise `.value` ile ulasilir
+  * **ref** : Atomic value alabilir (int) gibi, eger obje alirsa otomatik reactive hale getirir. Degerine ise `.value` ile ulasilir.
 
-  * **unref** : ref i kaldirir
+  * **unref** : ref i kaldirir.
 
   * **toRef** : Reactive objenin bir elemanini refereanslamak amacli kullanilir.
 
   * **toRefs** : Reactive objenin tamami referanslanabilir, toRefs elemanlari destruct edildiginde reactivity i kaybetmezler.
 
-  * **isRef** :  Referans kontrolu
+  * **isRef** :  Referans kontrolu.
 
   * **shallowRef**: Nested valuelari referans yapmaz.
 
   * **triggerRef** : shallowRef izleyen watcher lari trigger etmek icin kullanilir.
 
-  * **customRef** : Ozel get set hazirlamak icin kullanilabilir, Vue3 dokumaninda debounc ornegi mevcut. 
+  * **customRef** : Ozel get set hazirlamak icin kullanilabilir, Vue3 dokumaninda debounce ornegi mevcut. 
 
   * **computed**:  Reactive elamanlari reduce vb islemlerden gecirmek icin kullanilir. Sonuclari observe edilebilir.
 
