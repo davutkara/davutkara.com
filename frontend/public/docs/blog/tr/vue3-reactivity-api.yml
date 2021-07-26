@@ -26,9 +26,9 @@ content: >-
 
   * **isProxy** : reactive veya readonly oldugunu kontrol eder.
 
-  * **isReactive** : reactive kontrolu
+  * **isReactive** : reactive kontrolu.
 
-  * **isReadonly** : readonly kontrolu
+  * **isReadonly** : readonly kontrolu.
 
   * **toRaw** : aldigi degeri non-reactive hale getirir.
 
@@ -54,9 +54,9 @@ content: >-
 
   * **customRef** : Ozel get set hazirlamak icin kullanilabilir, Vue3 dokumaninda debounce ornegi mevcut. 
 
-  * **computed**:  Reactive elamanlari reduce vb islemlerden gecirmek icin kullanilir. Sonuclari observe edilebilir.
+  * **computed**:  Reactive elamanlari reduce vb islemlerden gecirmek icin kullanilir. Return degeri observe edilebilir.
 
-  * **watch**: Belirtilen eleman veya elemanlari izler ve  degisim aninda callback fonksiyonunu cagirir. (Vue2 de tekil calisiyordu Vue3 de multiple eleman izleyebiliyor. )
+  * **watch**: Belirtilen eleman veya elemanlari izler ve  degisim aninda callback fonksiyonunu cagirir. (Vue2 de tekil calisiyordu Vue3 de multiple eleman izleyebiliyor.)
 
   * **watchEffect**: Ozel olarak eleman belirtmeksizin, fonksiyondaki reactive degiskenleri observe eder. 
 
