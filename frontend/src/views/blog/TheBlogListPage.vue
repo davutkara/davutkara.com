@@ -35,9 +35,12 @@ import XMLToDOM from "@/helpers/XMLToDOM.js";
 import { ref, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { routerContentPageAdd, getPathName } from "@/router/index.js";
+import Prerender from "@/composables/Prerender.js";
 export default {
   components: { ContentError, ContentLoading },
   setup() {
+    Prerender();
+    
     const { t, locale } = useI18n({
       useScope: "global",
     });

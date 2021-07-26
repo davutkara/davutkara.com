@@ -55,7 +55,7 @@
         </ul>
       </div>
     </div>
-<!-- 
+    <!-- 
     <h2 id="Projects">{{ t("projects") }}</h2>
     Yapim asamasinda
     <br />
@@ -68,6 +68,7 @@
 
 <script>
 import { useI18n } from "vue-i18n";
+import Prerender from "@/composables/Prerender.js";
 export default {
   props: {
     content: {
@@ -75,6 +76,7 @@ export default {
     },
   },
   setup(props) {
+    Prerender();
     const { t } = useI18n({
       useScope: "global",
       messages: {
