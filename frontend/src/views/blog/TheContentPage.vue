@@ -33,7 +33,7 @@
         Buy me a coffee
       </button> -->
     </nav>
-    <div v-html="article" />
+    <div class="content" v-html="article" />
   </article>
   <router-view />
 </template>
