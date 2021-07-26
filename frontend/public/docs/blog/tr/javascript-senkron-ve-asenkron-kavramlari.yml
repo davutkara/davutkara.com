@@ -4,7 +4,7 @@ tags: blog
 slug: javascript-senkron-ve-asenkron-kavramlari
 date: 2021-07-26T20:25:06.319Z
 description: Javascript de birbirine karisan bu iki kavramin detayli incelemesi.
-content: >-
+content: >
   Oncelikle senkronu ve asenkronu paralellik ile karistirmayiniz. Bu yanlis
   dusunmeseye sebebiyet veriyor herbiri farkli kavramlardir.
 
@@ -39,11 +39,11 @@ content: >-
   Callstack ve queuelari kontrol eder. Calisma sekil ve sirasi su sekildedir.
 
 
-  * **Callstack** de bulunan siradaki fonskyionu calistir.
+  1. **Callstack** de bulunan siradaki fonskyionu calistir.
 
-  * Callstack bitti ise **Microtask Queue** ya gec ve siradaki fonksiyonu callstack e tasi.
+  2. Callstack bitti ise **Microtask Queue** ya gec ve siradaki fonksiyonu callstack e tasi.
 
-  * Microtask Queue bitti ise **Macrotask Qeueue** yu kontrol et siradaki fonksiyonu Callstack e tasi.
+  3. Microtask Queue bitti ise **Macrotask Qeueue** yu kontrol et siradaki fonksiyonu Callstack e tasi.
 
 
   Bu yuzden eger callstack de bekleyen bir fonksiyon varsa Queue daki fonksiyonlar bekleyecektir.
