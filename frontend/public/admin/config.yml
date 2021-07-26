@@ -11,8 +11,8 @@ collections:
     create: true
     format: "yaml"
     folder: "frontend/public/docs/blog/tr"
-    slug: "{{slug}}"
-    preview_path: tr/{{slug}}
+    slug: "{{fields.slug}}"
+    preview_path: tr/{{fields.slug}}
     fields:
       - { label: "Language", name: "language", widget: "hidden", default: "tr" }
       - { label: "Başlık", name: "title", widget: "string", required: true }
@@ -57,8 +57,8 @@ collections:
     create: true
     format: "yaml"
     folder: "frontend/pulic/docs/blog/en"
-    slug: "{{slug}}"
-    preview_path: /{{slug}}
+    slug: "{{fields.slug}}"
+    preview_path: /{{fields.slug}}
     fields:
       - { label: "Language", name: "language", widget: "hidden", default: "en" }
       - { label: "Title", name: "title", widget: "string", required: true }
