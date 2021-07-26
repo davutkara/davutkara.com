@@ -42,6 +42,7 @@
 import { useI18n } from "vue-i18n";
 const marked = require("marked");
 import CodeHighlighter from "@/helpers/CodeHighlighter";
+import Prerender from "@/composables/Prerender.js";
 export default {
   props: {
     content: {
@@ -49,6 +50,7 @@ export default {
     },
   },
   setup() {
+    Prerender();
     const { t, locale } = useI18n({
       useScope: "global",
     });

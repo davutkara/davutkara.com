@@ -9,9 +9,10 @@ import { useI18n } from "vue-i18n";
 import UpdateDocumentHeader from "@/helpers/UpdateDocumentHeader.js";
 import ModelContentMeta from "@/models/contentMeta.js";
 import { RouteHistorySetup } from "@/composables/RouteHistory.js";
-
+import Prerender from "@/composables/Prerender.js";
 export default {
   setup() {
+    Prerender();
     const { routeHistoryUpdateCurrentRouteMeta } = RouteHistorySetup();
     const { t } = useI18n({
       useScope: "global",

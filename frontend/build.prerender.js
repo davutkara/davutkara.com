@@ -1,19 +1,19 @@
 const path = require("path");
-const Renderer = require("@prerenderer/renderer-jsdom");
 const BlogList = require("./src/plugins/blogList.util.js");
 
 module.exports = (api, options) => {
   api.registerCommand("build:prerender", async (args) => {
     const PrerenderSPAPlugin = require("prerender-spa-plugin");
+    const Renderer = PrerenderSPAPlugin.PuppeteerRenderer;
     let filePaths = await BlogList();
     filePaths = filePaths.reduce((acc, path) => {
       if (path.includes("en/"))
-        acc.push("/" + path.replace(".yml", "").replace("en/",""));
+        acc.push("/" + path.replace(".yml", "").replace("en/", ""));
       acc.push("/" + path.replace(".yml", ""));
       return acc;
     }, []);
 
-    console.log("prerender: ",filePaths)
+    console.log("prerender: ", filePaths);
 
     api.chainWebpack((config) => {
       config.plugin("PrerenderSPAPlugin").use(PrerenderSPAPlugin, [
@@ -30,7 +30,11 @@ module.exports = (api, options) => {
             "/tr/iletisim",
             ...filePaths,
           ],
-          renderer: new Renderer({ renderAfterTime: 10000 }),
+          renderer: new Renderer({
+            executablePath: "google-chrome-stable",
+            renderAfterDocumentEvent: "custom-render-trigger",
+            //renderAfterElementExists: "section article",
+          }),
         },
       ]);
     });
