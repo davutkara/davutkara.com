@@ -5,8 +5,11 @@ slug: javascript-senkron-ve-asenkron-kavramlari
 date: 2021-07-26T20:25:06.319Z
 description: Javascript de birbirine karisan bu iki kavramin detayli incelemesi.
 content: >-
-  Oncelikle senkronu ve asenkronu paralellik ile karistirmayiniz. Bu yanlis
-  dusunmeseye sebebiyet veriyor herbiri farkli kavramlardir.
+  Bu yazida Javascript de birbirine karisan bu iki kavramin detayli incelemesini
+  bulacaksiniz.
+
+
+  Oncelikle senkronu ve asenkronu paralellik ile karistirmayiniz. Bu yanlis dusunmeseye sebebiyet veriyor herbiri farkli kavramlardir.
 
 
   ## Senkron (Synchrone) Nedir ?
