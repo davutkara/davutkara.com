@@ -104,7 +104,7 @@ class BlogListJson {
           )}" />
           `;
 
-          if (item.alternate)
+          if (item.alternate) {
             for (const alternate of Object.keys(item.alternate)) {
               if (alternate === language) continue;
               source += `<link rel="alternate" type="text/html" href="https://${getDefaultLinkForPath(
@@ -113,7 +113,10 @@ class BlogListJson {
                 item.alternate[alternate]
               )}" hreflang="${alternate}"/>`;
             }
-          source += `<updated>${item.date}</updated>
+          }
+
+          source += `
+          <updated>${item.date}</updated>
           <summary>${item.description}</summary>
         </entry>
         `;
@@ -130,7 +133,7 @@ class BlogListJson {
             </author>
          */
         source += `
-        </feed>`;
+    </feed>`;
 
         compilation.assets[xmlFile] = {
           source: () => source,

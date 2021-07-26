@@ -38,16 +38,37 @@ section#text-bar {
     }
     color: var(--color-bg-text);
 
-    &:last-child, &:only-of-type{
+    &:last-child,
+    &:only-of-type {
       padding-bottom: 4em;
     }
 
-    p {
+    p,
+    ul {
       max-width: 600px;
       @media only screen and (max-width: 1000px) {
         max-width: 100%;
       }
       line-height: 1.25em;
+    }
+
+    .content {
+      ul {
+        margin-left: -0.5em;
+        margin-bottom: 1em;
+
+        li {
+          padding: 0.12em 0.5em;
+          border-bottom: 1px solid #ffffff10;
+          &:hover {
+            background: #ffffff10;
+          }
+        }
+      }
+    }
+    strong {
+      color: #b5bd68;
+      font-weight: bold;
     }
 
     h1,
