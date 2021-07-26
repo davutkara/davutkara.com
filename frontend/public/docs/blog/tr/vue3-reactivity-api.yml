@@ -1,0 +1,74 @@
+language: tr
+title: Vue3 Reactivity API
+tags: blog
+slug: vue3-reactivity-api
+date: 2021-07-25T12:26:22.909Z
+description: Vue3 reactivty api uzerine aldigim notlar
+content: >-
+  ## Reactivity Nedir
+
+
+  Cok kisa olarak degisimin yansiltilmasi seklinde soyleyebiliriz. Ornegin elinizde bir degisken var bu degiskeni reactive degisken olarak tanimlarsaniz degiskeni kulandiginiz alanlar bu degiskenin degisimlerini yakalayarak guncel degerine erisebilirler. Tabi bunun yapilabilmesi icin degiskenin kullanildigi yerlerin degiskeni observe (gozlemlemesi) etmesi gerekiyor. Iste bunun icinde ReactJs, VueJs gibi kutuphaneler kullaniyoruz.
+
+
+  ## Vue2 de reactivty
+
+
+  Vue2 de reactive bir degiskeni componentin data alaninda tanimlayabiliyorduk. Eger component disinda bunu yapmak istersekte `Vue.observable` kullaniyorduk. Ancak reactivty acisindan elimizde bulunan tek sey bu idi. Vue3 de reacitvty olaylari daha detayli hale getirildi.
+
+
+  ## Vue3 de reactivity cesitleri
+
+
+  * **reactive** : Obje alir ve objeyi deep sekilde observe edilebilir hale getirir. 
+
+  * **readonly** : aldigi reactive, non-reactive veya ref elemani immutable olarak dondurur.
+
+  * **isProxy** : reactive veya readonly oldugunu kontrol eder.
+
+  * **isReactive** : reactive kontrolu.
+
+  * **isReadonly** : readonly kontrolu.
+
+  * **toRaw** : aldigi degeri non-reactive hale getirir.
+
+  * **markRaw** : aldigi degerin reactive e donusmesini engeller.
+
+  * **shallowReactive** : nested elemanlari reactive yapmaz.
+
+  * **shallowReadonly** : nested elemanlari readonly yapmaz. 
+
+  * **ref** : Atomic value alabilir (int) gibi, eger obje alirsa otomatik reactive hale getirir. Degerine ise `.value` ile ulasilir.
+
+  * **unref** : ref i kaldirir.
+
+  * **toRef** : Reactive objenin bir elemanini refereanslamak amacli kullanilir.
+
+  * **toRefs** : Reactive objenin tamami referanslanabilir, toRefs elemanlari destruct edildiginde reactivity i kaybetmezler.
+
+  * **isRef** :  Referans kontrolu.
+
+  * **shallowRef**: Nested valuelari referans yapmaz.
+
+  * **triggerRef** : shallowRef izleyen watcher lari trigger etmek icin kullanilir.
+
+  * **customRef** : Ozel get set hazirlamak icin kullanilabilir, Vue3 dokumaninda debounce ornegi mevcut. 
+
+  * **computed**:  Reactive elamanlari reduce vb islemlerden gecirmek icin kullanilir. Return degeri observe edilebilir.
+
+  * **watch**: Belirtilen eleman veya elemanlari izler ve  degisim aninda callback fonksiyonunu cagirir. (Vue2 de tekil calisiyordu Vue3 de multiple eleman izleyebiliyor.)
+
+  * **watchEffect**: Ozel olarak eleman belirtmeksizin, fonksiyondaki reactive degiskenleri observe eder. 
+
+
+  Not: Vue3 dokuman sayfasinda bunlarla ilgili ekstra notlar ve uyarilar bulunmaktadir. Kaynaktan erisebilirsiniz. 
+
+
+  https://v3.vuejs.org/api/basic-reactivity.html#reactive
+
+
+  https://v3.vuejs.org/api/refs-api.html
+
+
+  https://v3.vuejs.org/api/computed-watch-api.html
+author: Davut KARA
