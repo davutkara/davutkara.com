@@ -1,21 +1,17 @@
 language: tr
-alternate:
-  en: /bubble-sort
-title: Bubble Sort Turkce
-description: Listedeki elemanlari buyukten kucuge veya kucukten buyuge olacak sekilde siralayabilecegimiz bir algoritmadir. 
+title: Bubble Sort
 tags: blog,programming,algorithms,bubble,sort
 slug: bubble-sort
 date: 2020-01-01T08:57:09.279Z
-author: Davut KARA
+description: Listedeki elemanlari buyukten kucuge veya kucukten buyuge olacak
+  sekilde siralayabilecegimiz bir algoritmadir.
 content: >-
   ## Nedir
 
   Listedeki elemanlari buyukten kucuge veya kucukten buyuge olacak sekilde siralayabilecegimiz bir algoritmadir. 
 
 
-  Adinin bubble olmasi sebebi ise, bubble ingilizcede kabarcik,balon gibi anlamlara gelmektedir. Gazoz sisesindeki
-  hava kabarciklarinin yukariya cikip bir araya toplanmasi gibi. Bu algoritmada da kucuk veya buyuk olan elemanlarin bir 
-  araya gelmesine benzetilebilir. [Why is it called a bubble sort?](https://en.wikibooks.org/wiki/Algorithm_Implementation/Sorting/Bubble_sort#Why_is_it_called_a_bubble_sort.3F)
+  Adinin bubble olmasi sebebi ise, bubble ingilizcede kabarcik,balon gibi anlamlara gelmektedir. Gazoz sisesindeki hava kabarciklarinin yukariya cikip bir araya toplanmasi gibi. Bu algoritmada da kucuk veya buyuk olan elemanlarin bir  araya gelmesine benzetilebilir. [Why is it called a bubble sort?](https://en.wikibooks.org/wiki/Algorithm_Implementation/Sorting/Bubble_sort#Why_is_it_called_a_bubble_sort.3F)
 
   ## Nasil Calisir
 
@@ -29,17 +25,14 @@ content: >-
   Daha sonra listenin bir sonraki elemani icin ayni islem uygulanir. Bu sekilde butun sayilar belirlenen kosul icerisinde dizilmis olur.
 
 
-  Bu alogritmada iki adet ic ice dongu olmasi gerektigi icin Big-O notation degeri O(n<sup>2</sup>) dir.
-  En iyi ihtimalde ise tum degerler birbirine esit olabilir bu durumda N x 1 defa dongu olacagi icin. BigO degeri O(n) dir.
+  Bu alogritmada iki adet ic ice dongu olmasi gerektigi icin Big-O notation degeri O(n<sup>2</sup>) dir. En iyi ihtimalde ise tum degerler birbirine esit olabilir bu durumda N x 1 defa dongu olacagi icin. BigO degeri O(n) dir.
 
   ## Avantajlar
 
   Bubble sort bize ilk dongude eger varsa aranan (en buyuk veya en kucuk) sayiyi bulmayi garanti eder.
 
 
-  Pagination (Sayfalandirma) ile kullanildigi takdirde. (Ornegin sayfa basina 10 adet gostermek gibi).
-  Ilk sayfa gosterimde iken ikinci sayfa icin hesaplama devam eder bu sayede.
-  Hizli response(yanit) durumlarinda gayet kullanisli olacaktir.
+  Pagination (Sayfalandirma) ile kullanildigi takdirde. (Ornegin sayfa basina 10 adet gostermek gibi). Ilk sayfa gosterimde iken ikinci sayfa icin hesaplama devam eder bu sayede. Hizli response(yanit) durumlarinda gayet kullanisli olacaktir.
 
 
   ## Ozet
@@ -79,6 +72,7 @@ content: >-
     }
   ```
 
-  https://www.geeksforgeeks.org/bubble-sort/
-  https://www.youtube.com/watch?v=xli_FI7CuzA
-  https://www.youtube.com/watch?v=Jdtq5uKz-w4
+  https://www.geeksforgeeks.org/bubble-sort/ https://www.youtube.com/watch?v=xli_FI7CuzA https://www.youtube.com/watch?v=Jdtq5uKz-w4
+author: Davut KARA
+alternate:
+  en: /bubble-sort
