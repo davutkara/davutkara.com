@@ -1,20 +1,17 @@
 language: tr
-alternate: 
-  en: /selection-sort
-title: Selection Sort Turkce
-description: Listedeki elemanlari buyukten kucuge veya kucukten buyuge olacak sekilde siralayabilecegimiz bir algoritmadir. 
+title: Selection Sort
 tags: blog,programming,algorithms,bubble,sort
 slug: selection-sort
 date: 2020-02-28T08:57:09.279Z
-author: Davut KARA
+description: Listedeki elemanlari buyukten kucuge veya kucukten buyuge olacak
+  sekilde siralayabilecegimiz bir algoritmadir.
 content: >-
   ## Nedir
 
   Listedeki elemanlari buyukten kucuge veya kucukten buyuge olacak sekilde siralayabilecegimiz bir algoritmadir. 
 
 
-  Adindan da anlasilacagi uzere her dongude tercihe gore en kucuk veya en buyuk degeri secerek yine tercihe gore
-  siranin sonuna veya basina tasiyacaktir
+  Adindan da anlasilacagi uzere her dongude tercihe gore en kucuk veya en buyuk degeri secerek yine tercihe gore siranin sonuna veya basina tasiyacaktir
 
 
   ## Nasil Calisir
@@ -31,8 +28,7 @@ content: >-
 
   ## Ozet
 
-  Listede terch edilen en kucuk veya en buyuk sayiyi bulup yine tercih edilen en basa veya en sona tasir. Daha sonra
-  listenin kalani icin ayni islem uygulanir.
+  Listede terch edilen en kucuk veya en buyuk sayiyi bulup yine tercih edilen en basa veya en sona tasir. Daha sonra listenin kalani icin ayni islem uygulanir.
 
   ## Ornek
 
@@ -59,3 +55,6 @@ content: >-
       }
     }
   ```
+author: Davut KARA
+alternate:
+  en: /selection-sort
