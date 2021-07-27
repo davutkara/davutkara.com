@@ -71,7 +71,7 @@ content: >-
   * Yan etki ihtimali (Ortak kaynagi kullandigi icin kod, veritabani vb. yan etki ihtimali goz onunde bulundurulmalidir.)
 
 
-  ## Coklu bolunmus projeler
+  ## Coklu ayrilmis projeler
 
 
   Birden fazla projesi olan her biri ayri gelistirilen projelerdir. Genelde buyuk olcekli firmalar basvurur ve her projenin kendi ekibi vs olur. Bolunmus ekipler bu tarz projelerin on kosuludur.
@@ -80,7 +80,7 @@ content: >-
   Bu projeyi ise many-to-many gibi dusunebiliriz.
 
 
-  ### Coklu bolunmus projelerin arti eksileri
+  ### Coklu ayrilmis projelerin arti eksileri
 
 
   Artilar
