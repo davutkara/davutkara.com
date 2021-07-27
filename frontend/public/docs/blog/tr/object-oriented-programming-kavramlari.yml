@@ -1,0 +1,79 @@
+language: tr
+title: Object Oriented Programming Kavramlari
+tags: blog
+slug: object-oriented-programming-kavramlari
+date: 2021-07-27T10:17:11.773Z
+description: OOP de gecen kavramlarin bir cogunu duymussunudur benzer kavramlar
+  farkli yapilardada kullaniliyor. Kavramlari ogrenmek ayrimlari yapmak
+  acisindan daha iyi olacagi icin boyle bir ozet yazi hazirlamak istedim.
+content: >-
+  OOP de gecen kavramlarin bir cogunu duymussunudur benzer kavramlar farkli
+  yapilardada kullaniliyor. Kavramlari ogrenmek ayrimlari yapmak acisindan daha
+  iyi olacagi icin boyle bir ozet yazi hazirlamak istedim.
+
+
+  ## Encapsulation
+
+
+  Bunu anlamak icin bu kavramin olmadigi zaman nasil olduguna bakalim. Diyelim ki elinizde bir fonksiyon veya bir degisken var ve bunu kullaniyorsunuz. Ancak bazi yerlerde bu fonksiyona erisimin engellenmesini istiyorusunuz, veya paylasilmasini istemiyorsunuz. Encapsulation sayesinde fonksiyonlarin ve degiskenlerin tanimlandigi bir alan belirliyorsunuz ve bunlari paylasimini ayarlayabiliyorsunuz. Class yapisi bu mantigin bir sonucudur.
+
+
+  ## Class
+
+
+  Turkcede sinif olarak da gecer. Bir class in icerisinde tanimlanmis degiskenler ve fonksiyonlar bulunur. Class icerisindeki tanimlara private, protected, public gibi tanimlamalarla erisimi kisitlanabilir
+
+
+  ## Object / Instance
+
+
+  Class lar tanimlardan ibarettir. Bunlar uretildigi zaman Object veya Instance adini alirlar. Ornegin elinizde bir yemek tarifi var bu tarif bir classdir. Ancak o yemegi pisirip yaparsaniz o artik maddelemis olur dolayisiyla bir Object yada Instance dir.
+
+
+  ## Generalization / Inheritance
+
+
+  Inheritance turkcede kalitim anlamina gelir. Person ve Student seklinde iki ayri class dusundugumuzde Person a ait ozellikler Student icinde gecerli olacagi icin. Student ayni tanimlari yapmamak adina Person sinifindan tanimlari miras alir. Bu sayede kod tekrarindan kurtulunur. Generalization ise bu mantigin genel adi.
+
+
+  ## Association
+
+
+  Class lar arasinda ki iliskiye verilen isimdir. Bu turde class-larin biri diger instance veya instancelari kullanir. 
+
+
+  ## Aggregation
+
+
+  Class lar arasinda ki has-a iliskidir. Sahiplik olarak dusunebiliriz. Ornegin Benim bir telefonum var. Ben bir telefona sahibim. 
+
+
+  ## Composition
+
+
+  Class lar arasinda ki part-of iliskisidir. Ornegin Benim iki kolum var. Bu kollar benim bir parcam.
+
+
+  ## Dependency
+
+
+  Turkcede bagimlilik demektir. Burada bir class in baska bir class in parcasini (fonksiyon veya degisken) kullanmak gibi dusunebilirsiniz. Tamamini kullanmaz eger tamamini kullaniyorsa bu daha cok aggregation oluyor.
+
+
+  ## Abstraction
+
+
+  Soyutlama demektir. OOP de Abstract class vs duyabiliriz. Ayni zamanda Contract, Interface gibi kavramlarda birer Abstractiondir. Abstractionlar kendi baslarina varolamazlar. Sadece tanimsal olarak fonksiyonlarinin ve datalarinin turleri belirlidir ancak icerigi belirli degildir.
+
+
+  ## Realization / Implementation
+
+
+  Abstract olan class, contract veya interitance herneyse. Onu bir class a donusturme islemine denir. 
+
+
+  ## Polymorphism
+
+
+  Turkcesi cok bicimlilikdir. Bir tanimin birden fazla yer ile uyusabilmesini saglar. Ornegin bir toplama fonksiyonu integer paremetresi kabul ederken ayni fonksiyon yeni bir tanimla double da kabul edebilir. Bu olaya method overloading denir veya bir degiskene polymorphism uygulanmis baska bir sinif atanabilir bu sayede runtime da sorun cikmaz.
+author: Davut KARA
