@@ -51,7 +51,7 @@ content: >-
   Tek bir proje altinda genelde yonetim paneli, web siteleri, ERP ve CRM projeleri buna bir ornektir. 
 
 
-  Bu projeyi one-to-n gibi dusunebiliriz.
+  Bu projeyi one-to-many gibi dusunebiliriz.
 
 
   ### Cok amacli projenin arti eksileri
@@ -77,7 +77,7 @@ content: >-
   Birden fazla projesi olan her biri ayri gelistirilen projelerdir. Genelde buyuk olcekli firmalar basvurur ve her projenin kendi ekibi vs olur. Bolunmus ekipler bu tarz projelerin on kosuludur.
 
 
-  Bu projeyi ise n-to-n gibi dusunebiliriz.
+  Bu projeyi ise many-to-many gibi dusunebiliriz.
 
 
   ### Coklu bolunmus projelerin arti eksileri
