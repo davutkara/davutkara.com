@@ -1,5 +1,5 @@
 <template>
-  <aside id="file-bar" :class="{ disabled: !isSidebarShown }">
+  <aside id="file-bar" v-swipe.left="closeSidebarIfNotDesktop" :class="{ disabled: !isSidebarShown }">
     <div id="profile">
       <img
         src="https://avatars.githubusercontent.com/u/10008440?v=4"
@@ -94,7 +94,7 @@ export default {
       toggleSidebarShown,
       navClicked,
       menu,
-      closeSidebarIfNotDesktop,
+      closeSidebarIfNotDesktop
     };
   },
 };
