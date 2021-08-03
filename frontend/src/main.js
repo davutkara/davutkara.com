@@ -4,6 +4,7 @@ import Router from "./router";
 import ScrollAnchor from "@/directives/scroll-anchor.js";
 import TextTypeWriter from "@/directives/text-typewriter.js";
 import ListState from "@/directives/list-state.js";
+import Swipe from "@/directives/swipe.js";
 import ClearChildrenOfId from "@/directives/clear-children-of-id.js";
 import { createI18n
   //, useI18n 
@@ -36,6 +37,7 @@ const app = createApp(App)
   .directive(...TextTypeWriter)
   .directive(...ListState)
   .directive(...ClearChildrenOfId)
+  .directive(...Swipe)
   .use(Router)
   .use(i18n)
   .mount("#app");
