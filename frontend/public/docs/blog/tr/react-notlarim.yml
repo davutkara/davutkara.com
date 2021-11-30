@@ -1,0 +1,110 @@
+language: tr
+title: React Notlarim
+tags: notes
+slug: react-notlarim
+date: 2021-08-02T10:59:29.965Z
+content: >-
+  ## Import yontemleri
+
+
+  ```js
+
+  import React from 'react'
+
+  import ReactDOM from 'react-dom'
+
+  // Direk Component i import etmek
+
+  import React, {Component} from 'react'
+
+  ```
+
+
+  ## Rendering
+
+
+  ```js
+
+
+  const el = document.body
+
+  ReactDOM.render(<Hello name='John' />, el)
+
+
+  ```
+
+
+  ## Component cesitleri
+
+
+  Class component
+
+  ```jsx
+
+  // class Hello extends Component
+
+  class Hello extends React.Component {
+    render () {
+      return <div className='message-box'>
+        Hello {this.props.name}
+      </div>
+    }
+  }
+
+
+  ```
+
+
+  Functional component (state yok, props var)
+
+  ```jsx
+
+  // props.name
+
+  function MyComponent ({ name }) {
+    return <div className='message-box'>
+      Hello {name}
+    </div>
+  }
+
+  ```
+
+
+  Pure component : daha performansli.
+
+  ```jsx
+
+  class MessageBox extends PureComponent {
+    ···
+  }
+
+  ```
+
+
+  ## Lifecycle
+
+
+  1. setup props and state (init)
+
+  2. componentWillMount (Mount..) [state yapma]
+
+  3. render
+
+  4. componentDidMount [once child didMount, dom degistirme amacli domun ardindan.] :: props (update)
+
+  5. componentWillReceiveProps(nextProps)  [ child propu taniminda degistiginda.] :: state
+
+  6. shouldComponentUpdate(nextProps,nextStates) [true,false return et kontrol et]
+
+  7. componentWillUpdate(nextProps,nextStates)
+
+  8. render
+
+  9. componentDidUpdate(prevProps, prevState)
+
+  10. componentWillUnmount (unount) [listener falan varsa kaldir.]
+
+  - nested yapida once consturcutorlar parent->child , render olurkende child->parent seklinde
+
+  - parent const,willMount,render -> child const,willMount,render,didMount -> parent didMount
+author: Davut KARA
